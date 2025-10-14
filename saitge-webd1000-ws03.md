@@ -18,7 +18,7 @@
 
 By the end of this session, students will be able to:
 
-1. Evaluate an existing website for usability and accessibility using heuristics and checklists.
+1. Evaluate an existing case study for usability and accessibility using heuristics and checklists.
 2. Identify and document content types for a website through a **content inventory**.
 3. Create a **sitemap** representing the page hierarchy and navigation structure.
 4. Define a preliminary content plan (header, hero, footer, main sections) for a redesign based on the **Corah Case Study**.
