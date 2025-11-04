@@ -4,7 +4,7 @@ html {
   scroll-behavior: smooth;
   height: 100%;
   overflow-x: hidden;
-  background-color: black;
+  background-color: #190E1D;
   /* To Do - Learn about Box Sizing */
   /* box-sizing: border-box; */
 }
@@ -72,8 +72,10 @@ button {
     background-color: #7B458F;
 }
 
-.hero-button-01 {
-
+.hero-image {
+    max-width: 100%;
+    height: auto;
+    width: clamp(240px, 10vw, 340px); /* responsive scaling */
 }
 
 
