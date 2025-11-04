@@ -1,30 +1,79 @@
+
+html {
+  font-size: 19px; /* or 62.5% for easier rem math */
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: black;
+  /* To Do - Learn about Box Sizing */
+  /* box-sizing: border-box; */
+}
+
+body {
+    font-family: 'Open Sans';
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: 'Montserrat';
+}
+
 .header-container {
-    display: flex;
-    align-items: center;
-    border-style: solid;
-    flex-wrap: wrap;
-    justify-content: center;
+    
 }
 
 .header-inner-container {
     display: flex;
-    border-style: solid;
     flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.logo-container {
-    display: inline-block;
-    border-style: solid;
-    justify-content: center;
-
+    justify-content:space-around;
+    align-items: center;
+    
 }
 
 .nav-container {
-    display: inline-block;
-    border-style: solid;
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    
-    
+    gap: 8px;
+    padding: 16px;
 }
+
+.logo-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+}
+
+button {
+    font-family: 'Open Sans';
+    font-size: clamp(16px, 2vw, 22px);
+    color: aliceblue;
+    font-weight: 600;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+    border-radius: 32px;
+    border: none;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo-wordmark 
+{
+  max-width: 100%;
+  height: auto;
+  width: clamp(180px, 20vw, 280px); /* responsive scaling */
+}
+
+
+.nav-button {
+    background-color: #7B458F;
+}
+
+.hero-button-01 {
+
+}
+
+
 
