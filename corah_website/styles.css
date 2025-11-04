@@ -18,16 +18,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .header-container {
-    align-items: center;
-}
-
-.header-inner-container {
     display: flex;
     flex-wrap: wrap;
     justify-content:space-between;
     align-items: center;
     padding: 8px;
-    
 }
 
 .nav-container {
@@ -49,8 +44,9 @@ h1,h2,h3,h4,h5,h6 {
 button {
     font-family: 'Open Sans';
     font-size: clamp(16px, 2vw, 22px);
-    color: aliceblue;
+    background-color: #7B458F;
     font-weight: 600;
+    color: #ffffff;
     padding-left: 24px;
     padding-right: 24px;
     padding-top: 8px;
@@ -67,10 +63,6 @@ button {
   width: clamp(180px, 20vw, 280px); /* responsive scaling */
 }
 
-
-.nav-button {
-    background-color: #7B458F;
-}
 
 .hero-image {
     max-width: 100%;
