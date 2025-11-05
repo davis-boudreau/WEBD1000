@@ -1,4 +1,3 @@
-
 html {
   font-size: 19px; /* or 62.5% for easier rem math */
   scroll-behavior: smooth;
@@ -63,12 +62,10 @@ button {
   width: clamp(180px, 20vw, 280px); /* responsive scaling */
 }
 
-
 .hero-image {
     max-width: 100%;
     height: auto;
     width: clamp(240px, 10vw, 340px); /* responsive scaling */
 }
-
 
 
