@@ -2,18 +2,21 @@
 
 ---
 
-
 # **1. Workshop Details**
 
-**Workshop Title:** Introduction to CSS – Selectors, Colors, Typography, Box Model
-**Course:** WEBD1000 – Website Development
-**Instructor:** Davis Boudreau
-**Duration:** 1.5–2 hours
-**Tools Required:** VS Code, Live Server, Browser DevTools
-**Prerequisites:**
+**Workshop Title:** Intro to CSS – Selectors, Colors, Typography, Box Model
 
-* WS4 – Semantic Markup
-* WS5 – Text, Links, Images + Multi-page Structure
+**Course:** WEBD1000 – Website Development
+
+**Duration:** 2 hours
+
+**Instructor Materials:** CORAH brand palette, header structure reference
+
+**Student Deliverables:**
+
+* **GitHub Pages link** (submitted in *Brightspace Assignment Comments*)
+* **W3C CSS Validator results** (URL or screenshot)
+* **Reflection answers** (submitted in *Brightspace Assignment Comments*)
 
 ---
 
@@ -21,44 +24,41 @@
 
 ### **Purpose**
 
-This workshop introduces students to **core CSS concepts** that power every modern website:
+This workshop introduces students to **CSS**, focusing on real-world fundamentals:
 
-* **Selectors** (element, class, ID, descendant)
-* **Colors** (hex, rgb, hsl, design token variables)
-* **Typography basics** (font-family, font-size, line-height)
-* **Box model** (margin, padding, border, content box)
-* **External CSS architecture** (why we use `styles.css`)
+* How to link an external stylesheet
+* How to target HTML elements with selectors
+* How to apply color, typography, spacing
+* How the box model influences layout
+* How CSS supports design consistency
 
-Using the CORAH header, students will learn how CSS interacts with HTML to create layout, color, spacing, and typography.
+Students will begin styling the CORAH project built in WS4–WS5, preparing for:
 
-### **Why This Matters**
+* **WS7:** Flexbox layout
+* **WS8:** CSS Tokens (design systems)
+* **WS9:** Responsive design
 
-CSS is where meaning (HTML) becomes *experience*.
-Understanding CSS fundamentals is essential to:
+### **Why CSS Matters in Real Front-End Work**
 
-* Creating consistent branding
-* Making pages readable and aesthetic
-* Scaling a website across multiple pages
-* Preparing for Flexbox (WS7), Tokens (WS8), and Responsive (WS9)
+Professional websites require:
 
-The CORAH case study is ideal because it includes:
+* Clean separation of content (HTML) and presentation (CSS)
+* Predictable patterns that scale
+* Systems for typography and spacing
+* Styling that supports accessibility and brand identity
 
-* A nav system requiring consistent button styles
-* A color palette
-* A typography scale (Open Sans + Montserrat)
-* A fluid spacing system
-* A real organization brand identity
+The CORAH header is a perfect first styling target.
 
 ### **Workshop Objectives**
 
-Students will learn to:
+Students will:
 
-1. Apply CSS using external stylesheets
-2. Use selectors effectively (element, class, descendant)
-3. Style text with fonts, sizes, colors, weights
-4. Apply color variables from the CORAH design system
-5. Understand and experiment with the CSS box model
-6. Inspect and debug CSS using DevTools
+1. Link external CSS files using `<link>`
+2. Use element, class, and descendant selectors
+3. Apply color and typography to text and links
+4. Understand the CSS box model (padding, border, margin)
+5. Begin styling the CORAH header
+6. Validate their CSS using W3C tools
 
 ---
 
@@ -66,372 +66,268 @@ Students will learn to:
 
 ### **LO3 – Develop W3C-compliant websites using HTML & CSS**
 
-CSS must follow best practices for:
-
-* Maintainability
-* Valid property/value use
-* Accessible contrast
-* Standards alignment
+WS6 introduces CSS fundamentals needed to create valid, standards-based layouts.
 
 ---
 
 # **4. Assignment Description / Use Case**
 
-Students will:
+Students will create the **first version of the CORAH CSS file**, applying:
 
-* Explore and edit the CORAH `styles.css` file
-* Apply CSS to control typography, colors, spacing
-* Understand how selectors map to the CORAH header HTML
-* Practice styling buttons, text, images
-* Apply borders, padding, margin to understand the box model
+* Typography rules
+* Basic color styling
+* Layout spacing
+* Header and nav styling
+* Box-model modifications
 
-This workshop prepares students for:
+They will style:
 
-* WS7 Flexbox layout of the CORAH header
-* WS8 token-based design system
-* WS9 responsive layout adaptation
+* The header
+* Navigation links
+* Page text
+* Footer text
+
+This stylesheet will evolve through WS7–WS9 into a fully responsive system.
 
 ---
 
 # **5. Tasks / Instructions (Step-by-Step)**
 
-This workshop builds concept → demonstration → hands-on coding.
-
 ---
 
-## 🔵 **STEP 1 — Linking an External Stylesheet**
+# 🔵 **STEP 1 — Create Your CSS File and Link It**
 
-**Concept Background:**
-Three ways to apply CSS:
+Create:
 
-1. Inline (`style="color:red"`) – *never use for production*
-2. Internal (`<style>` in `<head>`) – ok for one-offs
-3. External (`<link rel="stylesheet">`) – *professional standard*
+```
+ws6-corah-site/
+   index.html
+   styles.css
+   images/
+```
 
-External CSS:
-
-* Works across multiple pages
-* Enables caching + performance
-* Supports modular, scalable design
-
-**Task:**
-Open `index.html` and verify:
+Add inside `<head>`:
 
 ```html
 <link rel="stylesheet" href="styles.css">
 ```
 
-If missing, add it.
+### Conceptual Background
+
+* External CSS is the industry standard
+* Inline styles and `<style>` tags do not scale
+* Browsers read CSS rules top-down
 
 ---
 
-## 🔵 **STEP 2 — Understanding CSS Selectors in the CORAH Project**
+# 🔵 **STEP 2 — Add Reset + Basic Typography Rules**
 
-### **Key Selector Types**
-
-| Selector       | Example               | Meaning                            |
-| -------------- | --------------------- | ---------------------------------- |
-| **Element**    | `header {}`           | selects all headers                |
-| **Class**      | `.nav-link {}`        | reusable style hook                |
-| **ID**         | `#hero-title {}`      | unique element (avoid for styling) |
-| **Descendant** | `.nav-container a {}` | targets nested elements            |
-
-**Task:**
-In `styles.css`, locate:
+Open `styles.css` and add:
 
 ```css
-.nav-link { ... }
-.nav-button { ... }
-.header-section-container { ... }
-```
+* {
+  box-sizing: border-box;
+}
 
-Explain in comments:
-
-* How the selector works
-* Which HTML it matches
-* Why a class is used (vs element)
-
-Example:
-
-```css
-/* 
-  .nav-link targets all a.nav-link elements 
-  used for CORAH's primary navigation styling
-*/
-.nav-link {
-  ...
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
 }
 ```
 
+Explain:
+
+* `box-sizing: border-box` simplifies layout math
+* Setting base fonts ensures consistency
+* Browsers include default margins; your design should control spacing
+
 ---
 
-## 🔵 **STEP 3 — Apply Colors Using Tokens**
-
-**Background:**
-CSS color formats:
-
-* Hex: `#7B458F`
-* RGB: `rgb(123,69,143)`
-* HSL: `hsl(285 32% 42%)`
-* CSS variables: `var(--brand-600)`
-
-Your CORAH site uses a **design token color ramp**, so students will learn:
+# 🔵 **STEP 3 — Style Headings and Paragraphs**
 
 ```css
-color: var(--brand-600);
-background-color: var(--neutral-50);
-border-color: var(--color-header-link-secondary-border);
-```
+h1, h2, h3 {
+  font-weight: 700;
+  margin-bottom: 0.5em;
+}
 
-**Task:**
-Change the color of all `<h1>` elements to the CORAH brand color:
-
-```css
-h1 {
-  color: var(--brand-600);
+p {
+  margin-bottom: 1em;
 }
 ```
 
-**Conceptual Insight:**
-This is how we connect brand identity → coded UI.
+Discuss:
+
+* Headings visually communicate structure
+* Margins create readable spacing
+* Typography consistency is key in design systems
 
 ---
 
-## 🔵 **STEP 4 — Typography: Fonts, Scale, Weights**
+# 🔵 **STEP 4 — Add Link Styles**
 
-### **Background Knowledge**
-
-Typography affects:
-
-* Readability
-* Brand voice
-* Accessibility
-* User trust
-
-CORAH uses:
-
-* **Body font:** Open Sans → warm, readable
-* **Heading font:** Montserrat → modern, bold
-
-**Your tokens define fluid sizes:**
+Inside `styles.css`:
 
 ```css
---font-size-base: clamp(...);
---font-size-h1: clamp(...);
+a {
+  text-decoration: none;
+  color: #7B458F; /* CORAH brand purple */
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
 ```
 
-**Task:**
-Modify a paragraph’s font styling:
+Teaching points:
+
+* Links are critical for navigation
+* Hover states improve usability
+* Underline on hover increases accessibility
+
+---
+
+# 🔵 **STEP 5 — Style the CORAH Header (First Pass)**
+
+Add:
+
+```css
+header {
+  background-color: #F9FAFB;
+  padding: 1rem;
+  border-bottom: 2px solid #7B458F;
+}
+
+.logo-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav a {
+  margin-right: 1rem;
+}
+```
+
+Conceptual teaching:
+
+* The header forms the top “identity” region
+* Spacing improves readability
+* Simple Flexbox now helps alignment; deeper Flexbox work comes in WS7
+
+---
+
+# 🔵 **STEP 6 — Understand the Box Model**
+
+Demonstrate using Chrome DevTools → “Box Model Breakdown.”
+
+Let students experiment:
 
 ```css
 p {
-  font-size: var(--font-size-p);
-  line-height: var(--line-height-base);
-  color: var(--neutral-800);
+  padding: 10px;
+  border: 2px solid #E5E7EB;
+  margin: 20px 0;
 }
 ```
 
-**Mini Exercise:**
-Change line-height and observe how spacing changes visually.
+Explain:
+
+* **Padding** = space inside the box
+* **Border** = visible frame
+* **Margin** = space outside the box
+
+This is crucial for future layout work.
 
 ---
 
-## 🔵 **STEP 5 — The CSS Box Model (Critical Concept)**
+# 🔵 **STEP 7 — Validate Your CSS**
 
-### **Conceptual Background (Deeper Insight)**
+Visit:
+**[https://jigsaw.w3.org/css-validator/](https://jigsaw.w3.org/css-validator/)**
 
-Every element in CSS is a “box” with:
+Students must:
 
-```
-┌───────────────────────────┐
-│        margin             │  (space outside)
-│  ┌─────────────────────┐  │
-│  │       border        │  │
-│  │  ┌───────────────┐ │  │
-│  │  │    padding    │ │  │
-│  │  │ ┌───────────┐ │ │  │
-│  │  │ │  content  │ │ │  │
-│  │  │ └───────────┘ │ │  │
-│  │  └───────────────┘ │  │
-│  └─────────────────────┘  │
-└───────────────────────────┘
-```
-
-The CORAH buttons demonstrate this:
-
-* **Padding** controls the breathing room inside
-* **Border** creates the pill shape
-* **Margin** creates spacing between buttons
-
-### **Task: Inspect the Button in DevTools**
-
-Instructions:
-
-1. Right-click a nav link → Inspect
-2. Look at the **Computed** panel
-3. Expand **Box Model**
-4. Modify padding live
-
-Then apply CSS updates:
-
-```css
-.nav-link {
-  padding: 0.6em 1.4em;
-  border-radius: var(--radius-pill);
-}
-```
-
-**Learning Insight:**
-UI design is 70% spacing decisions.
+1. Paste their `styles.css`
+2. Fix errors/warnings
+3. Re-validate until clean
+4. Reflect on issues found (new requirement)
 
 ---
 
-## 🔵 **STEP 6 — Style Anchor Links (States)**
+# 🔵 **STEP 8 — Publish to GitHub Pages**
 
-### Background:
+Push your project to GitHub and publish.
 
-Links have states:
+Submit your link:
 
-* `a:link` → default
-* `a:visited` → visited
-* `a:hover` → hover
-* `a:focus` → keyboard focus
-* `a:active` → being clicked
-
-Your CORAH nav already uses some:
-
-```css
-.nav-link:hover { ... }
-.nav-link:focus-visible { ... }
 ```
-
-**Task:**
-Add a visited state:
-
-```css
-.nav-link:visited {
-  color: var(--brand-600);
-}
+https://yourusername.github.io/ws6-corah-site/
 ```
-
-(Prevent purple default.)
 
 ---
 
-## 🔵 **STEP 7 — Apply Borders and Backgrounds**
+# **6. Deliverables (Submission Rules)**
 
-**Task:**
-Modify `.nav-link--secondary` to improve clarity:
+### ✔ **Submit GitHub Pages link in Brightspace Assignment Comments**
 
-```css
-.nav-link--secondary {
-  border: 1px solid var(--brand-700);
-  background-color: var(--brand-50);
-  color: var(--brand-700);
-}
-```
+(No file uploads unless requested.)
 
-**Explanation for Students:**
-Secondary actions (login/logout) should contrast primary navigation.
+### ✔ **3. CSS Validator Screenshot**
+
+**Uploaded as a file to Brightspace**
+⭐️ *(Only the screenshot needs to be uploaded — not the project.)*
 
 ---
 
-## 🔵 **STEP 8 — Build a Card Component (Mini Exercise)**
+### ✔ **Submit Reflection answers in Brightspace Comments**
 
-**Task:**
-Add inside `<main>`:
-
-```html
-<div class="card">
-  <h2>Community Program</h2>
-  <p>CORAH works with regional partners to deliver programming for seniors.</p>
-</div>
-```
-
-Then in CSS:
-
-```css
-.card {
-  background-color: var(--neutral-50);
-  border: 1px solid var(--neutral-300);
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: var(--radius-sm);
-}
-```
-
-This reinforces:
-
-* Box model
-* Typography
-* Colors
-* Reusable components
-
----
-
-# **6. Deliverables**
-
-Students submit:
-
-### **A. Updated GitHub Pages Link**
-
-Demonstrates:
-
-* Styled headings, links, paragraphs
-* Styled navigation buttons
-* Styled card component
-
-### **B. CSS updates in `styles.css`**
-
-### **C. Reflection answers**
+These 3 items must appear together in the **Assignment Comment box**.
 
 ---
 
 # **7. Reflection Questions**
 
-1. Why do we use classes instead of IDs for most styling?
-2. How does the box model influence layout decisions?
-3. Why is it beneficial to use CSS variables instead of hard-coded colors?
-4. How do text styles (font size, line height) change the readability of a page?
-5. Which CSS selector type felt most intuitive to you, and why?
+(Submit answers in Brightspace Assignment Comments)
+
+1. After running the CSS validator, what errors or warnings did you encounter?
+2. What did you change in your CSS to resolve validation issues?
+3. Why is the CSS box model important for layout decisions?
+4. How do selector choices affect maintainability in large projects?
+5. What CSS rules would you consider “base styles” for any website?
 
 ---
 
 # **8. Assessment / Rubric**
 
-| Criteria         | Excellent                                   | Good           | Satisfactory     | Needs Improvement |
-| ---------------- | ------------------------------------------- | -------------- | ---------------- | ----------------- |
-| **Selectors**    | Accurate, well-chosen classes & descendants | Mostly correct | Some misuse      | Incorrect         |
-| **Typography**   | Uses tokens & readable scaling              | Minor issues   | Inconsistent     | Poor              |
-| **Colors**       | Correct tokens + contrast                   | Mostly correct | Some hard-coded  | Poor              |
-| **Box Model**    | Clear padding/border/margins                | Mostly correct | Uneven spacing   | Incorrect         |
-| **Code Quality** | Clean, commented, organized                 | Minor issues   | Mixed formatting | Poor              |
+| Criteria                  | Excellent                                                 | Good           | Satisfactory      | Needs Improvement    |
+| ------------------------- | --------------------------------------------------------- | -------------- | ----------------- | -------------------- |
+| **CSS Structure**         | Clean, organized, separated logically                     | Mostly clean   | Minor issues      | Messy                |
+| **Typography + Colors**   | Applied consistently                                      | Mostly correct | Some errors       | Incorrect or missing |
+| **Header Styling**        | Functional and clearly structured                         | Mostly correct | Partial styling   | Missing              |
+| **Validator Compliance**  | Fully validated, reflection included                      | Minor warnings | Issues identified | Not validated        |
+| **Submission Compliance** | GitHub Pages + validator + reflection submitted correctly | One missing    | Format issues     | Missing              |
 
 ---
 
 # **9. Resources**
 
-* MDN CSS Selector Reference
-* W3C Color & Contrast Guidelines
-* Chrome DevTools – Box Model
-* GitHub Pages
+* MDN: CSS Basics
+* MDN: Box Model
+* MDN: Selectors
+* W3C CSS Validator
 
 ---
 
 # **10. Academic Policies**
 
-(Normal NSCC policies)
+(Insert standard NSCC policies)
 
 ---
 
 # **11. Copyright**
 
-Workshop content © NSCC — Educational Use Only
-CORAH case study © Instructor/NSCC 2025
-
----
-
-If you'd like, I can now generate:
-👉 **WS7 – CSS Layouts With Flexbox**,
-OR
-👉 Begin producing printable PDFs or handouts.
+Workshop © NSCC – Educational Use Only
+CORAH assets © NSCC 2025

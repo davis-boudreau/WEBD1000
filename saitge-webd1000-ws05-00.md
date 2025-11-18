@@ -6,15 +6,19 @@
 # **1. Workshop Details**
 
 **Workshop Title:** Text, Links, and Images in HTML
-
 **Course:** WEBD1000 – Website Development
-
 **Duration:** 2 hours
-
 **Instructor Materials:**
-→ `corah-brand-logo.svg`
-→ `corah-brand-wordmark-logo.svg`
-(Available in **Brightspace Workshop 5 Files** or via **Teams > Class Materials**)
+
+* `corah-brand-logo.svg`
+* `corah-brand-wordmark-logo.svg`
+
+(Available in **Brightspace → Workshops → WS5 Files** or **Teams → Class Materials**)
+
+**Student Deliverables:**
+
+* GitHub Pages link (submitted in **Brightspace Assignment Comments**)
+* Reflection answers (submitted in **Brightspace Assignment Comments**)
 
 ---
 
@@ -22,25 +26,35 @@
 
 ### **Purpose**
 
-This workshop builds foundational HTML skills — formatting text, working with anchor links, and embedding images — while guiding students to assemble the **CORAH header structure** using the official logo and wordmark assets provided by the instructor.
+This workshop teaches students how to use **text**, **links**, and **images** in HTML while assembling the first functional version of the **CORAH header**, including:
+
+* The CORAH brand icon (fingerprint)
+* The CORAH wordmark (full brand text)
+* Navigation links for a multi-page site
+
+This workshop transitions from purely structural HTML (WS4) toward creating meaningful, connected content. Students will learn how internal links, image accessibility, and proper text hierarchy help form usable, professional web pages.
 
 ### **Why This Matters**
 
-A large portion of professional front-end development involves:
+In real-world front-end development, developers must:
 
-* Structuring text clearly
-* Creating accessible navigation
-* Embedding vector graphics and images correctly
-* Managing folder/file structures
+* Embed accessible images
+* Provide meaningful navigation
+* Create text structure that makes sense to screen readers
+* Use correct alt text for branding assets
+* Organize project files in predictable folders
 
-Integrating the CORAH images now prepares students for:
+The CORAH case study gives students a realistic scenario where branding assets, navigation, and page content must all work together.
 
-* **WS6:** Intro to CSS
-* **WS7:** Flexbox layout
-* **WS8:** CSS Tokens
-* **WS9:** Responsive design
+### **Workshop Objectives**
 
-This is also their **first opportunity** to assemble a real, professional-style header.
+Students will be able to:
+
+1. Write correct HTML text using paragraph, heading, and small text tags
+2. Build internal navigation with anchor links
+3. Insert vector images (`<img>`) using proper alt text
+4. Integrate the CORAH logo and wordmark into a semantic header
+5. Create multiple pages linked as a small prototype site
 
 ---
 
@@ -48,28 +62,27 @@ This is also their **first opportunity** to assemble a real, professional-style 
 
 ### **LO3 – Develop W3C-compliant websites using HTML & CSS**
 
-Students demonstrate competency with:
-
-* HTML headings, paragraphs, and semantic tags
-* Anchor links
-* Image embedding using `<img>` with proper alt text
-* Building a structurally correct header
+Students demonstrate their ability to structure text and media using valid HTML elements.
 
 ---
 
 # **4. Assignment Description / Use Case**
 
-Students will create:
+Students will:
 
-* A **multi-page HTML prototype** with working text + links
-* A **CORAH header** that includes:
+* Create a multi-page CORAH prototype (index + supporting pages)
+* Insert the two official CORAH logo images
+* Build a functional HTML navigation menu
+* Apply meaningful text hierarchy
+* Ensure correct alt text for visual branding
+* Organize files into a clean project folder structure
 
-  * CORAH logo (purple fingerprint icon)
-  * CORAH wordmark (two-line brand name)
-* A simple navigation bar
-* Proper folder structure (`images/` folder, HTML pages linked together)
+This workshop builds the foundation for:
 
-This work becomes the **base project** for future workshops.
+* **WS6 (Intro to CSS)**
+* **WS7 (Flexbox)**
+* **WS8 (CSS Tokens)**
+* **WS9 (Responsive Design)**
 
 ---
 
@@ -77,12 +90,12 @@ This work becomes the **base project** for future workshops.
 
 ---
 
-# 🔵 **STEP 1 — Create Your Project Structure**
+# 🔵 **STEP 1 — Create Your Project Folder**
 
-Inside your WEBD1000 folder, create:
+Create:
 
 ```
-corah-sample-site/
+ws5-corah-site/
 │
 ├── index.html
 ├── about.html
@@ -93,16 +106,13 @@ corah-sample-site/
       └── corah-brand-wordmark-logo.svg
 ```
 
-➡️ **Download the two SVG files** from Brightspace → Workshops → **WS5 Files**
-or via Teams → **Class Materials**.
-
-Place both SVG files inside your `images/` folder.
+Download both images from **Brightspace**.
 
 ---
 
-# 🔵 **STEP 2 — Add Basic HTML5 Document Structure**
+# 🔵 **STEP 2 — Add Standard HTML Document Structure**
 
-In each page (`index.html`, `about.html`, etc.) include:
+Use this in **every page**:
 
 ```html
 <!DOCTYPE html>
@@ -110,7 +120,7 @@ In each page (`index.html`, `about.html`, etc.) include:
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CORAH – Sample Site</title>
+  <title>CORAH – Home</title>
 </head>
 <body>
 
@@ -118,92 +128,89 @@ In each page (`index.html`, `about.html`, etc.) include:
 </html>
 ```
 
-Explain to students:
+### Conceptual Notes
 
-* `<!DOCTYPE html>` → tells browser to use HTML5
-* `lang="en"` → required for accessibility
-* `<meta viewport>` → required for mobile-friendly pages
+* Page titles should be unique
+* Structure should be identical across pages
+* This prepares students for template-based design later
 
 ---
 
-# 🔵 **STEP 3 — Add Text Elements (Headings, Paragraphs, Small Text)**
+# 🔵 **STEP 3 — Add Basic Text Content**
 
-Inside `<body>`:
+Add inside `<main>`:
 
 ```html
 <h1>Welcome to CORAH</h1>
-<p>Supporting older adults across rural Nova Scotia through community-led programs.</p>
-<p><small>Updated for WEBD1000 workshop.</small></p>
+<p>Supporting older adults across rural Nova Scotia with community-centered programs.</p>
+
+<p><small>Updated for WEBD1000 Workshop 5.</small></p>
 ```
 
-Instructor Notes:
+### Why these tags matter
 
-* Heading tags convey structure → not style
-* `<small>` is used structurally for secondary text
-* Students should NOT use `<br>` for spacing
+* `<p>` defines paragraphs, not `<br>`
+* `<small>` indicates secondary text (legal/copyright/etc.)
+* `<h1>` must be the main heading of the page
 
 ---
 
-# 🔵 **STEP 4 — Create Navigation Links**
+# 🔵 **STEP 4 — Build a Simple Navigation Menu**
 
-Add a navigation section:
+Add inside `<header>`:
 
 ```html
 <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="events.html">Events</a>
-  <a href="register.html">Register</a>
+  <a href="index.html" aria-current="page">home</a>
+  <a href="about.html">about</a>
+  <a href="events.html">events</a>
+  <a href="register.html">register</a>
 </nav>
 ```
 
-Conceptual teaching points:
+### Technical Notes
 
-* Internal links use **relative paths** (same folder → no slash needed)
+* `aria-current="page"` helps screen readers identify the active page
 * Links should be lowercase and descriptive
-* `href="#"` is **not allowed** — must link to a real page in student projects
+* All links should work across all pages
 
 ---
 
 # 🔵 **STEP 5 — Integrate the CORAH Logo + Wordmark**
 
-This step introduces students to working with **SVG logos**, which are the modern standard in real web projects.
+Place both images in your `images/` folder.
 
-Inside `<body>` (above nav), add a semantic header:
+Then add to your `<header>`:
 
 ```html
-<header>
-  <div class="logo-group">
-    <img src="images/corah-brand-logo.svg" 
-         alt="" 
-         class="corah-brand-logo">
-  
-    <img src="images/corah-brand-wordmark-logo.svg"
-         alt="CORAH – Centre of Rural Aging and Health"
-         class="corah-brand-wordmark-logo">
-  </div>
-</header>
+<div class="logo-group">
+  <img src="images/corah-brand-logo.svg"
+       alt=""
+       class="corah-brand-logo">
+
+  <img src="images/corah-brand-wordmark-logo.svg"
+       alt="CORAH – Centre of Rural Aging and Health"
+       class="corah-brand-wordmark-logo">
+</div>
 ```
 
-### Why the first logo has `alt=""`
+### Why one image has empty alt text
 
-We insert **empty alt text** when:
+* The icon is **decorative**
+* The wordmark contains the **actual text meaning**
+* This prevents screen readers from reading “Corah Corah …” twice
 
-* the image is **purely decorative**,
-* AND the **wordmark provides the actual text content**.
+### Why SVG is preferred
 
-This prevents screen readers from reading branding twice.
-
-### Why the wordmark has descriptive alt text
-
-This SVG contains real textual meaning — the brand name —
-so it **must** be announced by assistive technologies.
+* Scales cleanly at all sizes
+* Supports high-density screens (Retina)
+* Lightweight and modern
 
 ---
 
-# 🔵 **STEP 6 — Build the Full Header (Logo + Nav)**
+# 🔵 **STEP 6 — Combine Logo + Navigation Into a Full Header**
 
-Combine your work into a single structure:
+Final semantic structure:
 
 ```html
 <header>
@@ -213,7 +220,7 @@ Combine your work into a single structure:
          alt="CORAH – Centre of Rural Aging and Health">
   </div>
 
-  <nav class="main-nav">
+  <nav>
     <a href="index.html" aria-current="page">home</a>
     <a href="about.html">about</a>
     <a href="events.html">events</a>
@@ -222,84 +229,80 @@ Combine your work into a single structure:
 </header>
 ```
 
-This gives students their **first working header**
-(which will be styled in WS6 and turned into Flexbox in WS7).
+This is a **professional, semantic, accessible header**.
+The CSS and responsive layout will be added in WS6 and WS7.
 
 ---
 
-# 🔵 **STEP 7 — Add Additional Pages and Link All Pages Together**
+# 🔵 **STEP 7 — Build Additional Pages**
 
-Students must create:
-
-* `index.html`
-* `about.html`
-* `events.html`
-* `register.html`
-
-Each should include:
+Each supporting page should include:
 
 ```html
 <header>…</header>
 
 <main>
-  <h1>Page Title</h1>
-  <p>This is the [page name] page.</p>
+  <h1>About CORAH</h1>
+  <p>This is the about page.</p>
 </main>
 ```
 
-Test navigation by clicking each link.
+Repeat similarly for `events.html` and `register.html`.
 
 ---
 
-# **6. Deliverables**
+# 🔵 **STEP 8 — Publish to GitHub Pages**
 
-Students must submit:
+Push your project to GitHub and enable GitHub Pages:
 
-### ✔ A GitHub Pages link
+```
+https://yourusername.github.io/ws5-corah-site/
+```
 
-containing:
+---
 
-* Working multi-page site
-* Fully integrated CORAH header (logo + wordmark)
-* Internal links between all pages
+# **6. Deliverables (Submission Rules)**
 
-### ✔ A zipped project folder (Brightspace)
+### ✔ **GitHub Pages link must be submitted through the Brightspace Assignment Comments.**
 
-containing:
+(Do NOT upload files unless the instructor requests them.)
 
-* HTML files
-* `images/` folder with the two SVG logos
-* Correct relative links
+### ✔ **Reflection answers must be typed directly into the Brightspace Assignment Comments.**
+
+(No separate file submission.)
 
 ---
 
 # **7. Reflection Questions**
 
-1. Why does the CORAH header use two images instead of one combined logo file?
-2. When should an image have `alt=""` (empty alt text)?
-3. Why are relative links preferred inside a project folder?
-4. What issues might occur if images are not stored in a dedicated folder?
-5. How does text hierarchy (h1–h6) improve accessibility?
+(Submit answers in **Brightspace Assignment Comments**)
+
+1. Why do we separate branding assets into **logo** and **wordmark** images instead of using one combined graphic?
+2. When is it appropriate to use `alt=""` (empty alt text) for an image?
+3. Why is it important to build internal navigation using **relative paths**?
+4. What role does the `<nav>` tag play in accessibility and screen reader navigation?
+5. How does using SVGs (instead of PNGs) benefit responsive design?
 
 ---
 
 # **8. Assessment / Rubric**
 
-| Criteria               | Excellent                                     | Good                                      | Satisfactory             | Needs Improvement             |
-| ---------------------- | --------------------------------------------- | ----------------------------------------- | ------------------------ | ----------------------------- |
-| **Header Integration** | Both logos correctly placed, correct alt text | Logos included but alt text could improve | Minor issues but visible | Missing or incorrect          |
-| **Navigation Links**   | All links work across pages                   | 1 link broken                             | Some pages missing       | Most links broken             |
-| **HTML Structure**     | Fully semantic, validated                     | Mostly correct                            | Minor validation issues  | Disorganized                  |
-| **Project Structure**  | Clear folders, images stored correctly        | Minor organization issues                 | Mixed files              | Disorganized or missing files |
+| Criteria                  | Excellent                                           | Good                | Satisfactory            | Needs Improvement      |
+| ------------------------- | --------------------------------------------------- | ------------------- | ----------------------- | ---------------------- |
+| **Header Integration**    | Correct images, correct alt text, correct structure | Minor issues        | Visible but needs fixes | Incorrect or missing   |
+| **Navigation**            | All links functional across pages                   | Mostly functional   | Some broken             | Not functional         |
+| **HTML Structure**        | Fully semantic, valid                               | Mostly correct      | Minor issues            | Many issues            |
+| **Project Organization**  | Clean folder structure                              | Minor issues        | Mixed                   | Disorganized           |
+| **Submission Compliance** | GitHub Pages + reflection submitted correctly       | One element missing | Format issue            | Not submitted properly |
 
 ---
 
 # **9. Resources**
 
+* MDN: `<img>`
+* MDN: `<nav>`
+* MDN: Text-level semantics (`<p>`, `<small>`, `<strong>`)
 * W3C HTML Validator
-* MDN: `<img>` element
-* MDN: Accessible alt text
-* MDN: `<nav>` landmark
 
 ---
 
@@ -312,4 +315,6 @@ containing:
 # **11. Copyright**
 
 Workshop © NSCC – Educational Use Only
-CORAH branding supplied for instructional purposes
+CORAH Brand © NSCC 2025 (for instructional use)
+
+---
