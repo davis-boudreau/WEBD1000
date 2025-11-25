@@ -115,7 +115,7 @@ header {
   border-color: #7b458f;       /* Keeps border color consistent */
 }
 
-.header a:link {
+.header, a:link {
     text-decoration: none;
 }
 .brand-logo {
