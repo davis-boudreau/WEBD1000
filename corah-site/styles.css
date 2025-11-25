@@ -1,0 +1,129 @@
+
+* --- CSS Reset --- */
+/* Remove default margins, paddings, and normalize box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+    background-color:white;
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 20px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color:white;
+}
+
+header {
+    display: flex;
+    flex-direction:column;
+    
+}
+
+.separator {
+    border-style: solid;
+    border-top: 2px;
+    border-color: #7b458f;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Container styling */
+.nav-container {
+  display: flex;
+  gap: 12px; /* space between pills */
+  justify-content: center;
+  padding: 10px;
+  
+}
+
+/* Pill styling: applies to all <a> inside .nav-pill */
+.nav-pill a {
+  display: inline-block;       /* Makes the link behave like a block but still inline */
+  padding: 14px 24px 14px 24px;           /* Adds space inside the pill */
+  border-radius: 32px;         /* Rounds the corners for a pill shape */
+  text-decoration: none;       /* Removes underline from links */
+  font-weight: 600;            /* Makes text bold */
+  color: #7b458f;              /* Default text color */
+  background-color: #7b458f;   /* Default background color */
+  border-style: solid;         /* Solid border */
+  border-width: 2px;           /* Border thickness */
+  border-color: #7b458f;       /* Border color matches theme */
+}
+
+/* :link state - applies to unvisited links */
+.nav-pill a:link {
+  color: #7b458f;              /* Text color for unvisited links */
+  background-color: white;     /* White background for default state */
+  border-color: #7b458f;       /* Keeps border color consistent */
+}
+
+/* :visited state - applies after the link has been clicked */
+.nav-pill a:visited {
+  color: white;                /* Changes text color for visited links */
+  border-style: solid;         /* Keeps border solid */
+  border-width: 2px;           /* Keeps border thickness */
+  border-color: #7b458f;       /* Keeps border color consistent */
+}
+
+/* :hover state - when mouse hovers over the link */
+.nav-pill a:hover {
+  background-color: #420e53;   /* Darker background on hover */
+  color: #fff;                 /* White text for contrast */
+  border-style: solid;         /* Keeps border solid */
+  border-width: 2px;           /* Keeps border thickness */
+  border-color: #7b458f;       /* Keeps border color consistent */
+}
+
+/* :active state - when the link is being clicked (pressed) */
+.nav-pill a:active {
+  background-color: #420e53;   /* Same dark background as hover */
+  color: #fff;                 /* White text */
+  border-style: solid;         /* Keeps border solid */
+  border-width: 2px;           /* Keeps border thickness */
+  border-color: #7b458f;       /* Keeps border color consistent */
+  text-decoration: underline;  /* Adds underline for feedback when pressed */
+}
+
+/* :focus state - when the link is focused (keyboard navigation or click) */
+.nav-pill a:focus {
+  background-color: #420e53;   /* Same as hover/active for consistency */
+  color: #fff;                 /* White text */
+  border-style: solid;         /* Keeps border solid */
+  border-width: 2px;           /* Keeps border thickness */
+  border-color: #7b458f;       /* Keeps border color consistent */
+}
+
+.header a:link {
+    text-decoration: none;
+}
+.brand-logo {
+    width: 128px;
+    height: auto;
+}
+
+.brand-wordmark {
+    width: 304px;
+    height: auto;
+}
