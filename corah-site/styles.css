@@ -1,129 +1,155 @@
 
-* --- CSS Reset --- */
-/* Remove default margins, paddings, and normalize box-sizing */
+/* -------------------- CSS RESET -------------------- */
+/* Reset default browser styles: remove margins/padding and set box-sizing to border-box */
 *,
 *::before,
 *::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;                  /* Removes default margin from all elements */
+  padding: 0;                 /* Removes default padding from all elements */
+  box-sizing: border-box;     /* Ensures width includes padding and border */
 }
 
+/* -------------------- HTML BASE STYLES -------------------- */
 html {
-    background-color:white;
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 20px;
-    scroll-behavior: smooth;
+    background-color: white;                      /* Sets page background to white */
+    font-family: "Open Sans", Arial, sans-serif;  /* Applies a clean, readable font */
+    font-size: 20px;                               /* Base font size for the document */
+    scroll-behavior: smooth;                       /* Smooth scrolling for anchor links */
 }
 
+/* -------------------- BODY -------------------- */
 body {
-    background-color:white;
+    background-color: white; /* Keeps body background white */
 }
 
+/* -------------------- HEADER -------------------- */
 header {
-    display: flex;
-    flex-direction:column;
-    
+    display: flex;              /* Enables flexbox layout */
+    flex-direction: column;     /* Stacks header content vertically */
+    padding: 32px;
+    gap: 32px;
 }
 
+/* -------------------- SEPARATOR -------------------- */
 .separator {
-    border-style: solid;
-    border-top: 2px;
-    border-color: #7b458f;
+    border-top: 2px solid #7b458f; /* Use Full shorthand */
 }
 
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding-left: 32px;
-    padding-right: 32px;
-    padding-top: 32px;
-    padding-bottom: 32px;
+/* -------------------- HEADER CONTAINER -------------------- */
+.header-container {
+    display: flex;                  /* Flexbox for layout */
+    flex-direction: row;            /* Align items horizontally */
+    justify-content: space-between; /* Space out items evenly */
+    align-items: center;            /* Align items virtically */
+    gap: 16px;                      /* Space between child elements */
+    flex-wrap: wrap;                /* Wrap items on smaller screens */
+    padding: 32px;                  /* Adds padding on all sides */
 }
 
+/* -------------------- LOGO CONTAINER -------------------- */
+.logo-container {
+  display: flex;              /* Flexbox layout */
+  flex-direction: row;        /* Horizontal alignment */
+  flex-wrap: wrap;            /* Wrap logos if needed */
+  gap: 16px;                  /* Space between logos */
+}
+
+/* -------------------- NAVIGATION CONTAINER -------------------- */
 .nav-container {
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    align-items: center;
+  display: flex;              /* Flexbox for nav items */
+  flex-direction: row;        /* Horizontal alignment */
+  flex-wrap: wrap;            /* Wrap on smaller screens */
+  gap: 16px;                  /* Space between nav pills */
+  justify-content: flex-end;  /* nav block to sit far right */
+  padding: 10px;              /* Padding inside nav container */
 }
 
-/* Container styling */
-.nav-container {
-  display: flex;
-  gap: 12px; /* space between pills */
-  justify-content: center;
-  padding: 10px;
-  
-}
-
-/* Pill styling: applies to all <a> inside .nav-pill */
+/* -------------------- NAVIGATION PILL LINKS -------------------- */
 .nav-pill a {
-  display: inline-block;       /* Makes the link behave like a block but still inline */
-  padding: 14px 24px 14px 24px;           /* Adds space inside the pill */
-  border-radius: 32px;         /* Rounds the corners for a pill shape */
+  display: inline-block;       /* Makes links behave like blocks but inline */
+  padding: 14px 24px;          /* Adds space inside the pill */
+  border-radius: 32px;         /* Creates rounded pill shape */
   text-decoration: none;       /* Removes underline from links */
   font-weight: 600;            /* Makes text bold */
-  color: #7b458f;              /* Default text color */
-  background-color: #7b458f;   /* Default background color */
-  border-style: solid;         /* Solid border */
-  border-width: 2px;           /* Border thickness */
-  border-color: #7b458f;       /* Border color matches theme */
+  color: #7b458f;              /* Text color */
+  background-color: #7b458f;   /* Background color */
+  border: 2px solid #7b458f;   /* Solid border matching theme color */
 }
 
-/* :link state - applies to unvisited links */
+/* -------------------- LINK STATES -------------------- */
+/* Default unvisited link */
 .nav-pill a:link {
-  color: #7b458f;              /* Text color for unvisited links */
-  background-color: white;     /* White background for default state */
-  border-color: #7b458f;       /* Keeps border color consistent */
+  color: #7b458f;              /* Purple text */
+  background-color: white;     /* White background */
+  border-color: #7b458f;       /* Purple border */
 }
 
-/* :visited state - applies after the link has been clicked */
+/* Visited link */
 .nav-pill a:visited {
-  color: white;                /* Changes text color for visited links */
-  border-style: solid;         /* Keeps border solid */
-  border-width: 2px;           /* Keeps border thickness */
-  border-color: #7b458f;       /* Keeps border color consistent */
+  color: white;                /* White text after visit */
+  border: 2px solid #7b458f;   /* Keeps border consistent */
 }
 
-/* :hover state - when mouse hovers over the link */
+/* Hover state */
 .nav-pill a:hover {
-  background-color: #420e53;   /* Darker background on hover */
+  background-color: #420e53;   /* Darker purple background */
   color: #fff;                 /* White text for contrast */
-  border-style: solid;         /* Keeps border solid */
-  border-width: 2px;           /* Keeps border thickness */
-  border-color: #7b458f;       /* Keeps border color consistent */
+  border: 2px solid #7b458f;   /* Keeps border consistent */
 }
 
-/* :active state - when the link is being clicked (pressed) */
+/* Active state (when clicked) */
 .nav-pill a:active {
-  background-color: #420e53;   /* Same dark background as hover */
+  background-color: #420e53;   /* Same as hover */
   color: #fff;                 /* White text */
-  border-style: solid;         /* Keeps border solid */
-  border-width: 2px;           /* Keeps border thickness */
-  border-color: #7b458f;       /* Keeps border color consistent */
-  text-decoration: underline;  /* Adds underline for feedback when pressed */
+  border: 2px solid #7b458f;   /* Keeps border consistent */
+  text-decoration: underline;  /* Adds underline for feedback */
 }
 
-/* :focus state - when the link is focused (keyboard navigation or click) */
+/* Focus state (keyboard navigation) */
 .nav-pill a:focus {
-  background-color: #420e53;   /* Same as hover/active for consistency */
+  background-color: #420e53;   /* Same as hover/active */
   color: #fff;                 /* White text */
-  border-style: solid;         /* Keeps border solid */
-  border-width: 2px;           /* Keeps border thickness */
-  border-color: #7b458f;       /* Keeps border color consistent */
+  border: 2px solid #7b458f;   /* Keeps border consistent */
 }
 
-.header, a:link {
-    text-decoration: none;
+
+/* Disabled state (simulate Bootstrap's .disabled class) */
+.nav-pill a.disabled {
+  opacity: 0.65;                  /* Dimmed appearance */
+  pointer-events: none;           /* Disable interaction */
 }
+
+
+/* -------------------- BRAND LOGO -------------------- */
 .brand-logo {
-    width: 128px;
-    height: auto;
+    width: 128px;              /* Logo width */
+    height: auto;              /* Maintains aspect ratio */
 }
 
 .brand-wordmark {
-    width: 304px;
-    height: auto;
+    width: 304px;              /* Wordmark width */
+    height: auto;              /* Maintains aspect ratio */
+}
+
+/* -------------------- RESPONSIVE MEDIA QUERIES -------------------- */
+/* Small devices (phones) */
+@media (max-width: 576px) {
+  .logo-container {
+    justify-content: center;   /* Center logos on small screens */
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Add tablet-specific styles here */
+}
+
+/* Large devices (desktops) */
+@media (min-width: 769px) and (max-width: 1200px) {
+  /* Add desktop-specific styles here */
+}
+
+/* Extra large devices (large desktops) */
+@media (min-width: 1201px) {
+  /* Add large desktop-specific styles here */
 }
