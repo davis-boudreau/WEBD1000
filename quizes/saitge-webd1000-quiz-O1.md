@@ -1,149 +1,149 @@
-1. Which principle helps guide a user’s eye to the most important content first?
-   a) Balance
-   *b) Visual hierarchy
-   c) Repetition
-   d) Alignment
+1. Which WCAG principle ensures users can both see and hear website content?
+   a) Understandable
+   b) Operable
+   *c) Perceivable
+   d) Robust
 
-2. What is the main purpose of white space in web design?
-   a) To fill unused space with graphics
-   b) To reduce scrolling
-   *c) To improve readability and focus attention
-   d) To increase text density
+2. Which tool can be used to automatically check a site for accessibility issues?
+   a) Canva
+   *b) WAVE Accessibility Checker
+   c) FileZilla
+   d) Photoshop
 
-3. Which font pairing is most accessible for body text and headings?
-   a) Script and cursive fonts
-   b) Decorative display fonts
-   c) All-caps serif fonts
-   *d) Sans-serif for body, serif for headings
+3. What does WCAG stand for?
+   a) Website Coding and Graphics
+   *b) Web Content Accessibility Guidelines
+   c) Web Compliance and Governance
+   d) Web Creator Advisory Group
 
-4. What contrast ratio meets WCAG 2.1 AA for normal text?
-   a) 2 : 1
+4. What is the correct minimum contrast ratio for normal-sized text (AA standard)?
+   *a) 4.5 : 1
    b) 3 : 1
-   *c) 4.5 : 1
+   c) 2 : 1
    d) 7 : 1
 
-5. The purpose of consistent navigation placement is to ___.
-   *a) help users predict where to find links on every page
-   b) increase visual variety
-   c) make the page look modern
-   d) minimize code size
+5. Which attribute provides descriptive text for images read by screen readers?
+   a) title
+   *b) alt
+   c) src
+   d) id
 
-6. Which color combination offers the best readability?
-   a) Light gray text on white
-   *b) Dark purple text on white
-   c) Yellow text on light blue
-   d) Red text on green
+6. Why is keyboard navigation important for accessibility?
+   *a) It allows users who cannot use a mouse to navigate and interact
+   b) It changes text alignment
+   c) It reduces page loading time
+   d) It hides visual clutter
 
-7. What is the role of alignment in layout design?
-   *a) Creates visual connection between related elements
-   b) Adds randomness for creativity
-   c) Increases color contrast
-   d) Reduces image file size
+7. What does the “O” in the POUR accessibility model stand for?
+   *a) Operable
+   b) Organized
+   c) Objective
+   d) Optional
 
-8. Why is heading hierarchy (`<h1>` – `<h6>`) important?
-   a) It adds animation to text
-   *b) It defines document structure and improves accessibility
-   c) It controls font color
-   d) It increases page speed
+8. What is a usability heuristic?
+   a) A browser debugging feature
+   *b) A general principle for evaluating user interface quality
+   c) A color-contrast setting
+   d) A coding standard
 
-9. Which design principle helps maintain harmony through repetition of colors or shapes?
-   *a) Consistency
-   b) Contrast
-   c) Balance
-   d) Hierarchy
+9. Which of the following is an example of poor usability?
+   a) Consistent navigation menus
+   *b) Unlabeled icons and hidden controls
+   c) Readable text contrast
+   d) Logical heading hierarchy
 
-10. The primary purpose of responsive design is to ___.
-    a) Add animation effects
-    *b) Ensure usability across different devices and screen sizes
-    c) Reduce bandwidth usage
-    d) Increase the number of pages
+10. Which color combination provides the strongest readability?
+    a) Yellow on blue
+    b) Red on green
+    *c) Black text on white background
+    d) Light gray text on white
 
-11. Which CSS property controls spacing between element borders and their content?
-    a) margin
-    *b) padding
-    c) border-width
-    d) gap
+11. What is the main goal of usability testing?
+    *a) Observe users completing real tasks to find obstacles
+    b) Validate HTML syntax
+    c) Reduce image sizes
+    d) Check file naming conventions
 
-12. What does “mobile-first design” emphasize?
-    *a) Designing for smaller screens before scaling up
-    b) Designing for desktop screens first
-    c) Building only mobile sites
-    d) Using inline CSS
+12. Which principle ensures users can understand how an interface works?
+    a) Perceivable
+    b) Operable
+    *c) Understandable
+    d) Robust
 
-13. Which principle ensures elements are distributed evenly around a visual center?
-    *a) Balance
-    b) Emphasis
-    c) Contrast
-    d) Flow
+13. What is a good example of descriptive link text?
+    a) Click here
+    *b) Download Program Guide (PDF)
+    c) More info
+    d) Read this
 
-14. Which tool checks for accessibility and color contrast issues?
-    a) GitHub Pages
-    *b) WAVE or axe browser extension
-    c) Chrome DevTools Network tab
-    d) VS Code Emmet
+14. Which accessibility issue is caused by flashing or strobing content?
+    a) Color contrast failure
+    *b) Seizure or vestibular trigger
+    c) Missing alt text
+    d) Unclear labels
 
-15. The **box model** consists of ___.
-    a) border, shadow, animation, position
-    *b) content, padding, border, margin
-    c) width, height, float, clear
-    d) grid, cell, row, column
+15. What is the role of headings (`<h1>` – `<h6>`) in accessibility?
+    *a) Provide document structure and hierarchy
+    b) Apply font color changes
+    c) Speed up page loading
+    d) Add animation effects
 
-16. Why is text alignment important for readability?
-    *a) It supports predictable scanning patterns
-    b) It prevents word wrapping
-    c) It forces equal line lengths
-    d) It hides text overflow
+16. What does the “R” in POUR accessibility principles stand for?
+    a) Readable
+    b) Responsive
+    *c) Robust
+    d) Relevant
 
-17. What does “visual hierarchy” primarily rely on?
-    a) Browser order of elements
-    b) HTML file size
-    *c) Differences in size, color, and placement
-    d) Use of animations
+17. Which practice improves accessibility for color-blind users?
+    *a) Avoid using color alone to convey meaning
+    b) Use saturated colors only
+    c) Add gradients to text
+    d) Reduce contrast ratios
 
-18. A well-structured footer contributes to ___.
-    a) Increased server load
-    b) Search-engine penalties
-    *c) Site credibility and easy access to key information
-    d) Visual clutter
+18. What does alt text do when an image fails to load?
+    a) Replaces the image with a blank space
+    b) Shows the file path
+    *c) Displays the text alternative to describe the image
+    d) Plays a sound
 
-19. Which file format is best for scalable vector logos on the web?
-    a) JPG
-    b) PNG
-    *c) SVG
-    d) GIF
+19. Which of the following describes responsive design’s accessibility benefit?
+    *a) Content remains usable on all screen sizes and devices
+    b) It adds animations to pages
+    c) It hides footer information
+    d) It increases bandwidth
 
-20. Why should body text avoid all-caps formatting?
-    a) It slows page loading
-    b) It looks too formal
-    *c) It reduces readability for continuous text
-    d) It decreases SEO ranking
+20. Why is consistent layout important for usability?
+    *a) Users know where to find information and controls on every page
+    b) It makes pages more colorful
+    c) It increases download speed
+    d) It randomizes visual elements
 
-21. The most effective layout grids are based on ___.
-    *a) Proportional columns and consistent gutters
-    b) Random element positioning
-    c) Fixed pixel widths only
-    d) Color temperature
+21. Which of the following tools can test both performance and accessibility in Chrome?
+    a) Dreamweaver
+    *b) Lighthouse
+    c) GitHub Pages
+    d) InVision
 
-22. Which principle prevents cognitive overload by limiting the number of choices?
-    *a) Simplicity
-    b) Contrast
-    c) Emphasis
-    d) Proportion
+22. What is the primary goal of web accessibility?
+    *a) Ensure equal access and usability for all users regardless of ability
+    b) Reduce graphic file sizes
+    c) Enhance visual effects
+    d) Improve search rankings
 
-23. Why should designers test with keyboard navigation?
-    *a) To ensure accessibility for users who cannot use a mouse
-    b) To debug JavaScript performance
-    c) To validate CSS syntax
-    d) To check animation smoothness
+23. What is one reason alt text is important for SEO?
+    *a) Search engines use it to understand image content
+    b) It reduces file size
+    c) It changes layout behavior
+    d) It adds animation tags
 
-24. Which attribute improves accessibility for screen-reader navigation?
-    a) onclick
-    *b) aria-label
-    c) data-id
-    d) title
+24. Which design feature improves readability for users with cognitive disabilities?
+    *a) Clear headings and chunked content
+    b) Flashing text for attention
+    c) Dense paragraphs of text
+    d) Long scrolling pages
 
-25. Why is color alone not a reliable indicator for interactive elements?
-    *a) Some users cannot perceive color differences
-    b) It reduces page load
-    c) It makes buttons larger
-    d) It improves SEO
+25. Why is accessibility evaluation part of usability testing?
+    *a) Because a website is not usable if people with disabilities cannot use it
+    b) Because it improves color harmony
+    c) Because it shortens content
+    d) Because it tests server speed

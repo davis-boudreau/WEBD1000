@@ -1,150 +1,149 @@
-1. What is the primary goal of a wireframe?
-   a) To finalize all graphic styles
-   b) To show animation effects
-   *c) To outline page structure and content placement
-   d) To test server performance
+1. What is the **first** step when beginning a new web design project?
+   a) Write the CSS stylesheet
+   *b) Gather and analyze project requirements
+   c) Choose a color palette
+   d) Publish the homepage
 
-2. Which tool is best suited for creating low-fidelity wireframes?
-   a) Photoshop
-   b) Visual Studio Code
-   c) Excel
-   *d) Figma
+2. A **content inventory** is used to:
+   a) Test JavaScript interactions
+   *b) List and categorize all site content assets
+   c) Store user passwords
+   d) Optimize image compression
 
-3. Why is it important to identify target users before designing a mock-up?
-   *a) It ensures layout and content meet user needs
-   b) It simplifies the color-picking process
-   c) It guarantees faster page loading
-   d) It prevents code duplication
+3. Which document best illustrates **page-to-page hierarchy**?
+   a) Storyboard
+   *b) Sitemap
+   c) CSS layout
+   d) Style sheet
 
-4. Which element should appear first in a site map?
-   a) Footer links
-   *b) Homepage
-   c) Contact page
-   d) Blog archive
+4. Why is defining a **target audience** critical?
+   *a) It ensures design decisions align with user goals and context
+   b) It speeds up coding
+   c) It satisfies SEO algorithms
+   d) It reduces file size
 
-5. What is the purpose of creating user personas?
-   *a) To represent typical users and guide design decisions
-   b) To test CSS validation
-   c) To measure web performance
-   d) To define brand colors
+5. In planning the Corah website, which phase determines tone, purpose, and audience?
+   a) Coding
+   *b) Discovery and research
+   c) Launch
+   d) Testing
 
-6. In planning content hierarchy, which factor defines importance?
-   a) File size
-   b) Page load time
-   c) Number of links
-   *d) User goals and tasks
+6. What is the purpose of a **wireframe**?
+   *a) To outline page structure and functional layout before styling
+   b) To finalize colors and fonts
+   c) To host the site online
+   d) To validate HTML code
 
-7. A mock-up differs from a prototype because it ___.
-   *a) Shows design visuals but lacks interaction
-   b) Is fully coded and functional
-   c) Represents data relationships only
-   d) Contains live content updates
+7. Which tool is commonly used to create wireframes and prototypes?
+   *a) Figma
+   b) Notepad
+   c) GitHub
+   d) Lighthouse
 
-8. What is a key benefit of using grid systems in mock-ups?
-   a) They randomize element placement
-   b) They limit creativity
-   *c) They maintain alignment and consistency
-   d) They increase contrast ratio
+8. When creating a **sitemap**, each box represents:
+   *a) A single page or screen within the site
+   b) A color theme
+   c) A navigation icon
+   d) A CSS class
 
-9. When designing for accessibility, which principle applies most directly to layout?
-   *a) Perceivable
-   b) Robust
-   c) Secure
-   d) Dynamic
+9. The term **information architecture (IA)** refers to:
+   *a) The organization and labeling of content for easy navigation
+   b) The server’s physical structure
+   c) A visual effects library
+   d) The choice of typefaces
 
-10. Why should designers use contrast in mock-ups?
-    a) To decorate the interface
-    *b) To distinguish key elements and improve readability
-    c) To create color harmony only
-    d) To reduce code redundancy
+10. Which of the following helps translate user needs into design specifications?
+    *a) User personas
+    b) JavaScript variables
+    c) HTML tags
+    d) Server logs
 
-11. What’s the main purpose of annotations in wireframes?
-    a) Increase resolution
-    *b) Explain design decisions or interactions
-    c) Add decorative icons
-    d) Measure download time
+11. Which element belongs in a **project brief**?
+    a) DNS configuration
+    *b) Goals, audience, and success metrics
+    c) JavaScript libraries
+    d) Compression algorithms
 
-12. During early planning, what does a content inventory identify?
-    a) CSS variables
-    *b) Existing text, images, and resources on current pages
-    c) Browser compatibility issues
-    d) SEO ranking factors
+12. What is the best reason to create **low-fidelity wireframes** first?
+    *a) They focus on layout and flow without distractions from color or detail
+    b) They require high-end design software
+    c) They include the final typography
+    d) They can’t be changed later
 
-13. When transforming a wireframe into a mock-up, what should remain constant?
-    a) Color scheme
-    b) Image resolution
-    *c) Content hierarchy and layout structure
-    d) Font style
+13. What is one benefit of **storyboarding user journeys**?
+    *a) It visualizes how a user moves through tasks or goals on a site
+    b) It defines SEO keywords
+    c) It determines hosting requirements
+    d) It creates the final color scheme
 
-14. What is a common purpose of a site map diagram?
-    *a) To show page relationships and navigation paths
-    b) To describe color palettes
-    c) To test loading times
-    d) To display CSS properties
+14. Which planning deliverable directly informs the **HTML structure** of a page?
+    *a) Content hierarchy diagram
+    b) Color palette
+    c) SEO report
+    d) CSS theme file
 
-15. Which factor has the greatest influence on visual hierarchy in a mock-up?
-    *a) Size, color, and positioning
-    b) File type
-    c) Server settings
-    d) JavaScript animations
+15. Why are **accessibility requirements** included in the design phase?
+    *a) To ensure inclusivity is built in, not retrofitted later
+    b) To make the code run faster
+    c) To satisfy marketing objectives
+    d) To reduce hosting costs
 
-16. Which document outlines all required features and deliverables before design begins?
-    a) Project charter
-    b) Accessibility audit
-    *c) Design specification
-    d) Wireframe checklist
+16. What is the main purpose of a **design system**?
+    *a) To maintain consistency across typography, color, and components
+    b) To host code on a CDN
+    c) To manage file permissions
+    d) To collect analytics data
 
-17. Why are “call-to-action” elements important in interface design?
-    a) They increase color diversity
-    b) They display legal notices
-    *c) They direct users toward completing a task
-    d) They provide image captions
+17. During planning, how can designers validate that their solution meets requirements?
+    *a) Conduct usability testing with prototypes
+    b) Deploy directly to production
+    c) Skip client feedback
+    d) Focus only on branding
 
-18. What role does a usability test play during the mock-up phase?
-    *a) It verifies that users can understand and navigate the layout
-    b) It measures code performance
-    c) It replaces accessibility testing
-    d) It finalizes typography
+18. Which part of the planning phase defines **navigation labels and menus**?
+    *a) Information architecture
+    b) Visual design
+    c) Development setup
+    d) Database modeling
 
-19. In Figma, what is an effective way to maintain consistent styles across screens?
-    a) Use multiple frames
-    *b) Create reusable components and styles
-    c) Flatten all layers
-    d) Convert everything to outlines
+19. What should a **responsive design plan** include?
+    *a) Breakpoints and layout adjustments for multiple screen sizes
+    b) JavaScript animation speeds
+    c) File permissions
+    d) SEO tags
 
-20. Why should designers consider device breakpoints while creating mock-ups?
-    *a) To ensure responsive layouts adapt to different screens
-    b) To prevent font substitution
-    c) To eliminate image compression
-    d) To speed up network requests
+20. In collaborative projects, why is version control important during design?
+    *a) It tracks iterations and supports collaboration across teams
+    b) It compresses image files
+    c) It automatically validates HTML
+    d) It hosts live databases
 
-21. What does “above the fold” refer to in web layout planning?
-    a) Hidden navigation areas
-    *b) Content visible without scrolling
-    c) Mobile navigation menu
-    d) Print page settings
+21. A **style tile** or mood board helps a team:
+    *a) Align on visual direction (colors, fonts, imagery)
+    b) Define code indentation standards
+    c) Configure hosting servers
+    d) Set up analytics tracking
 
-22. Which layout pattern helps users scan from top left to bottom right?
-    a) Circular
-    *b) F-pattern
-    c) Mosaic
-    d) Gridless
+22. When planning site content, which guideline helps maintain accessibility?
+    *a) Use clear headings and concise plain language
+    b) Include text over busy backgrounds
+    c) Use decorative fonts for all text
+    d) Depend on color alone for emphasis
 
-23. Why is prototyping valuable after mock-up approval?
-    *a) It tests interaction and flow before development
-    b) It validates color contrast
-    c) It replaces user testing
-    d) It saves typography settings
+23. Which statement best describes the **relationship between design and development**?
+    *a) Design defines structure and behavior; development implements it in code
+    b) Design follows development
+    c) They are separate, unrelated tasks
+    d) Development determines color and layout
 
-24. Which file type is typically used to share static mock-ups with clients?
-    a) .html
-    *b) .png
-    c) .json
-    d) .mp4
+24. What is the key output of the **planning and design phase** before coding begins?
+    *a) A detailed blueprint or mockup meeting all project requirements
+    b) A live deployed website
+    c) SEO analytics results
+    d) HTML validation report
 
-25. During planning, which step ensures that navigation labels use plain language?
-    a) Applying CSS variables
-    b) Checking color contrast
-    c) Running SEO analysis
-    *d) Conducting a content audit
-
+25. Why is iterative design encouraged during website planning?
+    *a) It allows feedback and continuous improvement before costly implementation
+    b) It slows down the workflow intentionally
+    c) It guarantees pixel-perfect results
+    d) It removes the need for testing

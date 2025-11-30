@@ -1,272 +1,314 @@
-**1. What is the primary goal of a wireframe?**
-a) To finalize all graphic styles
-b) To show animation effects
-*c) To outline page structure and content placement*
-d) To test server performance
+Excellent — here’s the **expanded version of your 25-question quiz** for **WEBD1000 Outcome 2 – Plan and Design Websites Based on Project Requirements**, now including:
+## 🧭 WEBD 1000 — Outcome 2 Quiz with Detailed Feedback
 
-💡 **Background:** Wireframes are early, low-fidelity diagrams showing the layout and hierarchy of a web page before design details are added.
-🧠 **Feedback:** *Wireframes focus on structure and information flow.* They help teams visualize page organization without distraction from color or imagery.
+### Plan and Design Websites Based on Project Requirements
 
 ---
 
-**2. Which tool is best suited for creating low-fidelity wireframes?**
-a) Photoshop
-b) Visual Studio Code
-c) Excel
-*d) Figma*
+### **1. What is the first step when beginning a new web design project?**
 
-💡 **Background:** Design tools such as Figma allow quick layout sketches and collaboration without code.
-🧠 **Feedback:** *Figma* supports wireframing, component reuse, and feedback sharing, making it ideal for interface planning stages.
+a) Write the CSS stylesheet
+*b) Gather and analyze project requirements
+c) Choose a color palette
+d) Publish the homepage
 
----
-
-**3. Why is it important to identify target users before designing a mock-up?**
-*a) It ensures layout and content meet user needs*
-b) It simplifies the color-picking process
-c) It guarantees faster page loading
-d) It prevents code duplication
-
-💡 **Background:** User-centered design begins with understanding audience goals and limitations.
-🧠 **Feedback:** *Knowing your users* informs decisions on content, accessibility, and tone—ensuring the interface serves its intended audience.
+**Feedback:**
+Projects begin with discovery — understanding goals, audience, and constraints. Requirement gathering defines scope before any design or coding begins. Writing CSS or choosing colors too early skips the foundation. Publishing is the *final*, not first, step.
 
 ---
 
-**4. Which element should appear first in a site map?**
-a) Footer links
-*b) Homepage*
-c) Contact page
-d) Blog archive
+### **2. A content inventory is used to:**
 
-💡 **Background:** The homepage acts as the top-level parent in site hierarchy diagrams.
-🧠 **Feedback:** *Starting with the homepage* defines the site’s navigation logic, linking downward to secondary and tertiary pages.
+a) Test JavaScript interactions
+*b) List and categorize all site content assets
+c) Store user passwords
+d) Optimize image compression
 
----
-
-**5. What is the purpose of creating user personas?**
-*a) To represent typical users and guide design decisions*
-b) To test CSS validation
-c) To measure web performance
-d) To define brand colors
-
-💡 **Background:** Personas summarize user behaviors, motivations, and challenges.
-🧠 **Feedback:** *Personas humanize data* and help designers focus on real-world needs instead of assumptions.
+**Feedback:**
+A content inventory catalogs text, images, media, and files to assess what exists or is needed. This supports IA and sitemap planning. It’s not a technical or security tool like password storage or compression software.
 
 ---
 
-**6. In planning content hierarchy, which factor defines importance?**
-a) File size
-b) Page load time
-c) Number of links
-*d) User goals and tasks*
+### **3. Which document best illustrates page-to-page hierarchy?**
 
-💡 **Background:** Hierarchy reflects what matters most to visitors.
-🧠 **Feedback:** *Design around user goals* so the interface prioritizes actions or information people seek most.
+a) Storyboard
+*b) Sitemap
+c) CSS layout
+d) Style sheet
 
----
-
-**7. A mock-up differs from a prototype because it ___.**
-*a) Shows design visuals but lacks interaction*
-b) Is fully coded and functional
-c) Represents data relationships only
-d) Contains live content updates
-
-💡 **Background:** Mock-ups are static representations; prototypes add interactivity.
-🧠 **Feedback:** *Mock-ups illustrate final look and feel* without functional behavior—useful for design reviews.
+**Feedback:**
+A **sitemap** visualizes site structure — how pages connect. Storyboards show user flow or scenes, CSS handles styling, and a style sheet defines appearance, not structure.
 
 ---
 
-**8. What is a key benefit of using grid systems in mock-ups?**
-a) They randomize element placement
-b) They limit creativity
-*c) They maintain alignment and consistency*
-d) They increase contrast ratio
+### **4. Why is defining a target audience critical?**
 
-💡 **Background:** Grids standardize spacing and layout across screens.
-🧠 **Feedback:** *Consistent grids* make interfaces cohesive and predictable, improving readability and balance.
+*a) It ensures design decisions align with user goals and context
+b) It speeds up coding
+c) It satisfies SEO algorithms
+d) It reduces file size
 
----
-
-**9. When designing for accessibility, which principle applies most directly to layout?**
-*a) Perceivable*
-b) Robust
-c) Secure
-d) Dynamic
-
-💡 **Background:** WCAG’s “Perceivable” guideline ensures users can see and distinguish content.
-🧠 **Feedback:** *Perceivable layouts* rely on clear headings, contrast, and structure so everyone—including screen-reader users—can interpret them.
+**Feedback:**
+Knowing your audience shapes content tone, accessibility level, and layout. Design empathy precedes technical efficiency; SEO and file size are secondary outcomes.
 
 ---
 
-**10. Why should designers use contrast in mock-ups?**
-a) To decorate the interface
-*b) To distinguish key elements and improve readability*
-c) To create color harmony only
-d) To reduce code redundancy
+### **5. In planning the Corah website, which phase determines tone, purpose, and audience?**
 
-💡 **Background:** Contrast directs attention and separates sections visually.
-🧠 **Feedback:** *Effective contrast* between text and background or between interface regions strengthens hierarchy and accessibility.
+a) Coding
+*b) Discovery and research
+c) Launch
+d) Testing
 
----
-
-**11. What’s the main purpose of annotations in wireframes?**
-a) Increase resolution
-*b) Explain design decisions or interactions*
-c) Add decorative icons
-d) Measure download time
-
-💡 **Background:** Annotations clarify designer intent for developers and stakeholders.
-🧠 **Feedback:** *Annotated wireframes* reduce miscommunication by documenting behavior that isn’t obvious from layout alone.
+**Feedback:**
+Discovery involves stakeholder interviews and user research. Coding implements the plan; launch and testing happen later. Without discovery, design lacks direction.
 
 ---
 
-**12. During early planning, what does a content inventory identify?**
-a) CSS variables
-*b) Existing text, images, and resources on current pages*
-c) Browser compatibility issues
-d) SEO ranking factors
+### **6. What is the purpose of a wireframe?**
 
-💡 **Background:** Content inventories list what already exists before redesign.
-🧠 **Feedback:** *Auditing current assets* helps spot duplication, outdated material, or gaps to address in new designs.
+*a) To outline page structure and functional layout before styling
+b) To finalize colors and fonts
+c) To host the site online
+d) To validate HTML code
 
----
-
-**13. When transforming a wireframe into a mock-up, what should remain constant?**
-a) Color scheme
-b) Image resolution
-*c) Content hierarchy and layout structure*
-d) Font style
-
-💡 **Background:** Wireframes define the skeleton; mock-ups add visuals.
-🧠 **Feedback:** *Maintaining hierarchy and structure* ensures visual enhancements don’t compromise usability or meaning.
+**Feedback:**
+Wireframes emphasize **function and structure** — placement of navigation, hero, content, and calls to action. Color and type come later in visual design; validation belongs to development.
 
 ---
 
-**14. What is a common purpose of a site map diagram?**
-*a) To show page relationships and navigation paths*
-b) To describe color palettes
-c) To test loading times
-d) To display CSS properties
+### **7. Which tool is commonly used to create wireframes and prototypes?**
 
-💡 **Background:** Site maps depict how pages connect within information architecture.
-🧠 **Feedback:** *Mapping relationships* helps designers visualize depth, breadth, and navigation flow before coding begins.
+*a) Figma
+b) Notepad
+c) GitHub
+d) Lighthouse
 
----
-
-**15. Which factor has the greatest influence on visual hierarchy in a mock-up?**
-*a) Size, color, and positioning*
-b) File type
-c) Server settings
-d) JavaScript animations
-
-💡 **Background:** Visual hierarchy relies on perceptual cues.
-🧠 **Feedback:** *Adjusting scale, contrast, and placement* signals which elements are primary versus secondary on the screen.
+**Feedback:**
+Figma supports collaborative wireframing and prototyping. Notepad is a text editor, GitHub manages code versions, and Lighthouse audits finished sites, not design drafts.
 
 ---
 
-**16. Which document outlines all required features and deliverables before design begins?**
-a) Project charter
-b) Accessibility audit
-*c) Design specification*
-d) Wireframe checklist
+### **8. When creating a sitemap, each box represents:**
 
-💡 **Background:** Design specs act as a blueprint connecting client goals and development work.
-🧠 **Feedback:** *A clear design specification* prevents scope creep and aligns expectations between designers and developers.
+*a) A single page or screen within the site
+b) A color theme
+c) A navigation icon
+d) A CSS class
 
----
-
-**17. Why are “call-to-action” elements important in interface design?**
-a) They increase color diversity
-b) They display legal notices
-*c) They direct users toward completing a task*
-d) They provide image captions
-
-💡 **Background:** Calls-to-action (CTAs) guide users to next steps.
-🧠 **Feedback:** *Well-placed CTAs* convert user intent into action, improving engagement and goal completion.
+**Feedback:**
+Each sitemap node equals one page or unique view. Themes, icons, or CSS classes are design or code-level details, not IA components.
 
 ---
 
-**18. What role does a usability test play during the mock-up phase?**
-*a) It verifies that users can understand and navigate the layout*
-b) It measures code performance
-c) It replaces accessibility testing
-d) It finalizes typography
+### **9. The term Information Architecture (IA) refers to:**
 
-💡 **Background:** Usability testing evaluates design effectiveness before development.
-🧠 **Feedback:** *Testing early with users* uncovers navigation issues, saving time and improving experience quality.
+*a) The organization and labeling of content for easy navigation
+b) The server’s physical structure
+c) A visual effects library
+d) The choice of typefaces
 
----
-
-**19. In Figma, what is an effective way to maintain consistent styles across screens?**
-a) Use multiple frames
-*b) Create reusable components and styles*
-c) Flatten all layers
-d) Convert everything to outlines
-
-💡 **Background:** Components standardize design patterns like buttons or cards.
-🧠 **Feedback:** *Reusable components* keep interfaces uniform and reduce rework when making global changes.
+**Feedback:**
+IA defines hierarchy, labeling, and navigation flow — the “skeleton” of a website. Servers, visuals, and fonts are separate concerns.
 
 ---
 
-**20. Why should designers consider device breakpoints while creating mock-ups?**
-*a) To ensure responsive layouts adapt to different screens*
-b) To prevent font substitution
-c) To eliminate image compression
-d) To speed up network requests
+### **10. Which of the following helps translate user needs into design specifications?**
 
-💡 **Background:** Breakpoints define where layouts shift between device sizes.
-🧠 **Feedback:** *Planning for breakpoints* ensures smooth transitions between mobile, tablet, and desktop views.
+*a) User personas
+b) JavaScript variables
+c) HTML tags
+d) Server logs
 
----
-
-**21. What does “above the fold” refer to in web layout planning?**
-a) Hidden navigation areas
-*b) Content visible without scrolling*
-c) Mobile navigation menu
-d) Print page settings
-
-💡 **Background:** Originating from newspapers, “above the fold” highlights what’s immediately visible.
-🧠 **Feedback:** *Placing key info above the fold* grabs user attention quickly before scrolling.
+**Feedback:**
+Personas summarize target users’ goals and frustrations, guiding decisions. Variables, tags, and logs are technical tools, not planning deliverables.
 
 ---
 
-**22. Which layout pattern helps users scan from top left to bottom right?**
-a) Circular
-*b) F-pattern*
-c) Mosaic
-d) Gridless
+### **11. Which element belongs in a project brief?**
 
-💡 **Background:** Eye-tracking studies show typical scanning paths.
-🧠 **Feedback:** *The F-pattern* mirrors natural reading behavior in Western cultures, ideal for text-heavy designs.
+a) DNS configuration
+*b) Goals, audience, and success metrics
+c) JavaScript libraries
+d) Compression algorithms
 
----
-
-**23. Why is prototyping valuable after mock-up approval?**
-*a) It tests interaction and flow before development*
-b) It validates color contrast
-c) It replaces user testing
-d) It saves typography settings
-
-💡 **Background:** Prototypes simulate navigation and behavior.
-🧠 **Feedback:** *Interactive prototypes* allow testing of user journeys, reducing redesigns later in coding stages.
+**Feedback:**
+A brief defines purpose, audience, and measurable success — it’s strategic. DNS and code libraries are technical setup, not planning artifacts.
 
 ---
 
-**24. Which file type is typically used to share static mock-ups with clients?**
-a) .html
-*b) .png*
-c) .json
-d) .mp4
+### **12. Why create low-fidelity wireframes first?**
 
-💡 **Background:** Raster image exports are common for client review.
-🧠 **Feedback:** *PNG files* preserve clarity and color accuracy, ideal for static mock-up presentations.
+*a) They focus on layout and flow without distractions from color or detail
+b) They require high-end design software
+c) They include final typography
+d) They can’t be changed later
+
+**Feedback:**
+Low-fidelity (lo-fi) sketches encourage rapid iteration and feedback. High detail too early restricts flexibility. They’re cheap to change and clarify structure before polish.
 
 ---
 
-**25. During planning, which step ensures that navigation labels use plain language?**
-a) Applying CSS variables
-b) Checking color contrast
-c) Running SEO analysis
-*d) Conducting a content audit*
+### **13. One benefit of storyboarding user journeys is:**
 
-💡 **Background:** Content audits evaluate clarity, tone, and consistency.
-🧠 **Feedback:** *Reviewing content early* ensures navigation labels are simple, descriptive, and user-friendly.
+*a) It visualizes how a user moves through tasks or goals on a site
+b) It defines SEO keywords
+c) It determines hosting requirements
+d) It creates the final color scheme
+
+**Feedback:**
+Storyboards connect user intent to interface flow. They show emotion and context — what users *see and do*. SEO, hosting, and colors are separate disciplines.
+
+---
+
+### **14. Which planning deliverable directly informs HTML structure?**
+
+*a) Content hierarchy diagram
+b) Color palette
+c) SEO report
+d) CSS theme file
+
+**Feedback:**
+A hierarchy diagram maps sections, headings, and relationships — guiding semantic HTML. Colors and SEO don’t determine structure.
+
+---
+
+### **15. Why include accessibility requirements during design?**
+
+*a) To ensure inclusivity is built in, not retrofitted later
+b) To make the code run faster
+c) To satisfy marketing objectives
+d) To reduce hosting costs
+
+**Feedback:**
+Designing with accessibility upfront (contrast, font size, navigation) prevents costly retrofits. It’s an ethical and legal expectation, not a performance tweak.
+
+---
+
+### **16. The main purpose of a design system is:**
+
+*a) To maintain consistency across typography, color, and components
+b) To host code on a CDN
+c) To manage file permissions
+d) To collect analytics data
+
+**Feedback:**
+A design system standardizes reusable UI patterns ensuring visual and functional coherence. CDN hosting or analytics don’t unify design language.
+
+---
+
+### **17. During planning, how can designers validate that their solution meets requirements?**
+
+*a) Conduct usability testing with prototypes
+b) Deploy directly to production
+c) Skip client feedback
+d) Focus only on branding
+
+**Feedback:**
+Testing prototypes with users validates assumptions early. Skipping feedback risks misalignment. Branding is one layer of UX, not the only goal.
+
+---
+
+### **18. Which part of the planning phase defines navigation labels and menus?**
+
+*a) Information architecture
+b) Visual design
+c) Development setup
+d) Database modeling
+
+**Feedback:**
+IA shapes navigation naming and grouping. Visual design decides look; development and databases come later.
+
+---
+
+### **19. What should a responsive design plan include?**
+
+*a) Breakpoints and layout adjustments for multiple screen sizes
+b) JavaScript animation speeds
+c) File permissions
+d) SEO tags
+
+**Feedback:**
+Responsive planning specifies how layouts adapt across devices. Breakpoints and flexible grids ensure usability everywhere; animations and SEO are secondary.
+
+---
+
+### **20. In collaborative projects, why is version control important during design?**
+
+*a) It tracks iterations and supports collaboration across teams
+b) It compresses image files
+c) It automatically validates HTML
+d) It hosts live databases
+
+**Feedback:**
+Version control (e.g., Git) maintains history and prevents overwriting. Compression and validation are isolated tasks, not collaboration tools.
+
+---
+
+### **21. A style tile or mood board helps a team:**
+
+*a) Align on visual direction (colors, fonts, imagery)
+b) Define code indentation standards
+c) Configure hosting servers
+d) Set up analytics tracking
+
+**Feedback:**
+Mood boards capture brand feel—fonts, imagery, and color—before final design. Code formatting and hosting are unrelated.
+
+---
+
+### **22. When planning site content, which guideline maintains accessibility?**
+
+*a) Use clear headings and concise plain language
+b) Include text over busy backgrounds
+c) Use decorative fonts for all text
+d) Depend on color alone for emphasis
+
+**Feedback:**
+Plain language and semantic headings aid readability for everyone. Decorative fonts or color-only cues reduce clarity and fail WCAG readability standards.
+
+---
+
+### **23. Which statement best describes the relationship between design and development?**
+
+*a) Design defines structure and behavior; development implements it in code
+b) Design follows development
+c) They are separate, unrelated tasks
+d) Development determines color and layout
+
+**Feedback:**
+Design outlines intent—structure, UX, and interface logic. Development executes that plan with HTML/CSS/JS. The two collaborate but are not identical.
+
+---
+
+### **24. The key output of the planning and design phase before coding begins is:**
+
+*a) A detailed blueprint or mockup meeting all project requirements
+b) A live deployed website
+c) SEO analytics results
+d) HTML validation report
+
+**Feedback:**
+A mockup or design spec communicates exactly what developers build. Deployment, SEO, and validation come after design approval.
+
+---
+
+### **25. Why is iterative design encouraged during website planning?**
+
+*a) It allows feedback and continuous improvement before costly implementation
+b) It slows down the workflow intentionally
+c) It guarantees pixel-perfect results
+d) It removes the need for testing
+
+**Feedback:**
+Iteration supports agile thinking—build, test, refine. Early feedback saves time and improves quality. Pixel-perfect design is less important than usability and adaptability.
+
+---
+
+✅ **Instructor Notes:**
+
+* These explanations reinforce **design-thinking workflow** (Discover → Define → Design → Develop → Deliver).
+* Aligns directly with **Weeks 3–6** in your Corah case study where students move from sitemap to wireframe to mockup.
+* You can copy each block into Brightspace “Feedback” or export as a CSV with `Question / Correct answer / Feedback` columns.
+
+Would you like me to create that **Brightspace CSV version** next (auto-formatted for upload)?
