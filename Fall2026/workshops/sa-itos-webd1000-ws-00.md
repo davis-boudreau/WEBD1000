@@ -7,9 +7,13 @@
 ## Workshop 0 — Tooling & Workflow Readiness
 
 **Course:** WEBD 1000 — Website Development
+
 **Activity:** Workshop 0
+
 **Type:** Required / Formative
+
 **Topic:** Topic 1 — Course Tooling & Web Foundations
+
 **Relevant Learning Outcome:** Outcome 1 — *Evaluate a variety of web sites for usability and accessibility.*
 
 ---
