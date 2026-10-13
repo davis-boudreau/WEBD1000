@@ -1,0 +1,26 @@
+:root {
+  --nscc-blue-50:  #E6F1FA;
+  --nscc-blue-100: #CCE3F5;
+  --nscc-blue-200: #99C7EB;
+  --nscc-blue-300: #66ABE0;
+  --nscc-blue-400: #338FD6;
+  --nscc-blue-500: #004780; /* Primary Blue*/
+  --nscc-blue-600: #003F73;
+  --nscc-blue-700: #003060;
+  --nscc-blue-800: #00244D;
+  --nscc-blue-900: #00172F;
+  --nscc-blue-950: #000C1A;
+
+  --nscc-grey-50:  #F3F5F6;
+  --nscc-grey-100: #E0E5E8;
+  --nscc-grey-200: #C2CBD1;
+  --nscc-grey-300: #A3B0B9;
+  --nscc-grey-400: #738391;
+  --nscc-grey-500: #495965; /* Primary Grey */
+  --nscc-grey-600: #404F5A;
+  --nscc-grey-700: #36434D;
+  --nscc-grey-800: #2B373F;
+  --nscc-grey-900: #1E262C;
+  --nscc-grey-950: #111619;
+
+}

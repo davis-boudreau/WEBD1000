@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Color Ramp Generator - OKLCH Demo</title>
+
+<style>
+
+:root {
+
+    --bg: #ffffff;
+    --surface: #f4f7f9;
+    --text: #1e293b;
+    --border: #d1d5db;
+
+    font-family:
+        Segoe UI,
+        Roboto,
+        Arial,
+        sans-serif;
+}
+
+[data-theme="dark"] {
+
+    --bg: #0f172a;
+    --surface: #1e293b;
+    --text: #f8fafc;
+    --border: #475569;
+}
+
+body {
+
+    margin: 0;
+    padding: 2rem;
+    background: var(--bg);
+    color: var(--text);
+
+    transition:
+        background .25s,
+        color .25s;
+}
+
+.container {
+
+    max-width: 1200px;
+    margin: auto;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.controls {
+
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+
+    margin-bottom: 2rem;
+}
+
+input,
+button,
+select {
+
+    padding: .75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 1rem;
+}
+
+button {
+
+    cursor: pointer;
+    background: #004780;
+    color: white;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+.panel {
+
+    background: var(--surface);
+
+    border-radius: 12px;
+
+    padding: 1.5rem;
+
+    margin-bottom: 2rem;
+}
+
+.swatches {
+
+    display: grid;
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(150px,1fr)
+        );
+
+    gap: 12px;
+}
+
+.swatch {
+
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.08);
+}
+
+.swatch-color {
+
+    height: 100px;
+}
+
+.swatch-info {
+
+    padding: .75rem;
+    font-size: .9rem;
+    background: white;
+    color: black;
+}
+
+pre {
+
+    overflow-x: auto;
+
+    background: #111827;
+    color: #f8fafc;
+
+    padding: 1rem;
+
+    border-radius: 8px;
+}
+
+.grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(400px,1fr)
+        );
+
+    gap: 1rem;
+}
+
+.small {
+    font-size: .9rem;
+    opacity: .8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🎨 OKLCH Color Ramp Generator</h1>
+
+<p>
+Enter any HEX color, convert it to OKLCH,
+generate a color ramp, and export CSS tokens.
+</p>
+
+<div class="controls">
+
+<input
+    id="hexInput"
+    value="#004780"
+    maxlength="7">
+
+<button onclick="generatePalette()">
+Generate Palette
+</button>
+
+<button onclick="copyTokens()">
+Copy CSS Variables
+</button>
+
+<select id="themeSelector">
+    <option value="system">
+        System Theme
+    </option>
+
+    <option value="light">
+        Light Theme
+    </option>
+
+    <option value="dark">
+        Dark Theme
+    </option>
+</select>
+
+</div>
+
+<div class="grid">
+
+<div class="panel">
+
+<h2>OKLCH Conversion</h2>
+
+<pre id="oklchOutput">
+Waiting for conversion...
+</pre>
+
+</div>
+
+<div class="panel">
+
+<h2>Generated CSS Variables</h2>
+
+<pre id="cssOutput">
+Waiting for generation...
+</pre>
+
+</div>
+
+</div>
+
+<div class="panel">
+
+<h2>Generated Color Ramp</h2>
+
+<div
+    id="swatches"
+    class="swatches">
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/*******************
+ Theme Toggle
+********************/
+
+const selector =
+document.getElementById(
+    "themeSelector"
+);
+
+selector.addEventListener(
+    "change",
+    () => {
+
+        const value =
+            selector.value;
+
+        if(value === "system") {
+
+            document
+                .documentElement
+                .removeAttribute(
+                    "data-theme"
+                );
+
+            localStorage
+                .removeItem(
+                    "theme"
+                );
+
+            return;
+        }
+
+        document
+            .documentElement
+            .setAttribute(
+                "data-theme",
+                value
+            );
+
+        localStorage
+            .setItem(
+                "theme",
+                value
+            );
+
+    }
+);
+
+const savedTheme =
+localStorage.getItem(
+    "theme"
+);
+
+if(savedTheme){
+
+    document
+        .documentElement
+        .setAttribute(
+            "data-theme",
+            savedTheme
+        );
+
+    selector.value =
+        savedTheme;
+}
+
+/*******************
+ HEX to RGB
+********************/
+
+function hexToRgb(hex){
+
+    hex =
+        hex.replace(
+            "#",
+            ""
+        );
+
+    return {
+
+        r: parseInt(
+            hex.substring(0,2),
+            16
+        ),
+
+        g: parseInt(
+            hex.substring(2,4),
+            16
+        ),
+
+        b: parseInt(
+            hex.substring(4,6),
+            16
+        )
+
+    };
+
+}
+
+/*******************
+ RGB to HEX
+********************/
+
+function rgbToHex(
+    r,g,b
+){
+
+    return "#"
+        + r.toString(16)
+            .padStart(2,"0")
+        + g.toString(16)
+            .padStart(2,"0")
+        + b.toString(16)
+            .padStart(2,"0");
+
+}
+
+/*******************
+ RGB to OKLab
+********************/
+
+function rgbToOklab(
+    r,g,b
+){
+
+    r/=255;
+    g/=255;
+    b/=255;
+
+    const linear = c =>
+        c <= 0.04045
+            ? c/12.92
+            : Math.pow(
+                (
+                    c+0.055
+                )/1.055,
+                2.4
+            );
+
+    r = linear(r);
+    g = linear(g);
+    b = linear(b);
+
+    const l =
+        0.4122214708*r +
+        0.5363325363*g +
+        0.0514459929*b;
+
+    const m =
+        0.2119034982*r +
+        0.6806995451*g +
+        0.1073969566*b;
+
+    const s =
+        0.0883024619*r +
+        0.2817188376*g +
+        0.6299787005*b;
+
+    const l3 = Math.cbrt(l);
+    const m3 = Math.cbrt(m);
+    const s3 = Math.cbrt(s);
+
+    return {
+
+        L:
+            0.2104542553*l3 +
+            0.7936177850*m3 -
+            0.0040720468*s3,
+
+        a:
+            1.9779984951*l3 -
+            2.4285922050*m3 +
+            0.4505937099*s3,
+
+        b:
+            0.0259040371*l3 +
+            0.7827717662*m3 -
+            0.8086757660*s3
+
+    };
+
+}
+
+/*******************
+ OKLab to OKLCH
+********************/
+
+function oklabToOklch(
+    L,a,b
+){
+
+    const C =
+        Math.sqrt(
+            a*a +
+            b*b
+        );
+
+    let H =
+        Math.atan2(
+            b,
+            a
+        )
+        * 180
+        / Math.PI;
+
+    if(H < 0)
+        H += 360;
+
+    return {
+        L,C,H
+    };
+
+}
+
+/*******************
+ Simple Ramp
+********************/
+
+const rampMixes = {
+
+    50: .95,
+    100: .85,
+    200: .70,
+    300: .50,
+    400: .25,
+
+    500: 0,
+
+    600: -.10,
+    700: -.25,
+    800: -.40,
+    900: -.65,
+    950: -.85
+
+};
+
+/*******************
+ Mix Color
+********************/
+
+function mixColor(
+    rgb,
+    amount
+){
+
+    let r =
+        rgb.r;
+
+    let g =
+        rgb.g;
+
+    let b =
+        rgb.b;
+
+    if(amount >= 0){
+
+        r = Math.round(
+            r + (255-r)
+            * amount
+        );
+
+        g = Math.round(
+            g + (255-g)
+            * amount
+        );
+
+        b = Math.round(
+            b + (255-b)
+            * amount
+        );
+
+    }
+    else {
+
+        amount =
+            Math.abs(
+                amount
+            );
+
+        r = Math.round(
+            r*(1-amount)
+        );
+
+        g = Math.round(
+            g*(1-amount)
+        );
+
+        b = Math.round(
+            b*(1-amount)
+        );
+
+    }
+
+    return {
+        r,g,b
+    };
+}
+
+let generatedCSS =
+"";
+
+/*******************
+ Main Generator
+********************/
+
+function generatePalette(){
+
+    const hex =
+        document
+            .getElementById(
+                "hexInput"
+            )
+            .value
+            .trim();
+
+    const rgb =
+        hexToRgb(
+            hex
+        );
+
+    const lab =
+        rgbToOklab(
+            rgb.r,
+            rgb.g,
+            rgb.b
+        );
+
+    const oklch =
+        oklabToOklch(
+            lab.L,
+            lab.a,
+            lab.b
+        );
+
+    document
+        .getElementById(
+            "oklchOutput"
+        )
+        .textContent =
+
+`HEX
+${hex}
+
+OKLCH
+
+L = ${oklch.L.toFixed(4)}
+
+C = ${oklch.C.toFixed(4)}
+
+H = ${oklch.H.toFixed(2)}
+
+CSS
+
+oklch(
+${oklch.L.toFixed(4)}
+${oklch.C.toFixed(4)}
+${oklch.H.toFixed(2)}
+)`;
+
+    const swatches =
+        document
+            .getElementById(
+                "swatches"
+            );
+
+    swatches.innerHTML =
+        "";
+
+    let css =
+`:root {
+
+`;
+
+    for(
+        const step
+        in rampMixes
+    ){
+
+        let mixed;
+
+        if(step == 500){
+            mixed = rgb;
+        }
+        else{
+
+            mixed =
+                mixColor(
+                    rgb,
+                    rampMixes[
+                        step
+                    ]
+                );
+        }
+
+        const hexValue =
+            rgbToHex(
+                mixed.r,
+                mixed.g,
+                mixed.b
+            );
+
+        css +=
+`  --color-${step}: ${hexValue};
+`;
+
+        const card =
+            document
+                .createElement(
+                    "div"
+                );
+
+        card.className =
+            "swatch";
+
+        card.innerHTML =
+
+`
+<div
+class="swatch-color"
+style="
+background:${hexValue};
+">
+</div>
+
+<div class="swatch-info">
+
+<strong>
+${step}
+</strong>
+
+<br>
+
+${hexValue}
+
+</div>
+`;
+
+        swatches.appendChild(
+            card
+        );
+
+    }
+
+    css +=
+`}`;
+
+    generatedCSS =
+        css;
+
+    document
+        .getElementById(
+            "cssOutput"
+        )
+        .textContent =
+            css;
+
+}
+
+/*******************
+ Copy Tokens
+********************/
+
+function copyTokens(){
+
+    navigator.clipboard
+        .writeText(
+            generatedCSS
+        );
+
+    alert(
+        "CSS variables copied!"
+    );
+
+}
+
+generatePalette();
+
+</script>
+
+</body>
+</html>
