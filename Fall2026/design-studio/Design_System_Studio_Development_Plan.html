@@ -1,0 +1,699 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light dark"><title>Design System Studio | Development Plan</title>
+<style>
+/* STUDIO PLAN: foundation values shared by all sections. */
+:root{--brand:#004780;--brand-on:#fff;--bg:#f6f8fc;--surface:#fff;--surface-soft:#edf3f8;--text:#142337;--muted:#536479;--border:#cbd5e1;--focus:#d97706;--radius:14px;--font:Arial,Helvetica,sans-serif;--base:16px;--space:1rem;--shadow:0 8px 28px #0b1c3610}
+/* DARK THEME: semantic colours change; components keep the same rules. */
+html[data-theme="dark"]{--brand:#9bc7ed;--brand-on:#081827;--bg:#0b1422;--surface:#142236;--surface-soft:#1d3049;--text:#f1f5fa;--muted:#b6c5d8;--border:#41566d;--focus:#fbbf24;--shadow:none;color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:var(--base);line-height:1.65}a{color:var(--brand)}button,input,select{font:inherit}button,select,input[type="color"]{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--focus);outline-offset:3px}header{background:var(--surface);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:10}.head{max-width:1480px;margin:auto;padding:.65rem 1.1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}.brand{font-weight:800;letter-spacing:-.03em}.sub{color:var(--muted);font-size:.83rem}.controls{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}.button{display:inline-flex;justify-content:center;align-items:center;gap:.4rem;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--text);padding:.5rem .8rem;text-decoration:none;font-weight:700}.button.primary{background:var(--brand);color:var(--brand-on);border-color:var(--brand)}.button:hover{filter:brightness(.96)}.layout{max-width:1480px;margin:auto;display:grid;grid-template-columns:245px minmax(0,1fr);gap:1.4rem;padding:1.3rem}.side{position:sticky;top:80px;align-self:start;max-height:calc(100vh - 100px);overflow:auto;padding:.9rem;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface)}.side a{display:block;padding:.3rem .5rem;color:var(--muted);font-size:.83rem;text-decoration:none;border-radius:6px}.side a:hover{background:var(--surface-soft);color:var(--text)}main{min-width:0}.hero,.interactive,.article{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:clamp(1rem,2vw,2rem);margin-bottom:1.2rem}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:.72rem;color:var(--muted);font-weight:800}.hero h1{font-size:clamp(1.9rem,1.25rem + 2.7vw,3.5rem);line-height:1.13;letter-spacing:-.04em;margin:.5rem 0}.lead{max-width:72ch;color:var(--muted);font-size:1.06rem}.chip{display:inline-block;border-radius:999px;background:var(--surface-soft);padding:.25rem .65rem;font-size:.78rem;margin:.15rem}.dash{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:1rem}.panel{background:var(--surface-soft);padding:1rem;border-radius:12px;min-width:0}.panel h3{margin:.2rem 0 .6rem}.milestone{display:flex;gap:.7rem;align-items:flex-start;border-bottom:1px solid var(--border);padding:.65rem 0;cursor:pointer}.milestone small{display:block;color:var(--muted)}.milestone:has(input:checked) strong{text-decoration:line-through;color:var(--muted)}.meter{height:12px;border-radius:99px;background:var(--border);overflow:hidden}.meter>div{background:var(--brand);height:100%;width:0;transition:width .2s}.lab{--lab-primary:#004780;--lab-text:#fff;--lab-radius:12px;--lab-size:16px}.sample{background:var(--surface);border:1px solid var(--border);padding:1rem;border-radius:var(--lab-radius)}.sample h3{font-size:clamp(1.25rem,1rem + 1.4vw,2rem);line-height:1.2}.sample p{font-size:var(--lab-size)}.sample button{background:var(--lab-primary);color:var(--lab-text);border:0;border-radius:var(--lab-radius);padding:.7rem 1rem;font-weight:700}.field{display:grid;gap:.3rem;margin:.7rem 0}.field label{font-size:.85rem;font-weight:700}.field input:not([type="color"]),.field select{max-width:100%;border:1px solid var(--border);border-radius:8px;padding:.4rem;background:var(--surface);color:var(--text)}.swatch{display:inline-block;width:20px;height:20px;border:1px solid var(--border);border-radius:5px;vertical-align:middle}.article h2{margin-top:2.3rem;padding-top:.5rem;border-top:1px solid var(--border);font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem);line-height:1.3}.article h3{margin-top:1.5rem}.article p,.article li{max-width:95ch}.article table{display:block;overflow-x:auto;border-collapse:collapse;width:100%;font-size:.89rem}.article th,.article td{padding:.6rem .7rem;text-align:left;border:1px solid var(--border);min-width:110px}.article th{background:var(--surface-soft)}pre{max-width:100%;overflow:auto;background:#101d30;color:#e9f2ff;border-radius:10px;padding:1rem;font-size:.84rem;line-height:1.5}code{overflow-wrap:anywhere}p code,li code,td code{background:var(--surface-soft);border-radius:4px;padding:.08rem .3rem}pre code{background:none;color:inherit;padding:0}blockquote{margin:1rem 0;border-left:4px solid var(--brand);background:var(--surface-soft);padding:.5rem 1rem}blockquote p{margin:.4rem 0}hr{border:0;border-top:1px solid var(--border)}.article ul,.article ol{padding-left:1.5rem}.article input[type=checkbox]{accent-color:var(--brand)}.status{font-size:.8rem;color:var(--muted)}.mini{font-size:.8rem}.footer{padding:2rem;text-align:center;color:var(--muted)}
+/* MOBILE FIRST: hide sidebar on small viewports; stack all tools. */
+@media(max-width:900px){.layout{grid-template-columns:1fr}.side{position:static;max-height:180px}.head{position:static}header{position:static}}
+@media(max-width:540px){.controls{width:100%}.button{flex:1}.layout{padding:.7rem}.hero,.interactive,.article{padding:1rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+@media print{header,.side,.interactive,.no-print{display:none!important}.layout{display:block}.article,.hero{border:0;box-shadow:none;padding:0}body{background:#fff;color:#000}pre{white-space:pre-wrap;color:#000;background:#eee}a{color:#000}}
+</style></head>
+<body><header><div class="head"><div><div class="brand">Design System Studio <span class="sub">/ Development Plan</span></div><div class="sub">WEBD 3100 · Standalone project roadmap · October 2026</div></div><div class="controls"><label class="mini" for="theme">Theme</label><select id="theme" aria-label="Page theme"><option value="light">Light</option><option value="dark">Dark</option><option value="system">System</option></select><button class="button" type="button" id="print">Print / PDF</button><button class="button primary" type="button" id="downloadPlan">Download Markdown</button></div></div></header>
+<div class="layout"><nav class="side" aria-label="Plan sections"><strong>Development plan</strong><div class="sub">Jump to a section</div><a href="#1-executive-summary">1. Executive summary</a><a href="#2-educational-alignment">2. Educational alignment</a><a href="#3-product-structure-and-information-architecture">3. Product structure and information architecture</a><a href="#4-token-architecture">4. Token architecture</a><a href="#5-feature-specifications">5. Feature specifications</a><a href="#6-technical-architecture">6. Technical architecture</a><a href="#7-delivery-roadmap-and-milestones">7. Delivery roadmap and milestones</a><a href="#8-prioritized-backlog">8. Prioritized backlog</a><a href="#9-quality-and-testing-strategy">9. Quality and testing strategy</a><a href="#10-definition-of-done">10. Definition of done</a><a href="#11-risks-decisions-and-mitigations">11. Risks, decisions and mitigations</a><a href="#12-governance-and-documentation">12. Governance and documentation</a><a href="#13-suggested-first-implementation-sprint">13. Suggested first implementation sprint</a><a href="#14-success-measures">14. Success measures</a><a href="#15-immediate-next-decisions">15. Immediate next decisions</a></nav><main><section class="hero"><div class="eyebrow">Complete development plan · V1.0</div><h1>Design System Studio</h1><p class="lead">An educational CSS design-system workbench: explore foundations, understand token dependencies, preview real components, validate accessibility and export readable project code.</p><span class="chip">Static-first</span><span class="chip">Responsive</span><span class="chip">Accessible by design</span><span class="chip">Figma-aligned</span><span class="chip">Workshop 03A + 03B</span></section>
+<section class="interactive" aria-label="Interactive roadmap"><div class="eyebrow">Interactive overview</div><h2>Release roadmap</h2><p class="sub">Check milestones as a local planning exercise. Checkmarks are not project-status claims and reset when this page reloads.</p><div class="dash"><div class="panel"><h3>Milestones</h3><label class="milestone"><input type="checkbox" data-task="0"><span><strong>V1 · Existing proof of concept</strong><small>Document baseline and gaps</small></span></label><label class="milestone"><input type="checkbox" data-task="1"><span><strong>V2 · Interactive foundations</strong><small>Colour, typography, spacing and token export</small></span></label><label class="milestone"><input type="checkbox" data-task="2"><span><strong>V3 · Components &amp; validation</strong><small>States, inspector, responsive and accessibility</small></span></label><label class="milestone"><input type="checkbox" data-task="3"><span><strong>V4 · Project workflow</strong><small>Projects, presets, file exports, guided lessons</small></span></label><label class="milestone"><input type="checkbox" data-task="4"><span><strong>V5 · Optional extensions</strong><small>Classroom-driven improvements</small></span></label></div><div class="panel"><h3>Roadmap progress</h3><p><strong id="progressLabel">0 of 5</strong> marked complete</p><div class="meter" role="progressbar" aria-label="Milestones marked complete" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" id="progress"><div id="progressFill"></div></div><p class="mini">This is an illustrative planning control, not a synchronized task tracker.</p><h3>Architecture</h3><ol class="mini"><li>Foundation values</li><li>Semantic roles</li><li>Component tokens</li><li>Live responsive UI</li><li>Validation and export</li></ol></div></div></section>
+<section class="interactive" aria-label="Live design token demonstration"><div class="eyebrow">Integrated HTML example</div><h2>Change a token. See the result.</h2><p class="sub">This small demonstration is intentionally included in the plan itself. It illustrates the future Studio's edit → preview → CSS workflow; it is not the full planned product.</p><div class="dash lab"><div class="panel"><h3>Foundation controls</h3><div class="field"><label for="primary">Primary colour</label><input type="color" id="primary" value="#004780"></div><div class="field"><label for="typeSize">Body font size <output id="sizeOut">16 px</output></label><input type="range" min="14" max="22" step="1" value="16" id="typeSize"></div><div class="field"><label for="radius">Corner radius <output id="radiusOut">12 px</output></label><input type="range" min="0" max="28" step="2" value="12" id="radius"></div><button class="button" type="button" id="reset">Reset demonstration</button></div><div class="panel"><h3>Responsive component preview</h3><div class="sample" id="sample"><span class="mini">Event card · semantic UI</span><h3>Design systems in practice</h3><p>Change one foundation value and observe the reusable component update. Resize the page to see fluid heading typography.</p><button type="button" id="demoAction">Explore events</button><p class="status" id="demoStatus" role="status">Preview ready.</p></div></div><div class="panel"><h3>Generated CSS preview</h3><pre><code id="cssOutput"></code></pre><button class="button" type="button" id="copyCss">Copy CSS</button><p class="status" id="copyStatus" role="status"></p></div></div></section>
+<article class="article" id="full-plan"><h1>Design System Studio — Complete Development Plan</h1>
+<p><strong>Working title:</strong> Design System Studio — CSS Foundations &amp; Components<br/>
+<strong>Version:</strong> Development Plan 1.0 · 12 October 2026<br/>
+<strong>Audience:</strong> WEBD 3100 students, instructors, independent web developers<br/>
+<strong>Status:</strong> Proposed roadmap; existing CSS Design System Lab is the V1 proof of concept<br/>
+<strong>Delivery:</strong> Static-first, mobile-first, browser-based; deployable to GitHub Pages and distributable through Brightspace</p>
+<blockquote>
+<p><strong>Product promise:</strong> Explore a design decision, understand its CSS, see it across real components and viewports, validate its accessibility, and export a documented starting point for a project.</p>
+</blockquote>
+<h2 id="1-executive-summary">1. Executive summary</h2>
+<p>Design System Studio evolves the current single-page CSS Design System Lab into an independent educational design-system workbench. It complements Figma rather than replacing it. Its primary output is a coherent, documented set of design tokens, responsive HTML/CSS examples, and validation evidence—not a proprietary CSS framework or a finished student website.</p>
+<p>The Studio supports three interconnected workflows:</p>
+<ol>
+<li><strong>Learn:</strong> Read concise theory, inspect commented CSS, follow guided exercises and identify token relationships.</li>
+<li><strong>Explore:</strong> Modify colour, typography, spacing, radii and themes; observe changes in components and responsive layouts.</li>
+<li><strong>Build:</strong> Save project settings, review accessibility, export CSS/JSON/HTML and apply them to a student project.</li>
+</ol>
+<h3>1.1 What makes it distinct</h3>
+<ul>
+<li><strong>Traceability:</strong> Foundation token → semantic token → component rule → rendered result.</li>
+<li><strong>Visual comparison:</strong> Light/dark themes, mobile/tablet/desktop, typography ladders, component states and before/after changes.</li>
+<li><strong>Teachability:</strong> Commented CSS, worked examples, checkpoints, definitions and explanations of <em>why</em> a technique is used.</li>
+<li><strong>Portability:</strong> No account, backend, build process, external font or network connection required for the core experience.</li>
+<li><strong>Project ownership:</strong> Students can export standards-based code and continue development independently.</li>
+</ul>
+<h3>1.2 Scope boundaries</h3>
+<p><strong>In scope:</strong> Token authoring, visualization, guided learning, component examples, contrast calculations, responsive previews, local project files, export and documentation.</p>
+<p><strong>Not in scope for initial releases:</strong> Cloud accounts, multiuser collaboration, a Figma plugin, a full component framework, AI-generated final designs, production certification, or automated WCAG conformance claims.</p>
+<h2 id="2-educational-alignment">2. Educational alignment</h2>
+<h3>2.1 WEBD 3100 alignment</h3>
+<table>
+<thead>
+<tr>
+<th>Learning activity</th>
+<th>Studio capability</th>
+<th>Student evidence</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workshop 03A — Colour</td>
+<td>Colour ramps (RGB Mix/OKLCH), palette roles, semantic tokens, light/dark themes</td>
+<td>Colour System V1, contrast decisions, exported colour tokens</td>
+</tr>
+<tr>
+<td>Workshop 03B — Typography</td>
+<td>Font families, serif/sans-serif comparison, type ladders, responsive <code>clamp()</code>, leading and reading width</td>
+<td>Mobile and desktop Figma type-scale boards; Typography System V1</td>
+</tr>
+<tr>
+<td>Workshop 04 — Structure</td>
+<td>Containers, grids, flex, content hierarchy and responsive breakpoints</td>
+<td>Responsive layout comparisons</td>
+</tr>
+<tr>
+<td>Workshop 05 — UI Prototyping</td>
+<td>Cards, forms, buttons, feedback and state explorer</td>
+<td>Annotated component states</td>
+</tr>
+<tr>
+<td>Workshop 06 — Figma to Code</td>
+<td>Token mapping and commented CSS export</td>
+<td>Figma-to-CSS comparison and code evidence</td>
+</tr>
+<tr>
+<td>Workshop 07 — Accessibility</td>
+<td>Contrast, focus, reflow, text resizing and non-colour feedback</td>
+<td>Accessibility test log</td>
+</tr>
+<tr>
+<td>Integrated semester project</td>
+<td>Project-specific configuration and export</td>
+<td>Evolving Visual Design System V1 and later revisions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Assessment boundary:</strong> Workshop 03A and 03B remain one combined 4% workshop assessment. Formal integrated-project milestones are evaluated separately. Studio use supports existing evaluations; it does not add a new grade.</p>
+<h3>2.2 Guided case study and independent project</h3>
+<ol>
+<li><strong>Guided NSCC-inspired example:</strong> Default primary <code>#004780</code>; Arial is the available alternative to NSCC's licensed Greycliff. Illustrative supporting palettes are not official brand specifications.</li>
+<li><strong>Independent project:</strong> Students choose and justify their own brand, font stacks, scales, colours, components and responsive behaviours.</li>
+<li><strong>Evidence:</strong> Save screenshots/Figma links, test results, exported files and a short decision log.</li>
+</ol>
+<h3>2.3 Learning principles</h3>
+<ul>
+<li>Self-guided, step-by-step, with instructor acting as facilitator.</li>
+<li>Every code example uses semantic HTML, commented CSS and a mobile-first responsive layout.</li>
+<li>Prefer accessible native controls over custom JavaScript widgets.</li>
+<li>Show <strong>what a generator is doing</strong>, even when arithmetic is not required.</li>
+<li>Use lists and short Mermaid labels; keep detailed explanation outside diagrams.</li>
+<li>Follow the established student workflow: Complete Workshop → Complete Worksheet → Complete Reflection → Commit/Push Technical Evidence → Submit Worksheet to Brightspace.</li>
+</ul>
+<h2 id="3-product-structure-and-information-architecture">3. Product structure and information architecture</h2>
+<pre><code class="language-mermaid">flowchart TD
+    A[Studio Home] --&gt; B[Learn]
+    A --&gt; C[Explore]
+    A --&gt; D[Build]
+    B --&gt; E[Guided Concepts]
+    C --&gt; F[Foundation Editors]
+    C --&gt; G[Component Gallery]
+    D --&gt; H[Project Configuration]
+    H --&gt; I[Validate]
+    I --&gt; J[Export]
+    F --&gt; K[Live Token Graph]
+    G --&gt; K
+    K --&gt; I
+</code></pre>
+<h3>3.1 Global interface</h3>
+<ul>
+<li><strong>Header:</strong> Product title, project name, current theme, mode switch and save/export.</li>
+<li><strong>Navigation:</strong> Overview; Colour; Typography; Spacing &amp; Surfaces; Components; Responsive; Accessibility; Tokens; Export.</li>
+<li><strong>Inspector:</strong> Selected element, foundation/semantic/component token path, computed CSS and copy action.</li>
+<li><strong>Live preview:</strong> Interactive UI with light/dark/system themes and viewport presets.</li>
+<li><strong>Learning panel:</strong> Concept, commented code, explanation, checkpoint and relevant workshop reference.</li>
+<li><strong>Status region:</strong> Unsaved changes, validation warnings and export status; accessible announcements.</li>
+</ul>
+<h3>3.2 Modes</h3>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Primary purpose</th>
+<th>Controls and outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Learn</td>
+<td>Understand design-system concepts</td>
+<td>Examples, definitions, code comments, checkpoints</td>
+</tr>
+<tr>
+<td>Explore</td>
+<td>Experiment safely</td>
+<td>Sliders, pickers, presets, undo/reset, visual comparison</td>
+</tr>
+<tr>
+<td>Build</td>
+<td>Produce project assets</td>
+<td>Named configuration, validation, JSON/CSS/HTML export</td>
+</tr>
+</tbody>
+</table>
+<p>Modes share the same token model; they do <strong>not</strong> create separate incompatible systems.</p>
+<h2 id="4-token-architecture">4. Token architecture</h2>
+<h3>4.1 Layers</h3>
+<ol>
+<li><strong>Foundation tokens:</strong> Literal colour scales, font stacks, type sizes, spacing, radii, shadows, breakpoints.</li>
+<li><strong>Semantic tokens:</strong> Purpose-specific roles such as <code>--color-text</code>, <code>--color-surface</code>, <code>--color-primary</code>, <code>--text-body</code>.</li>
+<li><strong>Component tokens:</strong> Context-specific assignments such as <code>--button-primary-bg</code>, <code>--card-radius</code>, <code>--input-border-focus</code>.</li>
+<li><strong>Rendered components:</strong> Actual elements using component/semantic tokens; values respond to theme and viewport.</li>
+</ol>
+<pre><code class="language-mermaid">flowchart LR
+    A[Foundations] --&gt; B[Semantic Roles]
+    B --&gt; C[Component Roles]
+    C --&gt; D[Rendered UI]
+    D --&gt; E[Validation]
+    E -. Refine .-&gt; A
+</code></pre>
+<h3>4.2 Example CSS contract</h3>
+<pre><code class="language-css">/* FOUNDATION: reusable colour and typography values. */
+:root {
+  --blue-500: #004780;
+  --neutral-0: #ffffff;
+  --neutral-950: #0f172a;
+  --font-sans: Arial, Helvetica, sans-serif;
+  --text-body-size: 1rem;
+  --text-display-size: clamp(2rem, 1.3rem + 2.5vw, 3.25rem);
+  --leading-body: 1.6; /* Unitless line height follows font size. */
+  --space-4: 1rem;
+  --radius-md: .75rem;
+
+  /* SEMANTIC: assign purpose to foundation values. */
+  --color-primary: var(--blue-500);
+  --color-on-primary: var(--neutral-0);
+  --color-background: var(--neutral-0);
+  --color-text: var(--neutral-950);
+  --font-body: var(--font-sans);
+  --text-body: var(--text-body-size);
+  --text-display: var(--text-display-size);
+
+  /* COMPONENT: assign semantic values to specific UI parts. */
+  --button-primary-bg: var(--color-primary);
+  --button-primary-text: var(--color-on-primary);
+  --button-radius: var(--radius-md);
+}
+
+/* THEME: override semantic roles rather than rewriting components. */
+[data-theme="dark"] {
+  --color-background: #0b1220;
+  --color-text: #f8fafc;
+  --color-primary: #99c7eb;
+  --color-on-primary: #071827;
+}
+
+/* COMPONENT: responsive and theme-aware by construction. */
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: .7rem var(--space-4);
+  border: 0;
+  border-radius: var(--button-radius);
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  font: inherit;
+}
+</code></pre>
+<h3>4.3 Token data model</h3>
+<pre><code class="language-json">{
+  "schemaVersion": "1.0.0",
+  "project": { "name": "NSCC Guided Case Study" },
+  "foundations": {
+    "colors": { "blue": { "500": "#004780" } },
+    "typography": { "fontSans": "Arial, Helvetica, sans-serif", "baseRem": 1 },
+    "spacing": { "4": "1rem" },
+    "radii": { "md": "0.75rem" }
+  },
+  "themes": {
+    "light": { "colorPrimary": "{colors.blue.500}", "colorOnPrimary": "#ffffff" },
+    "dark": { "colorPrimary": "#99c7eb", "colorOnPrimary": "#071827" }
+  }
+}
+</code></pre>
+<p><strong>Rules:</strong> Validate all imported keys and values; do not execute imported code. Reject unknown schema versions unless a supported migration exists. Resolve aliases with cycle detection and report missing references. Preserve readable human-authored token names.</p>
+<h2 id="5-feature-specifications">5. Feature specifications</h2>
+<h3>5.1 Colour system builder</h3>
+<p><strong>Inputs:</strong> HEX, generation method (RGB Mix or OKLCH), primary/secondary/accent families, neutrals, feedback roles, light/dark mapping.</p>
+<p><strong>Behaviours:</strong></p>
+<ol>
+<li>Display the source HEX and calculated RGB/OKLCH coordinates.</li>
+<li>Generate labelled ramps with original anchor preserved.</li>
+<li>Explain RGB channel mixing versus perceptual OKLCH adjustments.</li>
+<li>Permit individual swatch overrides and named semantic assignments.</li>
+<li>Preview text/background pairs and interactive components.</li>
+<li>Check calculated contrast; warn rather than silently substitute colours.</li>
+<li>Export foundation scales and semantic light/dark CSS variables.</li>
+</ol>
+<p><strong>Acceptance:</strong> Same inputs produce deterministic ramps; anchor remains unchanged; invalid HEX yields an actionable error; both themes preview; colour is never the sole feedback cue.</p>
+<h3>5.2 Typography scale builder</h3>
+<p><strong>Inputs:</strong> Font stack (default Arial), serif/sans-serif comparison, base size, ratio, min/max sizes, line-height, letter spacing and reading width.</p>
+<p><strong>Behaviours:</strong></p>
+<ol>
+<li>Show a 14–48 px labelled type ladder and actual rendered specimens.</li>
+<li>Compare <strong>375 px mobile</strong> and <strong>1280 px desktop</strong> frames; offer 768 px tablet.</li>
+<li>Show display, H1–H3, lead, body, small, label, navigation and button roles.</li>
+<li>Generate responsive <code>clamp()</code> tokens; explain minimum, fluid expression and maximum.</li>
+<li>Demonstrate <code>rem</code>, <code>ch</code>, unitless leading and font fallbacks.</li>
+<li>Allow students to record Figma style names and map them to CSS tokens.</li>
+<li>Test text wrapping, 200% zoom and long content.</li>
+</ol>
+<p><strong>Typeface note:</strong> NSCC uses licensed Greycliff; do not bundle or distribute it. Arial is the default guided-case-study fallback. Project users are responsible for their own font licences.</p>
+<h3>5.3 Spacing, surfaces and elevation</h3>
+<ul>
+<li>Spacing scale preview with actual pixel/rem measures.</li>
+<li>Surface hierarchy: background, surface, elevated surface and muted surface.</li>
+<li>Border colours, widths, focus outlines, radius scale and shadows.</li>
+<li>Layout container widths, reading measures and consistent gutters.</li>
+<li>Side-by-side examples showing how spacing changes visual rhythm.</li>
+</ul>
+<h3>5.4 Component state explorer</h3>
+<p><strong>Components:</strong> Buttons, links, cards, navigation, badges, alerts, inputs, select, checkbox, radio, textarea, tabs (if implemented accessibly), and a sample responsive event listing.</p>
+<p><strong>States where meaningful:</strong> Default, hover, focus-visible, active/pressed, selected, disabled, invalid, success, warning, loading.</p>
+<p><strong>For every component:</strong> Live example; semantic HTML; commented CSS; token dependency list; keyboard guidance; light/dark and mobile/desktop tests.</p>
+<h3>5.5 Responsive laboratory</h3>
+<ul>
+<li>Presets: 375 px, 768 px, 1280 px; adjustable custom width within available screen.</li>
+<li>Responsive <em>embedded preview</em> must faithfully represent the selected viewport; use a sandboxed iframe or equivalent isolated preview for CSS media queries, rather than merely shrinking a containing <code>div</code>.</li>
+<li>Demonstrate Grid (<code>minmax</code>, <code>auto-fit</code>), Flexbox, container queries, fluid type, wrapping and no horizontal overflow.</li>
+<li>Preview content length variation and 200% zoom; preserve keyboard access.</li>
+</ul>
+<h3>5.6 Accessibility workbench</h3>
+<ul>
+<li>Contrast calculations for actual foreground/background colour pairs: 4.5:1 for normal text, 3:1 for large text under WCAG 2.x AA.</li>
+<li>Non-text UI contrast and focus visibility checks as distinct tests; do not mislabel all 3:1 tests as large-text tests.</li>
+<li>Keyboard-only operation; visible focus; labelled form controls; meaningful status messages.</li>
+<li>Text resize, 320 CSS-pixel reflow, reduced motion and non-colour status cues.</li>
+<li>Explain that automated checks are <strong>partial evidence</strong>, not a complete WCAG audit.</li>
+<li>Export a checklist with results, dates and unresolved issues.</li>
+</ul>
+<h3>5.7 Token inspector and before/after comparison</h3>
+<ol>
+<li>Click a rendered component.</li>
+<li>Highlight the CSS property and component token controlling it.</li>
+<li>Follow aliases to semantic and foundation values.</li>
+<li>Display computed value and current theme.</li>
+<li>Edit a source token and compare previous/current appearance.</li>
+<li>Copy a minimal commented CSS snippet.</li>
+</ol>
+<h3>5.8 Project management and export</h3>
+<ul>
+<li>New/open/duplicate/reset project configuration.</li>
+<li>Local JSON download/upload; optionally local browser persistence with clear opt-in and reset.</li>
+<li>Exports: <code>tokens.json</code>, <code>tokens.css</code>, <code>base.css</code>, <code>components.css</code>, <code>index.html</code> sample, <code>README.md</code>, and <code>validation-report.md</code>.</li>
+<li>Provide a ZIP download only when client-side packaging is implemented and tested; otherwise individual files.</li>
+<li>Generated CSS must be human-readable, commented, standards-based and free of runtime Studio dependencies.</li>
+<li>Import/export round-trip must preserve equivalent token values and theme roles.</li>
+</ul>
+<h2 id="6-technical-architecture">6. Technical architecture</h2>
+<h3>6.1 Recommended stack</h3>
+<p><strong>V2–V3:</strong> Semantic HTML5, CSS custom properties, modern CSS Grid/Flexbox, vanilla JavaScript ES modules; no backend. <strong>V4:</strong> Continue static-first; add a small build pipeline only if complexity and tests justify it. Avoid unnecessary dependencies.</p>
+<pre><code class="language-mermaid">flowchart TD
+    A[User Controls] --&gt; B[State Store]
+    B --&gt; C[Token Resolver]
+    C --&gt; D[CSS Variable Writer]
+    D --&gt; E[Live Preview]
+    C --&gt; F[Validators]
+    C --&gt; G[Exporters]
+    F --&gt; H[Validation Report]
+    G --&gt; I[Project Files]
+</code></pre>
+<h3>6.2 Proposed repository</h3>
+<pre><code class="language-text">design-system-studio/
+├── index.html                  # App shell, semantic navigation
+├── README.md                   # Setup, pedagogy, licensing
+├── docs/
+│   ├── DEVELOPMENT_PLAN.md
+│   ├── token-schema.md
+│   ├── accessibility-checklist.md
+│   └── workshop-mapping.md
+├── css/
+│   ├── tokens.css              # Foundation/semantic/component tokens
+│   ├── base.css                # Reset, typography, focus, responsive base
+│   ├── layout.css              # Grid/Flexbox layouts
+│   └── components.css          # Reusable Studio UI
+├── js/
+│   ├── app.js                  # Bootstrap and events
+│   ├── state.js                # Immutable project state and history
+│   ├── tokens.js               # Alias resolution and validation
+│   ├── color.js                # RGB Mix, OKLCH, contrast
+│   ├── typography.js           # Scale/clamp calculations
+│   ├── preview.js              # Isolated viewport preview
+│   ├── inspector.js            # Token dependency inspection
+│   ├── export.js               # CSS/JSON/HTML generation
+│   └── storage.js              # Optional local persistence
+├── presets/
+│   ├── nscc-inspired.json
+│   └── neutral-starter.json
+└── tests/
+    ├── tokens.test.js
+    ├── color.test.js
+    ├── typography.test.js
+    ├── export.test.js
+    └── accessibility-checklist.md
+</code></pre>
+<h3>6.3 State and security</h3>
+<ul>
+<li>Maintain one canonical project state; derive previews and exports from it.</li>
+<li>Validate import size, schema, token names, HEX strings and numeric ranges.</li>
+<li>Use <code>textContent</code> for user-provided labels; avoid inserting imported HTML into the Studio DOM.</li>
+<li>Isolate any user HTML preview; do not execute arbitrary uploaded JavaScript.</li>
+<li>Treat JSON imports as untrusted data; reject CSS injection and dangerous URLs.</li>
+<li>Support keyboard operation, reduced motion and high zoom in the Studio interface itself.</li>
+<li>Prefer offline operation; clearly disclose any optional external resource use.</li>
+</ul>
+<h2 id="7-delivery-roadmap-and-milestones">7. Delivery roadmap and milestones</h2>
+<p><strong>Planning estimates are relative effort, not fixed calendar commitments.</strong> One developer working part-time may take longer; validate after V2 discovery.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Scope</th>
+<th>Indicative effort</th>
+<th>Exit criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>V1 — Existing proof of concept</strong></td>
+<td>Colour/type/surface/component showcase, themes, computed token inspector</td>
+<td>Existing</td>
+<td>Baseline documented; issues catalogued</td>
+</tr>
+<tr>
+<td><strong>V2 — Interactive foundations</strong></td>
+<td>Editable colour builder, typography scale builder, spacing/radius controls, shared state, basic import/export</td>
+<td>3–5 weeks</td>
+<td>Student can configure and export a complete foundation + semantic token set</td>
+</tr>
+<tr>
+<td><strong>V3 — Components &amp; validation</strong></td>
+<td>Component states, dependency inspector, isolated viewport previews, contrast and keyboard checklist</td>
+<td>4–6 weeks</td>
+<td>Student can trace tokens, test components and record evidence</td>
+</tr>
+<tr>
+<td><strong>V4 — Project workflow</strong></td>
+<td>Named projects, presets, JSON round-trip, multi-file exports, tutorials, validation report</td>
+<td>3–5 weeks</td>
+<td>Student can transfer a project design system into VS Code and Figma workflow</td>
+</tr>
+<tr>
+<td><strong>V5 — Optional extensions</strong></td>
+<td>Compare versions, guided exercises, additional components, optional Figma-friendly mappings</td>
+<td>Prioritized later</td>
+<td>Driven by classroom feedback, not assumed</td>
+</tr>
+</tbody>
+</table>
+<h3>7.1 Milestone breakdown</h3>
+<p><strong>M0 — Discovery and baseline</strong></p>
+<ul>
+<li>Inventory V1 CSS tokens, components, current limitations and accessibility gaps.</li>
+<li>Confirm naming conventions, token schema and licensing boundaries.</li>
+<li>Select representative NSCC case-study and independent-project test scenarios.</li>
+</ul>
+<p><strong>M1 — Core engine</strong></p>
+<ul>
+<li>Define canonical state schema, token alias resolver, theme model, undo/reset and validation errors.</li>
+<li>Add deterministic unit tests for colour conversion, alias resolution and CSS serialization.</li>
+</ul>
+<p><strong>M2 — Foundation editors</strong></p>
+<ul>
+<li>Add colour families, typography ladder, spacing/radius/elevation controls.</li>
+<li>Add computed previews, clear controls, explanatory code and responsive specimens.</li>
+</ul>
+<p><strong>M3 — Component and viewport lab</strong></p>
+<ul>
+<li>Build component gallery and states; link each component to token dependencies.</li>
+<li>Implement actual isolated mobile/tablet/desktop preview and overflow tests.</li>
+</ul>
+<p><strong>M4 — Validation and export</strong></p>
+<ul>
+<li>Add contrast, keyboard and responsive checklists.</li>
+<li>Export documented CSS, JSON, HTML and README; test round-trip and deployment.</li>
+</ul>
+<p><strong>M5 — Classroom pilot</strong></p>
+<ul>
+<li>Pilot with WS03A/WS03B tasks, gather student time-on-task and confusion points.</li>
+<li>Revise onboarding, defaults, error messages, accessibility and workshop guidance.</li>
+</ul>
+<pre><code class="language-mermaid">flowchart LR
+    M0[Baseline] --&gt; M1[Core Engine]
+    M1 --&gt; M2[Foundations]
+    M2 --&gt; M3[Components]
+    M3 --&gt; M4[Export &amp; Validate]
+    M4 --&gt; M5[Classroom Pilot]
+    M5 -. Feedback .-&gt; M2
+</code></pre>
+<h2 id="8-prioritized-backlog">8. Prioritized backlog</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Priority</th>
+<th>User story</th>
+<th>Acceptance signal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DS-01</td>
+<td>P0</td>
+<td>As a student, I can edit a primary colour and see theme-aware UI update.</td>
+<td>Valid HEX changes relevant tokens and previews; invalid input is explained</td>
+</tr>
+<tr>
+<td>DS-02</td>
+<td>P0</td>
+<td>I can compare RGB Mix and OKLCH ramps and see what changed.</td>
+<td>Both modes deterministic, anchored and labelled</td>
+</tr>
+<tr>
+<td>DS-03</td>
+<td>P0</td>
+<td>I can build a type ladder and compare 375/1280 px specimens.</td>
+<td>Role names, sizes, wrapping and computed CSS shown</td>
+</tr>
+<tr>
+<td>DS-04</td>
+<td>P0</td>
+<td>I can export commented token CSS and JSON.</td>
+<td>Files parse and work without the Studio</td>
+</tr>
+<tr>
+<td>DS-05</td>
+<td>P0</td>
+<td>I can operate core controls by keyboard.</td>
+<td>Visible focus, labels, no keyboard trap</td>
+</tr>
+<tr>
+<td>DS-06</td>
+<td>P1</td>
+<td>I can inspect a component's token chain.</td>
+<td>Chain displays component → semantic → foundation</td>
+</tr>
+<tr>
+<td>DS-07</td>
+<td>P1</td>
+<td>I can test contrast pairs and record failures.</td>
+<td>Ratios calculated; warnings not silently auto-fixed</td>
+</tr>
+<tr>
+<td>DS-08</td>
+<td>P1</td>
+<td>I can view actual mobile/tablet/desktop layout.</td>
+<td>Media queries respond to selected preview width</td>
+</tr>
+<tr>
+<td>DS-09</td>
+<td>P1</td>
+<td>I can save and reopen a project configuration.</td>
+<td>JSON import/export round-trip passes</td>
+</tr>
+<tr>
+<td>DS-10</td>
+<td>P1</td>
+<td>I can explore hover/focus/disabled/invalid states.</td>
+<td>State gallery with code and keyboard notes</td>
+</tr>
+<tr>
+<td>DS-11</td>
+<td>P2</td>
+<td>I can compare before and after token changes.</td>
+<td>Diff of tokens and visible comparison</td>
+</tr>
+<tr>
+<td>DS-12</td>
+<td>P2</td>
+<td>I can follow a guided WS03A/03B lesson in the Studio.</td>
+<td>Checkpoints map to workshop evidence</td>
+</tr>
+</tbody>
+</table>
+<h2 id="9-quality-and-testing-strategy">9. Quality and testing strategy</h2>
+<h3>9.1 Functional testing</h3>
+<ul>
+<li>Unit tests: HEX parsing, RGB/OKLCH conversion, ramp anchor, contrast, <code>clamp()</code> values, alias cycles, serialization.</li>
+<li>Integration tests: editing tokens updates preview, inspector and exported CSS consistently.</li>
+<li>Import/export: schema rejection, safe import, deterministic CSS, equivalent round-trip.</li>
+<li>Responsive: 320, 375, 768, 1280 px; long labels; zoom and landscape.</li>
+<li>Browser: current Chrome, Edge, Firefox and Safari; document any unsupported features.</li>
+</ul>
+<h3>9.2 Accessibility testing</h3>
+<ul>
+<li>Keyboard-only task completion and focus order.</li>
+<li>Screen reader spot checks of headings, navigation, forms, status and validation.</li>
+<li>Contrast checks in both themes; do not assume the colour generator ensures accessible pairings.</li>
+<li>Text resize to 200%, reflow to 320 CSS px, reduced motion and colour-blindness-independent meaning.</li>
+<li>Check that the <strong>Studio itself</strong>, not only exported components, is accessible.</li>
+</ul>
+<h3>9.3 Classroom acceptance scenarios</h3>
+<ol>
+<li>A student completes the guided NSCC colour example without installing software.</li>
+<li>A student creates a mobile/desktop typography scale and documents Figma mappings.</li>
+<li>A student changes one foundation token and explains three affected components.</li>
+<li>A student identifies a contrast failure and fixes the correct semantic token.</li>
+<li>A student exports files, opens them in VS Code and views them using Live Server.</li>
+<li>A student imports saved JSON and sees equivalent tokens and theme behaviour.</li>
+</ol>
+<h2 id="10-definition-of-done">10. Definition of done</h2>
+<p>A feature is complete only when:</p>
+<ul>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>The interaction works with mouse, touch and keyboard.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Controls are labelled and errors are understandable.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Both light and dark themes are tested.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Mobile, tablet and desktop layouts are verified.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Code examples include meaningful instructional CSS comments.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Token names and explanations match the documentation.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Output is standards-based, readable and independent of the Studio runtime.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>Relevant automated tests and manual accessibility checks pass.</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"/>The related student checkpoint and instructor guidance are updated.</li>
+</ul>
+<h2 id="11-risks-decisions-and-mitigations">11. Risks, decisions and mitigations</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scope grows into a framework or Figma replacement</td>
+<td>Delays learning outcomes</td>
+<td>Protect the Studio's explore/understand/export focus</td>
+</tr>
+<tr>
+<td>Generated palettes are visually attractive but inaccessible</td>
+<td>Misleading student confidence</td>
+<td>Pair-specific contrast checks and visible warnings</td>
+</tr>
+<tr>
+<td>Too many editable options overwhelm novices</td>
+<td>High cognitive load</td>
+<td>Learn/Explore/Build modes, presets and progressive disclosure</td>
+</tr>
+<tr>
+<td>Responsive preview does not trigger media queries</td>
+<td>Incorrect teaching demonstration</td>
+<td>Use isolated iframe with controlled viewport width</td>
+</tr>
+<tr>
+<td>Greycliff licensing restrictions</td>
+<td>Redistribution risk</td>
+<td>Default to Arial; do not package licensed fonts</td>
+</tr>
+<tr>
+<td>Imported project data injects HTML/CSS</td>
+<td>Security and integrity risk</td>
+<td>Strict schema validation and safe DOM rendering</td>
+</tr>
+<tr>
+<td>Browser support differs for advanced CSS</td>
+<td>Inconsistent classroom results</td>
+<td>Feature detection, fallbacks and browser test matrix</td>
+</tr>
+<tr>
+<td>Student time expands beyond workshops</td>
+<td>Course pacing risk</td>
+<td>Timebox required exercises; optional depth in Studio, not required assessment</td>
+</tr>
+</tbody>
+</table>
+<h2 id="12-governance-and-documentation">12. Governance and documentation</h2>
+<ul>
+<li><strong>Product owner / curriculum lead:</strong> Instructor sets learning goals, vocabulary, workshop alignment and acceptance criteria.</li>
+<li><strong>Maintainer:</strong> Owns implementation, issues, tests, release notes and accessible documentation.</li>
+<li><strong>Student feedback:</strong> Captured as usability findings, not automatically promoted into requirements.</li>
+<li><strong>Versioning:</strong> SemVer for Studio releases; explicit schema versions for token exports.</li>
+<li><strong>Documentation:</strong> Getting started, glossary, design-token reference, CSS comment guide, accessibility caveats, export guide, Figma mapping and release notes.</li>
+<li><strong>Licensing:</strong> Choose an open-source code licence before public distribution; verify third-party packages/assets separately. Do not redistribute proprietary fonts or official marks without permission.</li>
+</ul>
+<h2 id="13-suggested-first-implementation-sprint">13. Suggested first implementation sprint</h2>
+<p><strong>Sprint goal:</strong> Turn the static prototype into an editable, exportable foundations workbench.</p>
+<ol>
+<li>Extract existing tokens and themes into a canonical state object.</li>
+<li>Add primary colour HEX control with validation and reset.</li>
+<li>Integrate RGB Mix and OKLCH ramp generation with explanatory labels.</li>
+<li>Add typography base-size and ratio controls with 375/1280 px comparison.</li>
+<li>Render components from the same resolved token state.</li>
+<li>Export <code>tokens.json</code> and a commented <code>tokens.css</code>.</li>
+<li>Test keyboard access, 375 px reflow, light/dark contrast and JSON round-trip.</li>
+</ol>
+<p><strong>Sprint demo:</strong> A student changes primary colour and type scale, sees a responsive event card and button update, inspects the token chain, and exports readable CSS that works in a separate HTML page.</p>
+<h2 id="14-success-measures">14. Success measures</h2>
+<ul>
+<li><strong>Task completion:</strong> Students can complete core guided tasks without instructor intervention.</li>
+<li><strong>Conceptual understanding:</strong> Students can distinguish foundation, semantic and component tokens.</li>
+<li><strong>Transfer:</strong> Exported CSS is used successfully in independent projects.</li>
+<li><strong>Accessibility:</strong> Students identify and remediate deliberately introduced issues.</li>
+<li><strong>Usability:</strong> Students can find the relevant token and understand the effect of changing it.</li>
+<li><strong>Maintainability:</strong> Token schema, test suite and export formats remain documented and stable.</li>
+</ul>
+<h2 id="15-immediate-next-decisions">15. Immediate next decisions</h2>
+<ol>
+<li>Confirm the working product name and initial audience beyond WEBD 3100.</li>
+<li>Freeze the V2 token naming conventions and JSON schema.</li>
+<li>Decide whether V2 starts from the current single HTML file or a small ES-module refactor (recommended: refactor without adding a build dependency).</li>
+<li>Choose the minimum supported browser versions and the open-source licence.</li>
+<li>Pilot V2 first against Workshop 03A and 03B before expanding into advanced components.</li>
+</ol>
+<hr/>
+<p><strong>Companion artifact:</strong> <code>Design_System_Studio_Development_Plan.html</code> is a standalone, responsive HTML version of this development plan with interactive roadmap filters, progress checkboxes, a miniature live token demonstration and printable sections. The full original CSS Design System Lab remains a separate prototype; the development-plan HTML does not replace it.</p>
+</article><footer class="footer">Design System Studio · Planning artifact · This HTML is standalone and works without external assets.</footer></main></div>
+<script>
+/* ROADMAP: local checkbox state is illustrative, not persistent. */
+const checks=[...document.querySelectorAll('[data-task]')];
+function updateProgress(){const done=checks.filter(x=>x.checked).length;document.getElementById('progressLabel').textContent=done+' of '+checks.length;document.getElementById('progressFill').style.width=(100*done/checks.length)+'%';document.getElementById('progress').setAttribute('aria-valuenow',String(done));}
+checks.forEach(x=>x.addEventListener('change',updateProgress));
+/* THEME: system preference is resolved without external dependencies. */
+const themeSelect=document.getElementById('theme');
+function setTheme(){const dark=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=themeSelect.value==='system'?(dark?'dark':'light'):themeSelect.value;}
+themeSelect.addEventListener('change',setTheme);window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{if(themeSelect.value==='system')setTheme()});
+document.getElementById('print').addEventListener('click',()=>window.print());
+/* MINI LAB: edit foundation values, reflect them in CSS variables and code. */
+const color=document.getElementById('primary'),size=document.getElementById('typeSize'),radius=document.getElementById('radius'),lab=document.getElementById('sample');
+function readableOn(hex){const rgb=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2]>.179?'#101820':'#ffffff';}
+function cssText(){return '/* FOUNDATION: editable values. */\n:root {\n  --color-primary: '+color.value+';\n  --text-body: '+size.value+'px;\n  --radius-card: '+radius.value+'px;\n\n  /* SEMANTIC: readable foreground for primary. */\n  --color-on-primary: '+readableOn(color.value)+';\n}\n\n/* COMPONENT: consumes the tokens. */\n.event-card { border-radius: var(--radius-card); }\n.event-card button {\n  background: var(--color-primary);\n  color: var(--color-on-primary);\n}';}
+function updateLab(){lab.style.setProperty('--lab-primary',color.value);lab.style.setProperty('--lab-text',readableOn(color.value));lab.style.setProperty('--lab-radius',radius.value+'px');lab.style.setProperty('--lab-size',size.value+'px');document.getElementById('sizeOut').textContent=size.value+' px';document.getElementById('radiusOut').textContent=radius.value+' px';document.getElementById('cssOutput').textContent=cssText();}
+[color,size,radius].forEach(el=>el.addEventListener('input',updateLab));updateLab();
+document.getElementById('reset').addEventListener('click',()=>{color.value='#004780';size.value='16';radius.value='12';updateLab()});
+document.getElementById('demoAction').addEventListener('click',()=>{document.getElementById('demoStatus').textContent='Example interaction activated.'});
+document.getElementById('copyCss').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(cssText());document.getElementById('copyStatus').textContent='CSS copied.'}catch(e){document.getElementById('copyStatus').textContent='Copy unavailable here; select the CSS above.'}});
+/* DOCUMENT: downloadable Markdown is embedded, not fetched from the network. */
+const planMarkdown="# Design System Studio — Complete Development Plan\n\n**Working title:** Design System Studio — CSS Foundations & Components  \n**Version:** Development Plan 1.0 · 12 October 2026  \n**Audience:** WEBD 3100 students, instructors, independent web developers  \n**Status:** Proposed roadmap; existing CSS Design System Lab is the V1 proof of concept  \n**Delivery:** Static-first, mobile-first, browser-based; deployable to GitHub Pages and distributable through Brightspace\n\n> **Product promise:** Explore a design decision, understand its CSS, see it across real components and viewports, validate its accessibility, and export a documented starting point for a project.\n\n## 1. Executive summary\n\nDesign System Studio evolves the current single-page CSS Design System Lab into an independent educational design-system workbench. It complements Figma rather than replacing it. Its primary output is a coherent, documented set of design tokens, responsive HTML/CSS examples, and validation evidence—not a proprietary CSS framework or a finished student website.\n\nThe Studio supports three interconnected workflows:\n\n1. **Learn:** Read concise theory, inspect commented CSS, follow guided exercises and identify token relationships.\n2. **Explore:** Modify colour, typography, spacing, radii and themes; observe changes in components and responsive layouts.\n3. **Build:** Save project settings, review accessibility, export CSS/JSON/HTML and apply them to a student project.\n\n### 1.1 What makes it distinct\n\n- **Traceability:** Foundation token → semantic token → component rule → rendered result.\n- **Visual comparison:** Light/dark themes, mobile/tablet/desktop, typography ladders, component states and before/after changes.\n- **Teachability:** Commented CSS, worked examples, checkpoints, definitions and explanations of *why* a technique is used.\n- **Portability:** No account, backend, build process, external font or network connection required for the core experience.\n- **Project ownership:** Students can export standards-based code and continue development independently.\n\n### 1.2 Scope boundaries\n\n**In scope:** Token authoring, visualization, guided learning, component examples, contrast calculations, responsive previews, local project files, export and documentation.\n\n**Not in scope for initial releases:** Cloud accounts, multiuser collaboration, a Figma plugin, a full component framework, AI-generated final designs, production certification, or automated WCAG conformance claims.\n\n## 2. Educational alignment\n\n### 2.1 WEBD 3100 alignment\n\n| Learning activity | Studio capability | Student evidence |\n|---|---|---|\n| Workshop 03A — Colour | Colour ramps (RGB Mix/OKLCH), palette roles, semantic tokens, light/dark themes | Colour System V1, contrast decisions, exported colour tokens |\n| Workshop 03B — Typography | Font families, serif/sans-serif comparison, type ladders, responsive `clamp()`, leading and reading width | Mobile and desktop Figma type-scale boards; Typography System V1 |\n| Workshop 04 — Structure | Containers, grids, flex, content hierarchy and responsive breakpoints | Responsive layout comparisons |\n| Workshop 05 — UI Prototyping | Cards, forms, buttons, feedback and state explorer | Annotated component states |\n| Workshop 06 — Figma to Code | Token mapping and commented CSS export | Figma-to-CSS comparison and code evidence |\n| Workshop 07 — Accessibility | Contrast, focus, reflow, text resizing and non-colour feedback | Accessibility test log |\n| Integrated semester project | Project-specific configuration and export | Evolving Visual Design System V1 and later revisions |\n\n**Assessment boundary:** Workshop 03A and 03B remain one combined 4% workshop assessment. Formal integrated-project milestones are evaluated separately. Studio use supports existing evaluations; it does not add a new grade.\n\n### 2.2 Guided case study and independent project\n\n1. **Guided NSCC-inspired example:** Default primary `#004780`; Arial is the available alternative to NSCC's licensed Greycliff. Illustrative supporting palettes are not official brand specifications.\n2. **Independent project:** Students choose and justify their own brand, font stacks, scales, colours, components and responsive behaviours.\n3. **Evidence:** Save screenshots/Figma links, test results, exported files and a short decision log.\n\n### 2.3 Learning principles\n\n- Self-guided, step-by-step, with instructor acting as facilitator.\n- Every code example uses semantic HTML, commented CSS and a mobile-first responsive layout.\n- Prefer accessible native controls over custom JavaScript widgets.\n- Show **what a generator is doing**, even when arithmetic is not required.\n- Use lists and short Mermaid labels; keep detailed explanation outside diagrams.\n- Follow the established student workflow: Complete Workshop → Complete Worksheet → Complete Reflection → Commit/Push Technical Evidence → Submit Worksheet to Brightspace.\n\n## 3. Product structure and information architecture\n\n```mermaid\nflowchart TD\n    A[Studio Home] --> B[Learn]\n    A --> C[Explore]\n    A --> D[Build]\n    B --> E[Guided Concepts]\n    C --> F[Foundation Editors]\n    C --> G[Component Gallery]\n    D --> H[Project Configuration]\n    H --> I[Validate]\n    I --> J[Export]\n    F --> K[Live Token Graph]\n    G --> K\n    K --> I\n```\n\n### 3.1 Global interface\n\n- **Header:** Product title, project name, current theme, mode switch and save/export.\n- **Navigation:** Overview; Colour; Typography; Spacing & Surfaces; Components; Responsive; Accessibility; Tokens; Export.\n- **Inspector:** Selected element, foundation/semantic/component token path, computed CSS and copy action.\n- **Live preview:** Interactive UI with light/dark/system themes and viewport presets.\n- **Learning panel:** Concept, commented code, explanation, checkpoint and relevant workshop reference.\n- **Status region:** Unsaved changes, validation warnings and export status; accessible announcements.\n\n### 3.2 Modes\n\n| Mode | Primary purpose | Controls and outputs |\n|---|---|---|\n| Learn | Understand design-system concepts | Examples, definitions, code comments, checkpoints |\n| Explore | Experiment safely | Sliders, pickers, presets, undo/reset, visual comparison |\n| Build | Produce project assets | Named configuration, validation, JSON/CSS/HTML export |\n\nModes share the same token model; they do **not** create separate incompatible systems.\n\n## 4. Token architecture\n\n### 4.1 Layers\n\n1. **Foundation tokens:** Literal colour scales, font stacks, type sizes, spacing, radii, shadows, breakpoints.\n2. **Semantic tokens:** Purpose-specific roles such as `--color-text`, `--color-surface`, `--color-primary`, `--text-body`.\n3. **Component tokens:** Context-specific assignments such as `--button-primary-bg`, `--card-radius`, `--input-border-focus`.\n4. **Rendered components:** Actual elements using component/semantic tokens; values respond to theme and viewport.\n\n```mermaid\nflowchart LR\n    A[Foundations] --> B[Semantic Roles]\n    B --> C[Component Roles]\n    C --> D[Rendered UI]\n    D --> E[Validation]\n    E -. Refine .-> A\n```\n\n### 4.2 Example CSS contract\n\n```css\n/* FOUNDATION: reusable colour and typography values. */\n:root {\n  --blue-500: #004780;\n  --neutral-0: #ffffff;\n  --neutral-950: #0f172a;\n  --font-sans: Arial, Helvetica, sans-serif;\n  --text-body-size: 1rem;\n  --text-display-size: clamp(2rem, 1.3rem + 2.5vw, 3.25rem);\n  --leading-body: 1.6; /* Unitless line height follows font size. */\n  --space-4: 1rem;\n  --radius-md: .75rem;\n\n  /* SEMANTIC: assign purpose to foundation values. */\n  --color-primary: var(--blue-500);\n  --color-on-primary: var(--neutral-0);\n  --color-background: var(--neutral-0);\n  --color-text: var(--neutral-950);\n  --font-body: var(--font-sans);\n  --text-body: var(--text-body-size);\n  --text-display: var(--text-display-size);\n\n  /* COMPONENT: assign semantic values to specific UI parts. */\n  --button-primary-bg: var(--color-primary);\n  --button-primary-text: var(--color-on-primary);\n  --button-radius: var(--radius-md);\n}\n\n/* THEME: override semantic roles rather than rewriting components. */\n[data-theme=\"dark\"] {\n  --color-background: #0b1220;\n  --color-text: #f8fafc;\n  --color-primary: #99c7eb;\n  --color-on-primary: #071827;\n}\n\n/* COMPONENT: responsive and theme-aware by construction. */\n.button-primary {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 2.75rem;\n  padding: .7rem var(--space-4);\n  border: 0;\n  border-radius: var(--button-radius);\n  background: var(--button-primary-bg);\n  color: var(--button-primary-text);\n  font: inherit;\n}\n```\n\n### 4.3 Token data model\n\n```json\n{\n  \"schemaVersion\": \"1.0.0\",\n  \"project\": { \"name\": \"NSCC Guided Case Study\" },\n  \"foundations\": {\n    \"colors\": { \"blue\": { \"500\": \"#004780\" } },\n    \"typography\": { \"fontSans\": \"Arial, Helvetica, sans-serif\", \"baseRem\": 1 },\n    \"spacing\": { \"4\": \"1rem\" },\n    \"radii\": { \"md\": \"0.75rem\" }\n  },\n  \"themes\": {\n    \"light\": { \"colorPrimary\": \"{colors.blue.500}\", \"colorOnPrimary\": \"#ffffff\" },\n    \"dark\": { \"colorPrimary\": \"#99c7eb\", \"colorOnPrimary\": \"#071827\" }\n  }\n}\n```\n\n**Rules:** Validate all imported keys and values; do not execute imported code. Reject unknown schema versions unless a supported migration exists. Resolve aliases with cycle detection and report missing references. Preserve readable human-authored token names.\n\n## 5. Feature specifications\n\n### 5.1 Colour system builder\n\n**Inputs:** HEX, generation method (RGB Mix or OKLCH), primary/secondary/accent families, neutrals, feedback roles, light/dark mapping.\n\n**Behaviours:**\n\n1. Display the source HEX and calculated RGB/OKLCH coordinates.\n2. Generate labelled ramps with original anchor preserved.\n3. Explain RGB channel mixing versus perceptual OKLCH adjustments.\n4. Permit individual swatch overrides and named semantic assignments.\n5. Preview text/background pairs and interactive components.\n6. Check calculated contrast; warn rather than silently substitute colours.\n7. Export foundation scales and semantic light/dark CSS variables.\n\n**Acceptance:** Same inputs produce deterministic ramps; anchor remains unchanged; invalid HEX yields an actionable error; both themes preview; colour is never the sole feedback cue.\n\n### 5.2 Typography scale builder\n\n**Inputs:** Font stack (default Arial), serif/sans-serif comparison, base size, ratio, min/max sizes, line-height, letter spacing and reading width.\n\n**Behaviours:**\n\n1. Show a 14–48 px labelled type ladder and actual rendered specimens.\n2. Compare **375 px mobile** and **1280 px desktop** frames; offer 768 px tablet.\n3. Show display, H1–H3, lead, body, small, label, navigation and button roles.\n4. Generate responsive `clamp()` tokens; explain minimum, fluid expression and maximum.\n5. Demonstrate `rem`, `ch`, unitless leading and font fallbacks.\n6. Allow students to record Figma style names and map them to CSS tokens.\n7. Test text wrapping, 200% zoom and long content.\n\n**Typeface note:** NSCC uses licensed Greycliff; do not bundle or distribute it. Arial is the default guided-case-study fallback. Project users are responsible for their own font licences.\n\n### 5.3 Spacing, surfaces and elevation\n\n- Spacing scale preview with actual pixel/rem measures.\n- Surface hierarchy: background, surface, elevated surface and muted surface.\n- Border colours, widths, focus outlines, radius scale and shadows.\n- Layout container widths, reading measures and consistent gutters.\n- Side-by-side examples showing how spacing changes visual rhythm.\n\n### 5.4 Component state explorer\n\n**Components:** Buttons, links, cards, navigation, badges, alerts, inputs, select, checkbox, radio, textarea, tabs (if implemented accessibly), and a sample responsive event listing.\n\n**States where meaningful:** Default, hover, focus-visible, active/pressed, selected, disabled, invalid, success, warning, loading.\n\n**For every component:** Live example; semantic HTML; commented CSS; token dependency list; keyboard guidance; light/dark and mobile/desktop tests.\n\n### 5.5 Responsive laboratory\n\n- Presets: 375 px, 768 px, 1280 px; adjustable custom width within available screen.\n- Responsive *embedded preview* must faithfully represent the selected viewport; use a sandboxed iframe or equivalent isolated preview for CSS media queries, rather than merely shrinking a containing `div`.\n- Demonstrate Grid (`minmax`, `auto-fit`), Flexbox, container queries, fluid type, wrapping and no horizontal overflow.\n- Preview content length variation and 200% zoom; preserve keyboard access.\n\n### 5.6 Accessibility workbench\n\n- Contrast calculations for actual foreground/background colour pairs: 4.5:1 for normal text, 3:1 for large text under WCAG 2.x AA.\n- Non-text UI contrast and focus visibility checks as distinct tests; do not mislabel all 3:1 tests as large-text tests.\n- Keyboard-only operation; visible focus; labelled form controls; meaningful status messages.\n- Text resize, 320 CSS-pixel reflow, reduced motion and non-colour status cues.\n- Explain that automated checks are **partial evidence**, not a complete WCAG audit.\n- Export a checklist with results, dates and unresolved issues.\n\n### 5.7 Token inspector and before/after comparison\n\n1. Click a rendered component.\n2. Highlight the CSS property and component token controlling it.\n3. Follow aliases to semantic and foundation values.\n4. Display computed value and current theme.\n5. Edit a source token and compare previous/current appearance.\n6. Copy a minimal commented CSS snippet.\n\n### 5.8 Project management and export\n\n- New/open/duplicate/reset project configuration.\n- Local JSON download/upload; optionally local browser persistence with clear opt-in and reset.\n- Exports: `tokens.json`, `tokens.css`, `base.css`, `components.css`, `index.html` sample, `README.md`, and `validation-report.md`.\n- Provide a ZIP download only when client-side packaging is implemented and tested; otherwise individual files.\n- Generated CSS must be human-readable, commented, standards-based and free of runtime Studio dependencies.\n- Import/export round-trip must preserve equivalent token values and theme roles.\n\n## 6. Technical architecture\n\n### 6.1 Recommended stack\n\n**V2–V3:** Semantic HTML5, CSS custom properties, modern CSS Grid/Flexbox, vanilla JavaScript ES modules; no backend. **V4:** Continue static-first; add a small build pipeline only if complexity and tests justify it. Avoid unnecessary dependencies.\n\n```mermaid\nflowchart TD\n    A[User Controls] --> B[State Store]\n    B --> C[Token Resolver]\n    C --> D[CSS Variable Writer]\n    D --> E[Live Preview]\n    C --> F[Validators]\n    C --> G[Exporters]\n    F --> H[Validation Report]\n    G --> I[Project Files]\n```\n\n### 6.2 Proposed repository\n\n```text\ndesign-system-studio/\n├── index.html                  # App shell, semantic navigation\n├── README.md                   # Setup, pedagogy, licensing\n├── docs/\n│   ├── DEVELOPMENT_PLAN.md\n│   ├── token-schema.md\n│   ├── accessibility-checklist.md\n│   └── workshop-mapping.md\n├── css/\n│   ├── tokens.css              # Foundation/semantic/component tokens\n│   ├── base.css                # Reset, typography, focus, responsive base\n│   ├── layout.css              # Grid/Flexbox layouts\n│   └── components.css          # Reusable Studio UI\n├── js/\n│   ├── app.js                  # Bootstrap and events\n│   ├── state.js                # Immutable project state and history\n│   ├── tokens.js               # Alias resolution and validation\n│   ├── color.js                # RGB Mix, OKLCH, contrast\n│   ├── typography.js           # Scale/clamp calculations\n│   ├── preview.js              # Isolated viewport preview\n│   ├── inspector.js            # Token dependency inspection\n│   ├── export.js               # CSS/JSON/HTML generation\n│   └── storage.js              # Optional local persistence\n├── presets/\n│   ├── nscc-inspired.json\n│   └── neutral-starter.json\n└── tests/\n    ├── tokens.test.js\n    ├── color.test.js\n    ├── typography.test.js\n    ├── export.test.js\n    └── accessibility-checklist.md\n```\n\n### 6.3 State and security\n\n- Maintain one canonical project state; derive previews and exports from it.\n- Validate import size, schema, token names, HEX strings and numeric ranges.\n- Use `textContent` for user-provided labels; avoid inserting imported HTML into the Studio DOM.\n- Isolate any user HTML preview; do not execute arbitrary uploaded JavaScript.\n- Treat JSON imports as untrusted data; reject CSS injection and dangerous URLs.\n- Support keyboard operation, reduced motion and high zoom in the Studio interface itself.\n- Prefer offline operation; clearly disclose any optional external resource use.\n\n## 7. Delivery roadmap and milestones\n\n**Planning estimates are relative effort, not fixed calendar commitments.** One developer working part-time may take longer; validate after V2 discovery.\n\n| Phase | Scope | Indicative effort | Exit criteria |\n|---|---|---|---|\n| **V1 — Existing proof of concept** | Colour/type/surface/component showcase, themes, computed token inspector | Existing | Baseline documented; issues catalogued |\n| **V2 — Interactive foundations** | Editable colour builder, typography scale builder, spacing/radius controls, shared state, basic import/export | 3–5 weeks | Student can configure and export a complete foundation + semantic token set |\n| **V3 — Components & validation** | Component states, dependency inspector, isolated viewport previews, contrast and keyboard checklist | 4–6 weeks | Student can trace tokens, test components and record evidence |\n| **V4 — Project workflow** | Named projects, presets, JSON round-trip, multi-file exports, tutorials, validation report | 3–5 weeks | Student can transfer a project design system into VS Code and Figma workflow |\n| **V5 — Optional extensions** | Compare versions, guided exercises, additional components, optional Figma-friendly mappings | Prioritized later | Driven by classroom feedback, not assumed |\n\n### 7.1 Milestone breakdown\n\n**M0 — Discovery and baseline**\n- Inventory V1 CSS tokens, components, current limitations and accessibility gaps.\n- Confirm naming conventions, token schema and licensing boundaries.\n- Select representative NSCC case-study and independent-project test scenarios.\n\n**M1 — Core engine**\n- Define canonical state schema, token alias resolver, theme model, undo/reset and validation errors.\n- Add deterministic unit tests for colour conversion, alias resolution and CSS serialization.\n\n**M2 — Foundation editors**\n- Add colour families, typography ladder, spacing/radius/elevation controls.\n- Add computed previews, clear controls, explanatory code and responsive specimens.\n\n**M3 — Component and viewport lab**\n- Build component gallery and states; link each component to token dependencies.\n- Implement actual isolated mobile/tablet/desktop preview and overflow tests.\n\n**M4 — Validation and export**\n- Add contrast, keyboard and responsive checklists.\n- Export documented CSS, JSON, HTML and README; test round-trip and deployment.\n\n**M5 — Classroom pilot**\n- Pilot with WS03A/WS03B tasks, gather student time-on-task and confusion points.\n- Revise onboarding, defaults, error messages, accessibility and workshop guidance.\n\n```mermaid\nflowchart LR\n    M0[Baseline] --> M1[Core Engine]\n    M1 --> M2[Foundations]\n    M2 --> M3[Components]\n    M3 --> M4[Export & Validate]\n    M4 --> M5[Classroom Pilot]\n    M5 -. Feedback .-> M2\n```\n\n## 8. Prioritized backlog\n\n| ID | Priority | User story | Acceptance signal |\n|---|---|---|---|\n| DS-01 | P0 | As a student, I can edit a primary colour and see theme-aware UI update. | Valid HEX changes relevant tokens and previews; invalid input is explained |\n| DS-02 | P0 | I can compare RGB Mix and OKLCH ramps and see what changed. | Both modes deterministic, anchored and labelled |\n| DS-03 | P0 | I can build a type ladder and compare 375/1280 px specimens. | Role names, sizes, wrapping and computed CSS shown |\n| DS-04 | P0 | I can export commented token CSS and JSON. | Files parse and work without the Studio |\n| DS-05 | P0 | I can operate core controls by keyboard. | Visible focus, labels, no keyboard trap |\n| DS-06 | P1 | I can inspect a component's token chain. | Chain displays component → semantic → foundation |\n| DS-07 | P1 | I can test contrast pairs and record failures. | Ratios calculated; warnings not silently auto-fixed |\n| DS-08 | P1 | I can view actual mobile/tablet/desktop layout. | Media queries respond to selected preview width |\n| DS-09 | P1 | I can save and reopen a project configuration. | JSON import/export round-trip passes |\n| DS-10 | P1 | I can explore hover/focus/disabled/invalid states. | State gallery with code and keyboard notes |\n| DS-11 | P2 | I can compare before and after token changes. | Diff of tokens and visible comparison |\n| DS-12 | P2 | I can follow a guided WS03A/03B lesson in the Studio. | Checkpoints map to workshop evidence |\n\n## 9. Quality and testing strategy\n\n### 9.1 Functional testing\n\n- Unit tests: HEX parsing, RGB/OKLCH conversion, ramp anchor, contrast, `clamp()` values, alias cycles, serialization.\n- Integration tests: editing tokens updates preview, inspector and exported CSS consistently.\n- Import/export: schema rejection, safe import, deterministic CSS, equivalent round-trip.\n- Responsive: 320, 375, 768, 1280 px; long labels; zoom and landscape.\n- Browser: current Chrome, Edge, Firefox and Safari; document any unsupported features.\n\n### 9.2 Accessibility testing\n\n- Keyboard-only task completion and focus order.\n- Screen reader spot checks of headings, navigation, forms, status and validation.\n- Contrast checks in both themes; do not assume the colour generator ensures accessible pairings.\n- Text resize to 200%, reflow to 320 CSS px, reduced motion and colour-blindness-independent meaning.\n- Check that the **Studio itself**, not only exported components, is accessible.\n\n### 9.3 Classroom acceptance scenarios\n\n1. A student completes the guided NSCC colour example without installing software.\n2. A student creates a mobile/desktop typography scale and documents Figma mappings.\n3. A student changes one foundation token and explains three affected components.\n4. A student identifies a contrast failure and fixes the correct semantic token.\n5. A student exports files, opens them in VS Code and views them using Live Server.\n6. A student imports saved JSON and sees equivalent tokens and theme behaviour.\n\n## 10. Definition of done\n\nA feature is complete only when:\n\n- [ ] The interaction works with mouse, touch and keyboard.\n- [ ] Controls are labelled and errors are understandable.\n- [ ] Both light and dark themes are tested.\n- [ ] Mobile, tablet and desktop layouts are verified.\n- [ ] Code examples include meaningful instructional CSS comments.\n- [ ] Token names and explanations match the documentation.\n- [ ] Output is standards-based, readable and independent of the Studio runtime.\n- [ ] Relevant automated tests and manual accessibility checks pass.\n- [ ] The related student checkpoint and instructor guidance are updated.\n\n## 11. Risks, decisions and mitigations\n\n| Risk | Impact | Mitigation |\n|---|---|---|\n| Scope grows into a framework or Figma replacement | Delays learning outcomes | Protect the Studio's explore/understand/export focus |\n| Generated palettes are visually attractive but inaccessible | Misleading student confidence | Pair-specific contrast checks and visible warnings |\n| Too many editable options overwhelm novices | High cognitive load | Learn/Explore/Build modes, presets and progressive disclosure |\n| Responsive preview does not trigger media queries | Incorrect teaching demonstration | Use isolated iframe with controlled viewport width |\n| Greycliff licensing restrictions | Redistribution risk | Default to Arial; do not package licensed fonts |\n| Imported project data injects HTML/CSS | Security and integrity risk | Strict schema validation and safe DOM rendering |\n| Browser support differs for advanced CSS | Inconsistent classroom results | Feature detection, fallbacks and browser test matrix |\n| Student time expands beyond workshops | Course pacing risk | Timebox required exercises; optional depth in Studio, not required assessment |\n\n## 12. Governance and documentation\n\n- **Product owner / curriculum lead:** Instructor sets learning goals, vocabulary, workshop alignment and acceptance criteria.\n- **Maintainer:** Owns implementation, issues, tests, release notes and accessible documentation.\n- **Student feedback:** Captured as usability findings, not automatically promoted into requirements.\n- **Versioning:** SemVer for Studio releases; explicit schema versions for token exports.\n- **Documentation:** Getting started, glossary, design-token reference, CSS comment guide, accessibility caveats, export guide, Figma mapping and release notes.\n- **Licensing:** Choose an open-source code licence before public distribution; verify third-party packages/assets separately. Do not redistribute proprietary fonts or official marks without permission.\n\n## 13. Suggested first implementation sprint\n\n**Sprint goal:** Turn the static prototype into an editable, exportable foundations workbench.\n\n1. Extract existing tokens and themes into a canonical state object.\n2. Add primary colour HEX control with validation and reset.\n3. Integrate RGB Mix and OKLCH ramp generation with explanatory labels.\n4. Add typography base-size and ratio controls with 375/1280 px comparison.\n5. Render components from the same resolved token state.\n6. Export `tokens.json` and a commented `tokens.css`.\n7. Test keyboard access, 375 px reflow, light/dark contrast and JSON round-trip.\n\n**Sprint demo:** A student changes primary colour and type scale, sees a responsive event card and button update, inspects the token chain, and exports readable CSS that works in a separate HTML page.\n\n## 14. Success measures\n\n- **Task completion:** Students can complete core guided tasks without instructor intervention.\n- **Conceptual understanding:** Students can distinguish foundation, semantic and component tokens.\n- **Transfer:** Exported CSS is used successfully in independent projects.\n- **Accessibility:** Students identify and remediate deliberately introduced issues.\n- **Usability:** Students can find the relevant token and understand the effect of changing it.\n- **Maintainability:** Token schema, test suite and export formats remain documented and stable.\n\n## 15. Immediate next decisions\n\n1. Confirm the working product name and initial audience beyond WEBD 3100.\n2. Freeze the V2 token naming conventions and JSON schema.\n3. Decide whether V2 starts from the current single HTML file or a small ES-module refactor (recommended: refactor without adding a build dependency).\n4. Choose the minimum supported browser versions and the open-source licence.\n5. Pilot V2 first against Workshop 03A and 03B before expanding into advanced components.\n\n---\n\n**Companion artifact:** `Design_System_Studio_Development_Plan.html` is a standalone, responsive HTML version of this development plan with interactive roadmap filters, progress checkboxes, a miniature live token demonstration and printable sections. The full original CSS Design System Lab remains a separate prototype; the development-plan HTML does not replace it.\n";
+document.getElementById('downloadPlan').addEventListener('click',()=>{const blob=new Blob([planMarkdown],{type:'text/markdown;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='Design_System_Studio_Development_Plan.md';a.click();URL.revokeObjectURL(url)});
+</script></body></html>
