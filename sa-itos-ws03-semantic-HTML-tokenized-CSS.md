@@ -5,11 +5,12 @@
 **Term:** Fall 2026  
 **Workshop:** WS03 | **Weight:** 3%  
 **Related assessment:** Semester Project Milestone 3 — Functional HTML Website (6%, separately assessed)  
+**Roadmap placement:** Weeks 5–6 (HTML structure followed by multi-page navigation and validation)  
 **Primary outcome:** LO3 — Develop websites using HTML and CSS  
 **Supporting outcomes:** LO1 — Evaluate usability and accessibility; LO2 — Plan and design websites  
 **Tools:** VS Code, Live Server, browser DevTools, Git/GitHub, Figma, W3C Nu HTML Checker  
 **Starting materials:** Course-provided `index.html` and `tokens.css` (Design System Studio V4.1)  
-**Estimated effort:** Two class sessions plus independent completion, as needed
+**Estimated effort:** Two class sessions (Weeks 5–6) plus independent completion, as needed
 
 ---
 
@@ -124,7 +125,7 @@ The supplied stylesheet is titled **Design System Studio V4.1 — My Project** a
 
 This is an **illustrative example**, not a replacement for the supplied token definitions. **Inspect the actual names in your `tokens.css` before editing anything.**
 
-**Important source preparation:** The pasted `tokens.css` supplied for this course includes escaped comment markers (`/\*` and `\*/`) and may contain escaped formatting from Markdown. The instructor must distribute a **verified, valid CSS copy** as `tokens.css`; students should not be asked to repair a damaged paste as a prerequisite. Keep the supplied stylesheet's token names and component selectors intact.
+**Important source preparation:** The pasted `tokens.css` contains Markdown-escaped CSS comment markers (`/\*` and `\*/`) and other potentially escaped tokens (for example, universal selectors). The instructor must distribute a **verified, valid CSS copy** as `tokens.css`; students should not be asked to repair a damaged paste as a prerequisite. Preserve the supplied stylesheet's token names, design decisions, and component selectors.
 
 ### 3.5 Accessibility from the beginning
 
@@ -433,7 +434,7 @@ Answer briefly in the workshop worksheet and complete any Brightspace reflection
 
 **In-class students** complete the worksheet and participate in the instructor-led class review; they do not submit the worksheet unless otherwise directed. **Absent students** complete the full workshop independently and submit the completed worksheet to Brightspace.
 
-**All students** submit the required technical evidence (GitHub repository URL and commit reference) through Brightspace as directed and complete the required Brightspace reflection. The Figma file from WS02 remains available for design reference; **WS03's website files belong in the GitHub repository, not in Figma**.
+**All students** provide the required technical evidence (GitHub repository URL and commit reference) through Brightspace as directed and complete the required Brightspace reflection. The Figma file from WS02 remains available for design reference; **WS03's website files belong in the GitHub repository, not in Figma**.
 
 ### Deliverables
 
@@ -501,3 +502,160 @@ Write and understand your own HTML. Peer discussion and troubleshooting are enco
 **WS02 — Figma plan → WS03 — Semantic HTML + shared design system → WS04 — CSS foundations and token customization → WS05 — Responsive layout development.**
 
 Your sitemap now becomes a set of HTML files. Your wireframes become semantic page structures. Your shared `tokens.css` keeps presentation consistent while you learn how the system works.
+
+
+---
+
+## Appendix A — Guided Worked Example: From Figma Sitemap to Four HTML Pages
+
+**Scenario:** Your WS02 sitemap contains Home, About, Programs, and Contact. The HTML filenames are `index.html`, `about.html`, `programs.html`, and `contact.html`.
+
+**Prediction:** If you create four copies of the same homepage without changing their content, does that satisfy the sitemap? Explain why or why not.
+
+**Worked step 1 — Build a consistent document shell.** Every page needs its own document metadata and primary content. The example below is intentionally small; reuse the actual course-standard classes and structure when adapting your starter.
+
+```html
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Learn about our community programs.">
+  <title>Programs | Community Hub</title>
+  <link rel="stylesheet" href="tokens.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Community Hub</a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html" aria-current="page">Programs</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content" tabindex="-1">
+    <section class="section container" aria-labelledby="programs-title">
+      <h1 id="programs-title">Programs</h1>
+      <p>Explore the activities available to our community.</p>
+      <article class="card">
+        <h2>Weekend workshops</h2>
+        <p>Practical learning sessions for local residents.</p>
+      </article>
+    </section>
+  </main>
+  <footer class="site-footer website-footer">
+    <div class="container"><p>&copy; Community Hub</p></div>
+  </footer>
+</body>
+</html>
+```
+
+**Worked step 2 — Compare with your Figma wireframe.** Identify the navigation, main heading, content grouping, and footer. Add or adapt sections based on your own inventory. Do **not** copy the example's topic into your project unless it matches your approved concept.
+
+**Worked step 3 — Test links.** From `programs.html`, click Home, About, and Contact. Return to Programs. Repeat from the other pages. `aria-current="page"` should identify the active page in each document; do not leave it on Programs when copying navigation into another file.
+
+**Worked step 4 — Verify stylesheet reuse.** Open DevTools and inspect an element with `class="card"`. Find the matching CSS rule. If the rule is missing, check that `tokens.css` is present and the `href` is correct.
+
+**Checkpoint:** Four distinct pages, matching the sitemap, share one stylesheet and have consistent navigation.
+
+---
+
+## Appendix B — Guided Debugging Scenarios
+
+Complete at least **three** scenarios. For each, write **Prediction → Test → Observation → Diagnosis → Fix** in the worksheet.
+
+| Scenario | Symptom to investigate | Useful test |
+|---|---|---|
+| 1 — Missing styles | HTML appears unstyled | Check the stylesheet `href`, Network panel, and file location |
+| 2 — Broken navigation | About link opens a missing page | Compare `href` to actual filename, capitalization, and folder |
+| 3 — Wrong section | Link to `#features` does nothing on another page | Check whether target `id` exists on the current page; try `index.html#features` |
+| 4 — Missing image | Broken image placeholder | Compare `src` with the actual `images/` filename |
+| 5 — Skip link failure | Skip link does not reach main content | Check that `href="#main-content"` matches `id="main-content"` |
+| 6 — Incorrect current page | Every page announces Programs as active | Update `aria-current="page"` on the correct navigation link |
+
+**Run and inspect:** Use Live Server, DevTools Elements/Network, and browser keyboard navigation. Change **one thing at a time**, retest, and record the outcome.
+
+---
+
+## Appendix C — Student Worksheet Template
+
+**Student:** ____________________  **Date:** ____________________  
+**Figma design link:** ____________________  **GitHub repository:** ____________________
+
+### C1. Prior knowledge and predictions
+
+1. HTML page versus Figma frame: ____________________
+2. Four pages from my sitemap: ____________________
+3. Predicted result of an incorrect CSS path: ____________________
+4. Two reusable HTML regions: ____________________
+
+### C2. Activity evidence
+
+| Activity | What I tried | What happened | What I changed or learned |
+|---|---|---|---|
+| A — Starter setup | | | |
+| B — Semantic HTML | | | |
+| C — Homepage | | | |
+| D — Additional pages | | | |
+| E — Navigation | | | |
+| F — Accessibility | | | |
+| G — Tokens | | | |
+| H — Responsive testing | | | |
+| I — Validation/Git | | | |
+
+### C3. Design system investigation
+
+| Actual CSS token name | Value in supplied CSS | What it influences |
+|---|---|---|
+| | | |
+| | | |
+| | | |
+
+### C4. Debugging log
+
+| Problem | Prediction | Test performed | Cause | Fix and retest |
+|---|---|---|---|---|
+| | | | | |
+| | | | | |
+| | | | | |
+
+### C5. Page verification
+
+| Page | Unique title/h1 | Navigation works | CSS loads | HTML checked |
+|---|---|---|---|---|
+| `index.html` | ☐ | ☐ | ☐ | ☐ |
+| Page 2: __________ | ☐ | ☐ | ☐ | ☐ |
+| Page 3: __________ | ☐ | ☐ | ☐ | ☐ |
+| Page 4: __________ | ☐ | ☐ | ☐ | ☐ |
+
+**Test widths:** Desktop __________ px; tablet __________ px; mobile __________ px.  
+**Keyboard test:** ____________________  
+**Peer observation 1:** ____________________  
+**Peer observation 2:** ____________________  
+**Improvement applied:** ____________________  
+**Latest commit:** ____________________
+
+### C6. Reflection
+
+Answer all seven reflection questions from Section 10 and provide the 2–3 sentence exit statement. Your responses should describe **your own** design decisions, tests, and debugging results.
+
+---
+
+## Appendix D — Instructor Review and Acceptance Criteria
+
+The workshop is **ready for student use** when the instructor has confirmed that:
+
+- The course starter HTML and **cleaned** `tokens.css` render together without CSS parse errors.
+- The supplied reference's **same-page anchors** are explained before students build multi-page links.
+- The sample **sign-up form is clearly identified as static**, with no real data collection or account creation.
+- Students have access to their WS02 Figma planning work and a GitHub repository.
+- A student can complete the instructions without a live instructor demonstration.
+- Workshop assessment (3%) is separate from Milestone 3 (6%).
+
+**Suggested pacing:** Session 1 — inspect starter, semantic structure, homepage, secondary-page shells. Session 2 — navigation, accessibility, design-system inspection, responsive tests, validation, peer review, GitHub, reflection. Students needing more time complete the remaining work independently.

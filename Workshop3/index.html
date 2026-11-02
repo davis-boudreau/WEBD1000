@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="My Project: a simple responsive website demonstrating semantic HTML, CSS Grid and a static sign-up form.">
+  <title>My Project | A simple place to begin</title>
+  <link rel="stylesheet" href="tokens.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- A visible, wrapping navigation works at every width without JavaScript. -->
+  <header class="site-header" id="top" tabindex="-1">
+    <div class="container header-inner">
+      <a class="brand" href="#top"><span class="logo" aria-hidden="true">Logo</span><span>My Project</span></a>
+      <nav aria-label="Main navigation">
+        <ul class="nav-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">What you can learn</a></li>
+          <li><a href="#lists">Lists</a></li>
+          <li><a href="#signup">Sign up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <!-- One page heading introduces the main idea and next action. -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-layout">
+        <div>
+          <p class="eyebrow">Small steps. Useful skills.</p>
+          <h1 id="hero-title">Start small. Build something useful.</h1>
+          <p class="intro">Learn how clear content, thoughtful layout and a few shared styles can turn a simple page into a welcoming website.</p>
+          <a class="button ds-button ds-button--primary" href="#features">Explore the essentials</a>
+        </div>
+        <figure class="hero-image">
+          <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22960%22%20height%3D%22720%22%20viewBox%3D%220%200%20960%20720%22%3E%3Crect%20width%3D%22960%22%20height%3D%22720%22%20fill%3D%22%2320324B%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22818%22%20cy%3D%22114%22%20r%3D%22100%22%20fill%3D%22%23E5ED95%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%3Crect%20x%3D%2256%22%20y%3D%2264%22%20width%3D%22848%22%20height%3D%22592%22%20rx%3D%2228%22%20fill%3D%22%23152236%22%20stroke%3D%22%2360748D%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M58%20126H902%22%20stroke%3D%22%2360748D%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2294%22%20cy%3D%2296%22%20r%3D%229%22%20fill%3D%22%2380A3C0%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22124%22%20cy%3D%2296%22%20r%3D%229%22%20fill%3D%22%23A4ACB2%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22154%22%20cy%3D%2296%22%20r%3D%229%22%20fill%3D%22%23E5ED95%22%2F%3E%0A%20%20%3Crect%20x%3D%2296%22%20y%3D%22166%22%20width%3D%2248%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%2380A3C0%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M168%20186H346M678%20186H734M762%20186H852%22%20stroke%3D%22%23EEF4FC%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%3Crect%20x%3D%2296%22%20y%3D%22246%22%20width%3D%22768%22%20height%3D%22238%22%20rx%3D%2216%22%20fill%3D%22%2320324B%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M128%20290H380M128%20328H346%22%20stroke%3D%22%2380A3C0%22%20stroke-width%3D%2220%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M128%20372H394M128%20398H350%22%20stroke%3D%22%23EEF4FC%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.45%22%2F%3E%0A%20%20%3Crect%20x%3D%22128%22%20y%3D%22430%22%20width%3D%22126%22%20height%3D%2224%22%20rx%3D%226%22%20fill%3D%22%2380A3C0%22%2F%3E%0A%20%20%3Crect%20x%3D%22274%22%20y%3D%22430%22%20width%3D%22108%22%20height%3D%2224%22%20rx%3D%226%22%20fill%3D%22%23A4ACB2%22%2F%3E%0A%20%20%3Crect%20x%3D%22512%22%20y%3D%22274%22%20width%3D%22316%22%20height%3D%22180%22%20rx%3D%2212%22%20fill%3D%22%23152236%22%2F%3E%0A%20%20%3Crect%20x%3D%22536%22%20y%3D%22298%22%20width%3D%22124%22%20height%3D%22132%22%20rx%3D%228%22%20fill%3D%22%2380A3C0%22%2F%3E%0A%20%20%3Crect%20x%3D%22676%22%20y%3D%22298%22%20width%3D%22128%22%20height%3D%2256%22%20rx%3D%228%22%20fill%3D%22%23E5ED95%22%2F%3E%0A%20%20%3Crect%20x%3D%22676%22%20y%3D%22370%22%20width%3D%22128%22%20height%3D%2260%22%20rx%3D%228%22%20fill%3D%22%23A4ACB2%22%2F%3E%0A%20%20%3Crect%20x%3D%2296%22%20y%3D%22512%22%20width%3D%22240%22%20height%3D%2298%22%20rx%3D%2212%22%20fill%3D%22%2320324B%22%2F%3E%3Crect%20x%3D%22116%22%20y%3D%22532%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%2380A3C0%22%2F%3E%3Cpath%20d%3D%22M168%20546H310%22%20stroke%3D%22%23EEF4FC%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.45%22%2F%3E%3Crect%20x%3D%22360%22%20y%3D%22512%22%20width%3D%22240%22%20height%3D%2298%22%20rx%3D%2212%22%20fill%3D%22%2320324B%22%2F%3E%3Crect%20x%3D%22380%22%20y%3D%22532%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23A4ACB2%22%2F%3E%3Cpath%20d%3D%22M432%20546H574%22%20stroke%3D%22%23EEF4FC%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.45%22%2F%3E%3Crect%20x%3D%22624%22%20y%3D%22512%22%20width%3D%22240%22%20height%3D%2298%22%20rx%3D%2212%22%20fill%3D%22%2320324B%22%2F%3E%3Crect%20x%3D%22644%22%20y%3D%22532%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23E5ED95%22%2F%3E%3Cpath%20d%3D%22M696%20546H838%22%20stroke%3D%22%23EEF4FC%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.45%22%2F%3E%3C%2Fsvg%3E" width="960" height="720" alt="A browser wireframe with a header, a two-column hero, lesson cards and palette-coloured layout blocks.">
+        </figure>
+      </div>
+    </section>
+
+    <!-- Grid creates columns when space allows and fewer columns when needed. -->
+    <section class="section container" id="features" aria-labelledby="features-title">
+      <h2 id="features-title">Three essentials for your next website</h2>
+      <p>Begin with these foundations, then practise by making one small change at a time.</p>
+      <div class="feature-grid">
+        <article class="card" id="basic-structure"><p class="eyebrow">01 / Structure</p><h3>Give content meaning</h3><p>Use headings, sections and navigation to help people understand the page and find their next step.</p></article>
+        <article class="card" id="basic-layout"><p class="eyebrow">02 / Layout</p><h3>Let the layout adapt</h3><p>CSS Grid gives these cards a shared structure. Resize the page to see columns respond to the available space.</p></article>
+        <article class="card" id="basic-usability"><p class="eyebrow">03 / Usability</p><h3>Make the basics easy</h3><p>Write useful labels, keep text readable and provide visible keyboard focus. Review your page at narrow and wide widths.</p></article>
+      </div>
+    </section>
+
+    <!-- Lists communicate groups, sequences and term/description relationships. -->
+    <section class="section container" id="lists" aria-labelledby="lists-title">
+      <h2 id="lists-title">Choose the right list for the content</h2>
+      <p>Use an unordered list for a collection, an ordered list for a sequence, and a description list for terms and explanations.</p>
+      <div class="list-grid">
+        <article class="card" id="list-collection"><h3>What to include</h3><ul><li>A clear page heading</li><li>Useful navigation labels</li><li>Readable text and visible focus</li></ul></article>
+        <article class="card" id="list-workflow"><h3>A simple workflow</h3><ol><li>Write a short project brief.</li><li>Group the content in a sitemap.</li><li>Sketch, build and test the page.</li></ol></article>
+        <article class="card" id="list-terms"><h3>Useful terms</h3><dl><dt>HTML</dt><dd>Describes the meaning and structure of content.</dd><dt>CSS</dt><dd>Controls presentation and responsive layout.</dd><dt>Sitemap</dt><dd>Shows how pages and content groups relate.</dd></dl></article>
+      </div>
+    </section>
+
+    <section class="section signup" id="signup" aria-labelledby="signup-title">
+      <div class="container signup-layout">
+        <div><p class="eyebrow">Keep learning</p><h2 id="signup-title">Make room for your next idea.</h2><p>Practise a short sign-up form with clear labels and native browser validation.</p><p id="basic-signup-note">Static demo: use sample details. No account is created. Submitting the exported page returns to this page.</p></div>
+        <!-- A real sign-up service would supply the form action and processing. -->
+        <form class="signup-form card" action="#signup" method="get" aria-describedby="basic-signup-note">
+          <div><label for="signup-name">Name</label><input class="input" id="signup-name" name="name" autocomplete="name" required></div>
+          <div><label for="signup-email">Email address</label><input class="input" id="signup-email" name="email" type="email" autocomplete="email" aria-describedby="signup-email-help" required><small id="signup-email-help">For example, alex@example.com. Use a sample address in this demo.</small></div>
+          <label class="checkbox-label"><input type="checkbox" name="updates" value="yes" required> I would like to receive learning updates (demo).</label>
+          <button class="button ds-button ds-button--primary" type="submit">Try signing up</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="website-footer site-footer" id="footer">
+    <div class="container">
+      <div class="footer-inner sample-footer-inner">
+        <div class="footer-identity"><a class="footer-brand" href="#home">My Project</a><p>A place to learn, practise and build something useful.</p></div>
+        <nav aria-label="Footer navigation"><h2 class="footer-heading">Explore</h2><ul class="footer-links nav-list"><li><a href="#home">Home</a></li><li><a href="#features">What you can learn</a></li><li><a href="#lists">Lists</a></li><li><a href="#signup">Sign up</a></li><li><a href="#sitemap">Sitemap</a></li></ul></nav>
+      </div>
+      <details class="sitemap" id="sitemap">
+        <summary id="sitemap-title"><span>Sitemap</span><span class="footer-sitemap-hint">All sections and topics</span></summary>
+        <nav aria-labelledby="sitemap-title"><ul class="sitemap-list"><li><a href="#home">Home</a></li><li><a href="#features">What you can learn</a><ul><li><a href="#basic-structure">Give content meaning</a></li><li><a href="#basic-layout">Let the layout adapt</a></li><li><a href="#basic-usability">Make the basics easy</a></li></ul></li><li><a href="#lists">Lists</a><ul><li><a href="#list-collection">What to include</a></li><li><a href="#list-workflow">A simple workflow</a></li><li><a href="#list-terms">Useful terms</a></li></ul></li><li><a href="#signup">Sign up</a></li><li><a href="#footer">Footer</a></li></ul></nav>
+      </details>
+      <div class="footer-bottom"><small>&copy; My Project. A website practice space.</small><a class="back-to-top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a></div>
+    </div>
+  </footer>
+</body>
+</html>
