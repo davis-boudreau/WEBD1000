@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <!-- SECTION: basics | Document setup and a stylesheet shared by every section. -->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="My Project: essential HTML components, Flexbox rows and responsive Grid layouts.">
+    <title>My Project | UI essentials</title>
+    <link rel="stylesheet" href="tokens.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <!-- SECTION: header | Desktop links become a native hamburger menu on narrow screens. -->
+    <header class="site-header" id="top" tabindex="-1">
+      <div class="container header-inner">
+        <a class="brand" href="#top">
+          <span class="logo" aria-hidden="true">Logo</span>
+          <span>My Project</span>
+        </a>
+        <nav class="desktop-navigation" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#features">Components</a>
+            </li>
+            <li>
+              <a href="#lists">Layouts</a>
+            </li>
+            <li>
+              <a href="#signup">Forms</a>
+            </li>
+          </ul>
+        </nav>
+        <!-- Native details/summary provides keyboard and touch operation without scripts. -->
+        <details class="basic-menu" id="basic-menu">
+          <summary>
+            <svg class="menu-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <path class="menu-bars" d="M4 6h16M4 12h16M4 18h16"/>
+              <path class="menu-close" d="m6 6 12 12M6 18 18 6"/>
+            </svg>
+            <span>Menu</span>
+          </summary>
+          <nav class="mobile-navigation" aria-label="Mobile navigation">
+            <ul class="nav-list">
+              <li>
+                <a href="#home">Home</a>
+              </li>
+              <li>
+                <a href="#features">Components</a>
+              </li>
+              <li>
+                <a href="#lists">Layouts</a>
+              </li>
+              <li>
+                <a href="#signup">Forms</a>
+              </li>
+            </ul>
+          </nav>
+        </details>
+      </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+      <!-- SECTION: hero | A two-column introduction with two clear calls to action. -->
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="container hero-layout">
+          <div>
+            <p class="eyebrow">HTML &amp; CSS essentials</p>
+            <h1 id="hero-title">Start with the essentials.</h1>
+            <p class="intro">Explore the building blocks of a responsive page. Simple components, meaningful HTML and layouts that adapt.</p>
+            <div class="section-actions">
+              <a class="button ds-button ds-button--primary" href="#features">Explore components</a>
+              <a class="button ds-button ds-button--secondary" href="#lists">Compare layouts</a>
+            </div>
+            <p class="hero-note">Links take you somewhere. Buttons perform an action. Try both on this page.</p>
+          </div>
+          <figure class="hero-image">
+            <img src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22960%22%20height%3D%22720%22%20viewBox%3D%220%200%20960%20720%22%3E%3Crect%20width%3D%22960%22%20height%3D%22720%22%20fill%3D%22%23EDF2F7%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22818%22%20cy%3D%22114%22%20r%3D%22100%22%20fill%3D%22%23CBDB2A%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%3Crect%20x%3D%2256%22%20y%3D%2264%22%20width%3D%22848%22%20height%3D%22592%22%20rx%3D%2228%22%20fill%3D%22%23FFFFFF%22%20stroke%3D%22%23C5D0DD%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M58%20126H902%22%20stroke%3D%22%23C5D0DD%22%20stroke-width%3D%222%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%2294%22%20cy%3D%2296%22%20r%3D%229%22%20fill%3D%22%23004780%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22124%22%20cy%3D%2296%22%20r%3D%229%22%20fill%3D%22%2337434C%22%2F%3E%0A%20%20%3Ccircle%20cx%3D%22154%22%20cy%3D%2296%22%20r%3D%229%22%20fill%3D%22%23CBDB2A%22%2F%3E%0A%20%20%3Crect%20x%3D%2296%22%20y%3D%22166%22%20width%3D%2248%22%20height%3D%2240%22%20rx%3D%228%22%20fill%3D%22%23004780%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M168%20186H346M678%20186H734M762%20186H852%22%20stroke%3D%22%2314253A%22%20stroke-width%3D%2210%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.55%22%2F%3E%0A%20%20%3Crect%20x%3D%2296%22%20y%3D%22246%22%20width%3D%22768%22%20height%3D%22238%22%20rx%3D%2216%22%20fill%3D%22%23EDF2F7%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M128%20290H380M128%20328H346%22%20stroke%3D%22%23004780%22%20stroke-width%3D%2220%22%20stroke-linecap%3D%22round%22%2F%3E%0A%20%20%3Cpath%20d%3D%22M128%20372H394M128%20398H350%22%20stroke%3D%22%2314253A%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.45%22%2F%3E%0A%20%20%3Crect%20x%3D%22128%22%20y%3D%22430%22%20width%3D%22126%22%20height%3D%2224%22%20rx%3D%226%22%20fill%3D%22%23004780%22%2F%3E%0A%20%20%3Crect%20x%3D%22274%22%20y%3D%22430%22%20width%3D%22108%22%20height%3D%2224%22%20rx%3D%226%22%20fill%3D%22%2337434C%22%2F%3E%0A%20%20%3Crect%20x%3D%22512%22%20y%3D%22274%22%20width%3D%22316%22%20height%3D%22180%22%20rx%3D%2212%22%20fill%3D%22%23FFFFFF%22%2F%3E%0A%20%20%3Crect%20x%3D%22536%22%20y%3D%22298%22%20width%3D%22124%22%20height%3D%22132%22%20rx%3D%228%22%20fill%3D%22%23004780%22%2F%3E%0A%20%20%3Crect%20x%3D%22676%22%20y%3D%22298%22%20width%3D%22128%22%20height%3D%2256%22%20rx%3D%228%22%20fill%3D%22%23CBDB2A%22%2F%3E%0A%20%20%3Crect%20x%3D%22676%22%20y%3D%22370%22%20width%3D%22128%22%20height%3D%2260%22%20rx%3D%228%22%20fill%3D%22%2337434C%22%2F%3E%0A%20%20%3Crect%20x%3D%2296%22%20y%3D%22512%22%20width%3D%22240%22%20height%3D%2298%22%20rx%3D%2212%22%20fill%3D%22%23EDF2F7%22%2F%3E%3Crect%20x%3D%22116%22%20y%3D%22532%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23004780%22%2F%3E%3Cpath%20d%3D%22M168%20546H310%22%20stroke%3D%22%2314253A%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.45%22%2F%3E%3Crect%20x%3D%22360%22%20y%3D%22512%22%20width%3D%22240%22%20height%3D%2298%22%20rx%3D%2212%22%20fill%3D%22%23EDF2F7%22%2F%3E%3Crect%20x%3D%22380%22%20y%3D%22532%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%2337434C%22%2F%3E%3Cpath%20d%3D%22M432%20546H574%22%20stroke%3D%22%2314253A%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.45%22%2F%3E%3Crect%20x%3D%22624%22%20y%3D%22512%22%20width%3D%22240%22%20height%3D%2298%22%20rx%3D%2212%22%20fill%3D%22%23EDF2F7%22%2F%3E%3Crect%20x%3D%22644%22%20y%3D%22532%22%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%228%22%20fill%3D%22%23CBDB2A%22%2F%3E%3Cpath%20d%3D%22M696%20546H838%22%20stroke%3D%22%2314253A%22%20stroke-width%3D%229%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.45%22%2F%3E%3C%2Fsvg%3E" width="960" height="720" alt="A website concept with a clear header, welcoming introduction and neatly arranged content cards.">
+            <figcaption>A clear page structure, from header to footer.</figcaption>
+          </figure>
+        </div>
+      </section>
+      <!-- SECTION: skills | Flexbox places the introduction beside three component cards. -->
+      <section class="section container" id="features" aria-labelledby="features-title">
+        <div class="skills-layout">
+          <div class="skills-intro">
+            <p class="eyebrow">Components / Flexbox</p>
+            <h2 id="features-title">Everyday components. Simple structure.</h2>
+            <p>This section combines a flexible introduction with a vertical card stack. Each article has a heading and a purpose.</p>
+            <div class="section-actions">
+              <a class="button ds-button ds-button--primary" href="#lists">Explore Grid layouts</a>
+              <a class="button ds-button ds-button--secondary" href="#signup">Try the form controls</a>
+            </div>
+          </div>
+          <div class="skill-cards">
+            <article class="card" id="basic-structure">
+              <p class="eyebrow">Article / Content card</p>
+              <h3>A heading, text and a clear link.</h3>
+              <p>A card groups related content. Use article when the item makes sense on its own.</p>
+              <a href="#list-collection">Explore the list cards &rarr;</a>
+            </article>
+            <article class="card" id="basic-layout">
+              <p class="eyebrow">Flexbox / Profile row</p>
+              <h3>Fixed avatar. Flexible content.</h3>
+              <div class="component-demo media-object">
+                <span class="avatar" aria-hidden="true">AB</span>
+                <div class="media-copy">
+                  <strong>Alex Brooks</strong>
+                  <p>Course mentor</p>
+                  <span class="badge">Available</span>
+                </div>
+              </div>
+              <p>This row works for profiles, comments and compact list items.</p>
+              <a href="#list-workflow">See an ordered sequence &rarr;</a>
+            </article>
+            <article class="card" id="basic-usability">
+              <p class="eyebrow">Details / FAQ disclosure</p>
+              <h3>A question with an expandable answer.</h3>
+              <details class="component-demo faq-demo" id="basic-faq">
+                <summary>Does this disclosure need JavaScript?</summary>
+                <p>No. The browser handles opening, closing and keyboard interaction through details and summary.</p>
+              </details>
+              <a href="#list-terms">Review useful layout terms &rarr;</a>
+            </article>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION: toolkit | CSS Grid groups list examples into equal-width cards. -->
+      <section class="section toolkit" id="lists" aria-labelledby="lists-title">
+        <div class="container">
+          <div class="toolkit-heading">
+            <p class="eyebrow">Layouts / CSS Grid</p>
+            <h2 id="lists-title">One grid. Different kinds of content.</h2>
+            <p>These equal-width cards add columns when space allows. Resize the page to see the grid adapt, keeping the content in reading order.</p>
+          </div>
+          <div class="list-grid" id="cards-grid">
+            <article class="card" id="list-collection">
+              <h3>Unordered list</h3>
+              <p>Related items without a required sequence.</p>
+              <ul>
+                <li>A useful heading</li>
+                <li>Readable content</li>
+                <li>A clear next action</li>
+              </ul>
+            </article>
+            <article class="card" id="list-workflow">
+              <h3>Ordered list</h3>
+              <p>Steps where the sequence matters.</p>
+              <ol>
+                <li>Write the HTML.</li>
+                <li>Add the CSS.</li>
+                <li>Test the page.</li>
+              </ol>
+            </article>
+            <article class="card" id="list-terms">
+              <h3>Description list</h3>
+              <dl>
+                <dt>Flexbox</dt>
+                <dd>A row or column of flexible items.</dd>
+                <dt>Grid</dt>
+                <dd>A layout organised into rows and columns.</dd>
+                <dt>Responsive</dt>
+                <dd>Content that adapts to available space.</dd>
+              </dl>
+            </article>
+          </div>
+          <section class="layout-example" aria-labelledby="sidebar-example-title">
+            <h3 id="sidebar-example-title">Main content with a related sidebar.</h3>
+            <div class="content-sidebar">
+              <article class="card" aria-labelledby="main-content-example-title">
+                <h4 id="main-content-example-title">Main article</h4>
+                <p>An article holds a self-contained piece of content. This one gets the wider Grid column.</p>
+                <p>The related aside follows it in HTML and stacks underneath on narrow screens.</p>
+              </article>
+              <aside class="card" aria-labelledby="related-links-title">
+                <h4 id="related-links-title">Related information</h4>
+                <p>Use aside for supporting content, wherever CSS positions it.</p>
+                <ul>
+                  <li>
+                    <a href="#basic-layout">Profile row</a>
+                  </li>
+                  <li>
+                    <a href="#contact-form">Form controls</a>
+                  </li>
+                </ul>
+              </aside>
+            </div>
+          </section>
+          <div class="section-actions">
+            <a class="button ds-button ds-button--primary" href="#signup">Try the form</a>
+            <a class="button ds-button ds-button--secondary" href="#features">Revisit components</a>
+          </div>
+        </div>
+      </section>
+      <!-- SECTION: form | Labelled form controls, grouped choices and native validation. -->
+      <section class="section signup" id="signup" aria-labelledby="signup-title">
+        <div class="container signup-layout">
+          <div class="signup-intro">
+            <p class="eyebrow">Forms / Labels &amp; controls</p>
+            <h2 id="signup-title">Try a few common form controls.</h2>
+            <p>Labels identify each field. Required fields and email format are checked by the browser before submission.</p>
+            <p id="basic-signup-note" role="status">Demo form: use sample details. No messages are sent. Submitting the exported page returns here.</p>
+          </div>
+          <!-- Static GET demonstration only; a working enquiry service needs a backend. -->
+          <form class="signup-form card" id="contact-form" action="#signup" method="get" aria-describedby="basic-signup-note">
+            <div>
+              <label for="signup-name">Name (required)</label>
+              <input class="input" id="signup-name" name="name" autocomplete="name" required>
+            </div>
+            <div>
+              <label for="signup-email">Email address (required)</label>
+              <input class="input" id="signup-email" name="email" type="email" autocomplete="email" aria-describedby="signup-email-help" required>
+              <small id="signup-email-help">Use a sample address, such as alex@example.com.</small>
+            </div>
+            <div>
+              <label for="signup-topic">Choose a topic</label>
+              <select class="input" id="signup-topic" name="topic">
+                <option value="">Choose a topic</option>
+                <option value="html">Semantic HTML</option>
+                <option value="flexbox">Flexbox</option>
+                <option value="grid">CSS Grid</option>
+              </select>
+            </div>
+            <div>
+              <label for="signup-question">Your question</label>
+              <textarea class="input" id="signup-question" name="question" rows="3"></textarea>
+            </div>
+            <fieldset class="choice-group" id="form-options">
+              <legend>Learning preference</legend>
+              <label class="choice-label">
+                <input type="radio" name="learning" value="self-paced" checked> At my own pace</label>
+              <label class="choice-label">
+                <input type="radio" name="learning" value="group"> With a group</label>
+            </fieldset>
+            <label class="checkbox-label">
+              <input type="checkbox" name="updates" value="yes" required> I understand this is a demo (required).</label>
+            <div class="section-actions">
+              <button class="button ds-button ds-button--primary" type="submit">Submit demo form</button>
+              <a class="button ds-button ds-button--secondary" href="#lists">Back to layouts</a>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- SECTION: footer | Horizontal main navigation and sitemap columns with stacked child links. -->
+    <footer class="website-footer site-footer" id="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-identity">
+            <a class="footer-brand" href="#home">My Project</a>
+            <p>Small examples. Solid foundations.</p>
+          </div>
+          <nav aria-label="Footer navigation">
+            <ul class="footer-links">
+              <li>
+                <a href="#home">Home</a>
+              </li>
+              <li>
+                <a href="#features">Components</a>
+              </li>
+              <li>
+                <a href="#lists">Layouts</a>
+              </li>
+              <li>
+                <a href="#signup">Forms</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <nav class="sitemap" id="sitemap" aria-labelledby="sitemap-title" tabindex="-1">
+          <h2 id="sitemap-title">Sitemap</h2>
+          <ul class="sitemap-list">
+            <li>
+              <a href="#features">Components</a>
+              <ul>
+                <li>
+                  <a href="#basic-structure">Content card</a>
+                </li>
+                <li>
+                  <a href="#basic-layout">Profile row</a>
+                </li>
+                <li>
+                  <a href="#basic-usability">FAQ disclosure</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#lists">Layouts</a>
+              <ul>
+                <li>
+                  <a href="#cards-grid">Card grid</a>
+                </li>
+                <li>
+                  <a href="#list-collection">Unordered list</a>
+                </li>
+                <li>
+                  <a href="#list-workflow">Ordered list</a>
+                </li>
+                <li>
+                  <a href="#list-terms">Description list</a>
+                </li>
+                <li>
+                  <a href="#sidebar-example-title">Content and sidebar</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#signup">Forms</a>
+              <ul>
+                <li>
+                  <a href="#contact-form">Form controls</a>
+                </li>
+                <li>
+                  <a href="#form-options">Grouped choices</a>
+                </li>
+                <li>
+                  <a href="#basic-signup-note">Form feedback</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <div class="footer-bottom">
+          <small>&copy; My Project. HTML &amp; CSS essentials.</small>
+          <a class="back-to-top" href="#top">Back to top <span aria-hidden="true">&uarr;</span>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
