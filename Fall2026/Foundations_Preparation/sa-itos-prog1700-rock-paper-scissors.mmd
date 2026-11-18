@@ -1,0 +1,20 @@
+flowchart TD
+    A([Start]) --> B[Initialize choices, scores and round counter]
+    B --> C[/Input number of rounds/]
+    C --> D{Valid round count?}
+    D -- No --> E[/Display error message/]
+    E --> C
+    D -- Yes --> F{Rounds remaining?}
+    F -- Yes --> G[/Display round and input player choice/]
+    G --> H{Valid choice?}
+    H -- No --> I[/Display error message/]
+    I --> G
+    H -- Yes --> J[Randomly select computer choice]
+    J --> K[[Determine round result]]
+    K --> L[Update one result counter]
+    L --> M[/Display choices, result and scores/]
+    M --> N[Advance round counter]
+    N --> F
+    F -- No --> O[[Determine overall result]]
+    O --> P[/Display final results/]
+    P --> Q([End])

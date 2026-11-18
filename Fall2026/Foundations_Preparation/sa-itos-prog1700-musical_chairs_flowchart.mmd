@@ -1,0 +1,24 @@
+flowchart TD
+    A([Start]) --> B[Initialize game variables and lists]
+    B --> C[/Input number of players/]
+    C --> D{Valid number of players?}
+    D -- No --> E[/Display error message/]
+    E --> C
+    D -- Yes --> F[/Input player name/]
+    F --> G{Valid and unique name?}
+    G -- No --> H[/Display error message/]
+    H --> F
+    G -- Yes --> I[Add player to list]
+    I --> J{All players registered?}
+    J -- No --> F
+    J -- Yes --> K[/Display game instructions/]
+    K --> L{More than one player?}
+    L -- Yes --> M[Calculate number of chairs]
+    M --> N[/Display round information/]
+    N --> O[/Wait for Enter to stop music/]
+    O --> P[Randomly select eliminated player]
+    P --> Q[Remove player and record elimination]
+    Q --> R[Increase round number]
+    R --> L
+    L -- No --> S[/Display winner, rounds played and elimination order/]
+    S --> T([End])
